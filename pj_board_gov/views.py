@@ -70,47 +70,30 @@ def update(request,pk):
     return render(request, 'pj_board_gov/create.html', context)
 
 def notice_edit_view(request, pk):
-    notice = pj_post_gov.objects.get(id=pk)
-
+    notice = get_object_or_404(pj_post_gov, id=pk)
     if request.method == "POST":
-        if(request.user.username == 'admin' or request.user.username == 'cemuos'):
+        file_check = request.POST.get('Photo', False)
+        form = PostForm(request.POST, request.FILES, instance=notice)
 
-            file_change_check = request.POST.get('fileChange', False)
-            file_check = request.POST.get('upload_files-clear', False)
-            
-            if file_check or file_change_check:
-                os.remove(os.path.join(settings.MEDIA_ROOT, notice.upload_files.path))
+        if file_check:
+            os.remove(os.path.join(settings.MEDIA_ROOT, notice.upload_files.path))
 
-            form = PostForm(request.POST, request.FILES, instance=notice)
-            if form.is_valid():
-                # test-------------------------------#
-                notice = form.save(commit = False)
-                if request.FILES:
-                    if 'photo' in request.FILES.keys():
-                        notice.filename = request.FILES['photo'].name
-                notice.save()
-                #------------------------------------#
-                # form.save()
-                messages.success(request, "수정되었습니다.")
-                return redirect('/pj_board_gov/'+str(pk))
-    else:
-        notice = pj_post_gov.objects.get(id=pk)
-        if notice.writer == request.user:
-            form = PostForm(instance=notice)
-            # test---------------------------------------------------------#
-            context = {
-                'form': form,
-                'edit': '수정하기',
-            }
-            if notice.filename and notice.upload_files:
-                context['filename'] = notice.filename
-                context['file_url'] = notice.upload_files.url
-            #--------------------------------------------------------------#
-            # return render(request, "notice/notice_write.html", {'form': form, 'edit': '수정하기'})
-            return render(request, "pj_board_gov/create.html", context)
-        else:
-            messages.error(request, "본인 게시글이 아닙니다.")
+        if form.is_valid():
+            # test-------------------------------#
+            notice = form.save(commit = False)
+            if request.FILES:
+                if 'photo' in request.FILES.keys():
+                    notice.photo = request.FILES['photo'].name
+            notice.save()
+            #------------------------------------#
+            # form.save()
+            messages.success(request, "수정되었습니다.")
             return redirect('/pj_board_gov/'+str(pk))
+    else:
+        form = PostForm(request.POST, request.FILES, instance=notice)
+    return render(request, 'pj_board_gov/create.html', {'form':form, 'edit':'수정하기'})
+            
+    
 
 @login_required(login_url='common:login')
 def delete(request, pk):
