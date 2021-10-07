@@ -21,7 +21,7 @@ from main import views
 
 urlpatterns = [
     path('site_link/',include('site_link.urls')),
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls, name='admin'),
     path('pj_board/',include('pj_board.urls')),
     path('pj_board_gov/',include('pj_board_gov.urls')),
     path('scem/',include('scem.urls')),

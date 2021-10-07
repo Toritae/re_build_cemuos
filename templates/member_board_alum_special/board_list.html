@@ -51,7 +51,7 @@
 <td width="10" height="25"></td>
 <td width="100" class="textarea3"><div align="center">이&nbsp;름</div></td>
 {% if user.username == 'cemuos' or user.username == 'admin' %}
-<td width="300"><a href="{% url 'member_board_MA:detail' data.id %}">{{data.title}}</a></td>
+<td width="300"><a href="{% url 'member_board_alum_special:detail' data.id %}">{{data.title}}</a></td>
 {% else %}
 <td width="300">{{data.title}}</td>
 {% endif %}
@@ -97,7 +97,7 @@
 {% if user.username == 'cemuos' or user.username == 'admin' %}
     <div>
         <div>
-            <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'member_board_MA:create' %}'">글쓰기</button>
+            <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'member_board_alum_special:create' %}'">글쓰기</button>
         </div>
     </div>
 {% endif %}

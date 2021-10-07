@@ -33,7 +33,7 @@
 <div class="col-sm-9">
 <div id="contentsArea">
 <div class="n_tit_page">
-<h2>박사과정</h2>
+<h2>석사과정</h2>
 </div>
 {% if data_list %}
 {% for data in data_list %}
@@ -50,7 +50,11 @@
 <tbody><tr>
 <td width="10" height="25"></td>
 <td width="100" class="textarea3"><div align="center">이&nbsp;름</div></td>
+{% if user.username == 'cemuos' or user.username == 'admin' %}
+<td width="300"><a href="{% url 'member_board_Phd:detail' data.id %}">{{data.title}}</a></td>
+{% else %}
 <td width="300">{{data.title}}</td>
+{% endif %}
 </tr>
 <tr>
 
@@ -110,7 +114,7 @@
         {% endif %}
         <!-- 페이지리스트 -->
         {% for page_number in data_list.paginator.page_range %}
-        {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
+        {% if page_number >= data_list.number|add:-5 and page_number <= data_list.number|add:5 %}
             {% if page_number == data_list.number %}
             <li class="page-item active" aria-current="page">
                 <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>

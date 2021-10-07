@@ -65,7 +65,7 @@
                                     <tbody>
                                         <tr>
                                             <td width="10" height="25"></td>
-                                            <td align="left"><a href="{% url 'pj_board:detail' data.id %}">{{ data.title }}</a></td>
+                                            <td align="left"><a href="{% url 'pj_board_gov:detail' data.id %}">{{ data.title }}</a></td>
                                         </tr>
                                         <tr>
                                             <td height="1"><img src="{% static 'img/line_2.gif' %}" width="10" height="1"></td>
@@ -129,7 +129,7 @@
         {% endif %}
         <!-- 페이지리스트 -->
         {% for page_number in data_list.paginator.page_range %}
-        {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
+        {% if page_number >= data_list.number|add:-5 and page_number <= data_list.number|add:5 %}
             {% if page_number == data_list.number %}
             <li class="page-item active" aria-current="page">
                 <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
@@ -156,6 +156,7 @@
 </div>
 </div>
 
+</div>
 </div>
 </div>
 </div>
