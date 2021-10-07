@@ -28,6 +28,8 @@ urlpatterns = [
     path('paper_patent/',include('paper_patent.urls')),
     path('notice/',include('notice.urls')),
     path('free/',include('free.urls')),
+    path('professor/',include('professor.urls')),
+    path('research_pj/',include('research_pj.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('common/', include('common.urls')),
     path('member_board_MA/',include('member_board_MA.urls')),
