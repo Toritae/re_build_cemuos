@@ -102,7 +102,7 @@
                                         {% else %}
                                         <span style="float:right; color:gray;">{{ comment.created_string }}</span>
                                         {% endif %}
-                                        {% if comment.writer == request.user or request.user.level == '0' or request.user.level == '1' %}
+                                        {% if comment.writer == request.user or user.username == 'cemuos' or user.username == 'admin' or user.username == 'cemuos' or user.username == 'admin' %}
                                         <div>
                                             <div style="white-space:pre-wrap; text-align:left;">{{ comment.content }}</div>
                                             <div style="text-align: right; margin:-20px 0px -10px 0;">
@@ -137,7 +137,7 @@
                             </script>
                             {% else %}
                                 {% if comment.writer == free.writer %}
-                                    {% if comment.writer == request.user or request.user.level == '0' or request.user.level == '1' %}
+                                    {% if comment.writer == request.user or user.username == 'cemuos' or user.username == 'admin' or user.username == 'cemuos' or user.username == 'admin' %}
                                     <script type="text/javascript">
                                         var reply_id = "{{ comment.id }}";
                                         var comment_id = "{{ comment.reply }}";
@@ -173,7 +173,7 @@
                                     </script>
                                     {% endif %}
                                 {% else %}
-                                    {% if comment.writer == request.user or request.user.level == '0' or request.user.level == '1' %}
+                                    {% if comment.writer == request.user or user.username == 'cemuos' or user.username == 'admin' or user.username == 'cemuos' or user.username == 'admin' %}
                                     <script type="text/javascript">
                                         var reply_id = "{{ comment.id }}";
                                         var comment_id = "{{ comment.reply }}";
@@ -227,11 +227,11 @@
 
             <br>
             <div class="text-right" style="margin-top:-15px;">
-                {% if free_auth or request.user.level == '0' %}
+                {% if free_auth or user.username == 'cemuos' or user.username == 'admin' %}
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/{{ free.id }}/edit/'">수정</button>
                 <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/'">목록으로</button>
-                {% elif request.user.level == '1' %}
+                {% elif user.username == 'cemuos' or user.username == 'admin' %}
                 <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/'">목록으로</button>
                 {% else %}
