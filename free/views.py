@@ -57,8 +57,6 @@ class AllListView(ListView):
 
 def free_detail_view(request, pk):
     free = get_object_or_404(Free, pk=pk)
-    session_cookie = request.session['user_id']
-    cookie_name = F'free_hits:{session_cookie}'
     comment = Comment.objects.filter(post=pk).order_by('created')
     # comment_count = comment.count()
     comment_count = comment.exclude(deleted=True).count()
@@ -77,21 +75,9 @@ def free_detail_view(request, pk):
         'replys': reply,
     }
     response = render(request, 'free/free_detail.html', context)
-
-    if request.COOKIES.get(cookie_name) is not None:
-        cookies = request.COOKIES.get(cookie_name)
-        cookies_list = cookies.split('|')
-        if str(pk) not in cookies_list:
-            response.set_cookie(cookie_name, cookies + f'|{pk}', expires=None)
-            free.hits += 1
-            free.save()
-            return response
-    else:
-        response.set_cookie(cookie_name, pk, expires=None)
-        free.hits += 1
-        free.save()
-        return response
-    return render(request, 'free/free_detail.html', context)
+    free.hits += 1
+    free.save()
+    return response
 
 
 # 자유게시판 글 쓰기
