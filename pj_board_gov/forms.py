@@ -13,7 +13,7 @@ class PostForm(forms.ModelForm):
             'id': 'form_title',
             'autofocus': True,
         })
-        self.fields['pront_content'].widget.attrs.update({
+        self.fields['front_content'].widget.attrs.update({
             'placeholder': '전면부 내용을 입력해주세요.',
             'class': 'form-control',
         })
