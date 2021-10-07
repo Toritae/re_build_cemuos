@@ -146,14 +146,6 @@
         $("submit").submit();
     });
 
-    // $('#write').click(function () {
-    //     if ( $('p')[2].innerText == false ) {
-    //         alert('내용을 입력해주세요.');
-    //     } else {
-    //         checkUnload = false;
-    //         $('#id_form').submit();
-    //     }
-    // });
 </script>
 
 {% if filename %}
@@ -170,22 +162,6 @@
             $('#upload_files-clear_id').hide()
         }
     });
-
-    // var result = null;
-    // $('<input type="file" />')
-    //     .on('change', function () {
-    //         result = this.files[0];
-    //         alert('selected!');
-    //     })
-    //     .click();
-
-    // setTimeout(function () {
-    //     $(document).one('mousemove', function () {
-    //         if (!result) {
-    //             alert('cancelled');
-    //         }
-    //     });
-    // }, 1000);
 
     $('#upload_files-clear_id').on('click', function(){
         if($(this).prop('checked')){

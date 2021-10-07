@@ -11,7 +11,7 @@ urlpatterns = [
     path('create/', views.create, name='create'),
     path('summernote/', include('django_summernote.urls')),
     path('<int:pk>/', views.detail, name='detail'),
-    path('<int:pk>/delete', views.delete, name='delete'),
-    path('<int:pk>/edit', views.notice_edit_view, name='update'),
+    path('<int:pk>/delete/', views.delete, name='delete'),
+    path('<int:pk>/edit/', views.notice_edit_view, name='update'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
