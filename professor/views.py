@@ -8,7 +8,7 @@ def index(request):
     return render(request, 'professor/index.html')
 
 def professor_Hyun(request):
-    return render(request, 'professor/1.html')
+    return render(request, 'professor/professor_Hyun.html')
     
 def professor_Lee(request):
-    return render(request, 'professor/2.html')
+    return render(request, 'professor/professor_Lee.html')
