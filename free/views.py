@@ -99,7 +99,7 @@ def free_detail_view(request, pk):
 def free_write_view(request):
     if request.method == "POST":
         form = FreeWriteForm(request.POST, request.FILES)
-        user_id = request.user.username
+        user_id = request.user
         
         if form.is_valid():
             free = form.save(commit = False)
