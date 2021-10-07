@@ -1,0 +1,76 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SITE LINK</h2>
+    <ul>
+        <li><a href="{% url 'site_link:index' %}">대학 CEM 연구실</a></li>
+        <li><a href="{% url 'site_link:public' %}">공공연구소</a></li>
+        <li><a href="{% url 'site_link:gov' %}">정부기관</a></li>
+        <li><a href="{% url 'site_link:insitute' %}">학회 및 협회</a></li>
+        <li><a href="{% url 'site_link:oversea' %}">해외건설관련</a></li>
+        <li><a href="{% url 'site_link:other' %}">기타</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 해외건설관련</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>해외건설관련</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<div align="left"><img src="{% static 'img/site_link/sitelink_5_.png' %}" width="665" height="494" border="0" usemap="#Map">
+<map name="Map">
+    <area shape="rect" coords="55,75,140,92" href="http://www.cecer.army.mil" target="_blank">
+    <area shape="rect" coords="360,76,396,90" href="http://www.tgcn.net" target="_blank">
+    <area shape="rect" coords="55,114,157,133" href="http://www.bfrl.nist.gov/861" target="_blank">
+    <area shape="rect" coords="360,113,462,131" href="http://www.value-eng.org/benefits_construction.php" target="_blank">
+    <area shape="rect" coords="55,154,110,170" href="http://www.rsmeans.com" target="_blank">
+    <area shape="rect" coords="360,155,383,169" href="http://www.pmi.org/info/default.asp" target="_blank">
+    <area shape="rect" coords="55,195,90,210" href="http://www.nspe.org" target="_blank">
+    <area shape="rect" coords="360,195,389,209" href="http://www.nibs.org" target="_blank">
+    <area shape="rect" coords="55,235,155,250" href="http://www.mcgraw-hill.com" target="_blank">
+    <area shape="rect" coords="360,235,470,251" href="http://www.loc.gov" target="_blank">
+    <area shape="rect" coords="55,275,88,289" href="http://www.fidic.com" target="_blank">
+    <area shape="rect" coords="360,275,409,290" href="http://engineering.purdue.edu/ENE" target="_blank">
+    <area shape="rect" coords="55,314,86,330" href="http://www.dbia.org" target="_blank">
+    <area shape="rect" coords="360,314,397,330" href="http://cmaanet.org" target="_blank">
+    <area shape="rect" coords="55,356,91,372" href="http://www.astm.org" target="_blank">
+    <area shape="rect" coords="360,356,396,372" href="http://www.asce.org/asce.cfm" target="_blank">
+    <area shape="rect" coords="55,394,110,411" href="http://www.aia.org" target="_blank">
+    <area shape="rect" coords="360,395,396,409" href="http://www.agc.org/index.ww" target="_blank">
+    <area shape="rect" coords="55,434,139,451" href="http://www.aecinfo.com" target="_blank">
+    <area shape="rect" coords="360,434,466,450" href="http://www.aacei.org" target="_blank">
+</map>
+</div></td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

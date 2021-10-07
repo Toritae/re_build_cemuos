@@ -1,0 +1,164 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>RESEARCH PJT</h2>
+    <ul>
+        <li><a href="/default/mp3/mp3_sub1.php?sub=01">연구분야</a></li>
+        <li><a href="{% url 'pj_board_gov:index' %}">프로젝트</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>프로젝트</h2>
+</div>
+<!-- 모듈미사용 -->
+<div class="de_module">
+<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" height="150">
+<img src="{% static 'img/project_btn.png' %}" width="665" height="150" border="0" usemap="#Map">
+<map name="Map">
+    <area shape="rect" coords="34,56,312,79" href="{% url 'pj_board_gov:index' %}">
+    <area shape="rect" coords="342,56,606,79" href="{% url 'pj_board:index' %}">
+</map>
+</td></tr>
+</tbody></table>
+<table>
+{% if data_list %}
+{% for data in data_list %}
+<table width="665" border="0" align="center" cellpadding="0" cellspacing="0">
+    <tbody>
+        <tr>
+            <td>
+            <div align="center">
+                <table width="620" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td colspan="2"></td>
+                        </tr>
+                        <tr>
+                            <td width="185" height="100"><img src="{{ data.photo.url }}" width="185" height="100"></td>
+                            <td>
+                                <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                                    <tbody>
+                                        <tr>
+                                            <td width="10" height="25"></td>
+                                            <td align="left"><a href="{% url 'pj_board:detail' data.id %}">{{ data.title }}</a></td>
+                                        </tr>
+                                        <tr>
+                                            <td height="1"><img src="{% static 'img/line_2.gif' %}" width="10" height="1"></td>
+                                            <td height="1"><div align="right"><img src="{% static 'img/line_1.gif' %} de200" width="470" height="1"></div></td>
+                                        </tr>
+                                        <tr>
+                                            <td width="10" height="25"></td>
+                                            <td height="20"><img src="{% static 'img/line_2.gif' %}" width="300" height="5">
+                                            <div style="width:460px;height:100px;overflow:auto;border:1px solid #cccccc;background:#ffffff;font-size:11px;text-align:left;padding:5px;">
+                                            {{ data.front_content }}
+                                            </div>
+                                            <img src="{% static 'img/line_2.gif' %}" width="300" height="5"></td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <table width="620" border="0" align="center" cellpadding="0" cellspacing="0">
+                    <tbody>
+                        <tr>
+                            <td><img src="{% static 'img/line_3.png' %}" width="620" height="10"></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            </td>
+        </tr>
+        <table width="620" border="0" align="center" cellpadding="0" cellspacing="0">
+            <tbody>
+                <tr>
+                    <td><img src="{% static 'img/line_3.png' %}" width="620" height="10"></td>
+                </tr>
+            </tbody>
+        </table>
+    </tbody>
+</table>
+{% comment %} </td>
+</tr> {% endcomment %}
+{% endfor %}
+{% endif %}
+{% comment %} </table> {% endcomment %}
+
+{% comment %} </tbody></table> {% endcomment %}
+    {% if user.username == 'cemuos' or user.username == 'admin' %}
+    <div>
+        <div>
+            <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'pj_board:create' %}'">글쓰기</button>
+        </div>
+    </div>
+    {% endif %}
+<ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if data_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data_list.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in data_list.paginator.page_range %}
+        {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
+            {% if page_number == data_list.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if data_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data_list.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+{% endblock content %}

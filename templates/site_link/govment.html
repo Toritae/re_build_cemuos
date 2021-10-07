@@ -1,0 +1,82 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SITE LINK</h2>
+    <ul>
+        <li><a href="{% url 'site_link:index' %}">대학 CEM 연구실</a></li>
+        <li><a href="{% url 'site_link:public' %}">공공연구소</a></li>
+        <li><a href="{% url 'site_link:gov' %}">정부기관</a></li>
+        <li><a href="{% url 'site_link:insitute' %}">학회 및 협회</a></li>
+        <li><a href="{% url 'site_link:oversea' %}">해외건설관련</a></li>
+        <li><a href="{% url 'site_link:other' %}">기타</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 정부 기관</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>정부 기관</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<div align="left"><img src="{% static 'img/site_link/sitelink_3_.png' %}" width="665" height="650" border="0" usemap="#Map">
+<map name="Map">
+    <area shape="rect" coords="55,76,93,92" href="http://www.bai.go.kr" target="_blank">
+    <area shape="rect" coords="360,76,475,94" href="http://hitelecom.co.kr" target="_blank">
+    <area shape="rect" coords="55,114,115,132" href="http://ngi.go.kr/index.jsp" target="_blank">
+    <area shape="rect" coords="360,114,442,132" href="http://iso.org/iso/en/ISOOnline.frontpage" target="_blank">
+    <area shape="rect" coords="55,154,114,171" href="http://mltm.go.kr" target="_blank">
+    <area shape="rect" coords="360,155,420,172" href="http://mpb.go.kr" target="_blank">
+    <area shape="rect" coords="55,194,147,212" href="http://www.lh.or.kr" target="_blank">
+    <area shape="rect" coords="360,194,535,213" href="http://lhi.lh.or.kr" target="_blank">
+    <area shape="rect" coords="55,234,91,251" href="http://www.moj.go.kr" target="_blank">
+    <area shape="rect" coords="360,235,485,252" href="http://www.pudco.co.kr" target="_blank">
+    <area shape="rect" coords="55,275,159,291" href="http://www.smrt.co.kr/index.jsp" target="_blank">
+    <area shape="rect" coords="360,274,487,292" href="http://www.i-sh.co.kr" target="_blank">
+    <area shape="rect" coords="55,315,169,332" href="http://www.airport.or.kr/home.jsp" target="_blank">
+    <area shape="rect" coords="360,314,452,331" href="http://www.kistec.or.kr" target="_blank">
+    <area shape="rect" coords="55,356,93,372" href="http://www.pps.go.kr" target="_blank">
+    <area shape="rect" coords="360,356,398,373" href="http://www.nso.go.kr/newnso/main.htm" target="_blank">
+    <area shape="rect" coords="55,394,171,411" href="http://www.ktx.or.kr/nkr/index.jsp" target="_blank">
+    <area shape="rect" coords="360,394,431,411" href="http://www.airport.co.kr" target="_blank">
+    <area shape="rect" coords="55,435,125,451" href="http://www.kosef.re.kr/main/main.html" target="_blank">
+    <area shape="rect" coords="360,434,433,450" href="http://www.freeway.co.kr" target="_blank">
+    <area shape="rect" coords="55,474,148,493" href="http://www.hrdkorea.or.kr" target="_blank">
+    <area shape="rect" coords="360,473,442,490" href="http://www.kowaco.or.kr" target="_blank">
+    <area shape="rect" coords="55,514,126,530" href="http://www.kepco.co.kr" target="_blank">
+    <area shape="rect" coords="360,513,453,532" href="http://www.krf.or.kr" target="_blank">
+    <area shape="rect" coords="55,554,93,571" href="http://www.cheonan.go.kr" target="_blank">
+    <area shape="rect" coords="360,554,430,571" href="http://www.humetro.busan.kr" target="_blank">
+    <area shape="rect" coords="55,593,159,612" href="http://www.kictep.re.kr" target="_blank">
+</map></div></td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

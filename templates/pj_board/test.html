@@ -1,0 +1,15 @@
+{% for field in form %}
+      {% comment %} <div class="form-group">
+        <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+        <input
+          type="{{ field.field.widget.input_type }}"
+          class="form-control"
+          id="{{ field.id_for_label }}"
+          placeholder="{{ field.label }}"
+          name="{{ field.name }}"
+        />
+      </div> {% endcomment %}
+      {% if field.errors %}
+      <span style="color: red;">{{ field.errors }}</span>
+      {% endif %} 
+      {% endfor %}

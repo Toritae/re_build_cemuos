@@ -1,0 +1,2314 @@
+@charset 'utf-8';
+
+/*****************************************************************
+   deletion of the current branch prohibited
+   powered by nnin ( http://www.nnin.com )
+*****************************************************************/
+
+
+
+/*****************************************************************
+de01 : 슬라이드 (배경이미지 + 텍스트 콘텐츠)
+*****************************************************************/
+.de01 .carousel-inner {
+    position: relative;
+    z-index: 1;
+}
+.de01 .carousel-inner .item {
+    height: 650px;/* 높이값 조절 */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.de01 .carousel-inner .item:before {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.0);/* overlay */
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.de01 .carousel-inner .item:hover:before {
+    background: rgba(0, 0, 0, 0.1);/* overlay */
+}
+
+.de01 .carousel-caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    z-index: 10;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    height: 100%;
+    display: table;
+    padding: 0 80px;
+}
+.de01 .carousel-caption .box {
+    display: table-cell;
+    vertical-align: middle;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    text-align: center;/* left, center, right */
+}
+
+.de01 #myCarousel .carousel-control {
+    z-index: 11;
+    width: 7%;
+}
+.de01 #myCarousel .carousel-control .glyphicon-menu-left {
+/*    visibility: hidden;*/
+    position: absolute;
+    top: 48%;
+    left: 30%;
+    z-index: 5;
+    margin-top: -10px;
+    display: inline-block;
+    font-size: 15px;
+    background-color: rgba(10, 10, 10, 0.85);
+    border-radius: 2px;
+    text-shadow: none;
+    padding: 10px;
+    color: #fff;
+}
+.de01 #myCarousel .carousel-control .glyphicon-menu-right {
+/*    visibility: hidden;*/
+    position: absolute;
+    top: 48%;
+    right: 30%;
+    z-index: 5;
+    margin-top: -10px;
+    display: inline-block;
+    font-size: 15px;
+    background-color: rgba(10, 10, 10, 0.85);
+    border-radius: 2px;
+    text-shadow: none;
+    padding: 10px;
+    color: #fff;
+}
+
+.de01 #myCarousel .carousel-indicators li {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    width: 16px;
+    height: 16px;
+    background-color: rgba(90, 90, 90, 0.8);
+    border: 0px solid #888;
+    border-radius: 2px;
+    margin: 0px;
+}
+.de01 #myCarousel .carousel-indicators li.active {
+    width: 32px;
+    height: 16px;
+    background-color: rgba(0, 0, 0, 0.9);
+}
+
+
+/* 제목 */
+.de01 .carousel-caption .box h2 {
+    letter-spacing: -1px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+    font-size: 3.0em;
+    font-weight: 300;
+    color: #fff;
+}
+.de01 .carousel-caption .box h2 strong {
+    font-weight: 700;
+    color: #fff;
+}
+    
+/* 내용 */
+.de01 .carousel-caption .box p {
+    padding: 10px 0;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+    line-height: 120%;
+    font-weight: 300;
+    font-size: 1.125em;
+    color: #fff;
+}
+/* 링크버튼 */
+.de01 .box a.btn {
+    background-color: rgba(255, 255, 255, 0.7);
+    border: 0px solid #000;
+    font-size: 0.875em;
+    color: #333;
+}
+.de01 .box a.btn:hover {
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+/* 이미지 */
+.de01 .carousel-caption .box img {
+    max-width: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .de01 .carousel-inner .item {
+        height: 500px;
+    }
+    .de01 .carousel-caption {
+        padding: 0 50px;
+    }
+    .de01 .carousel-caption .box h2 {
+        font-size: 1.5em;
+        line-height: 110%;
+    }
+    .de01 .carousel-caption .box p {
+        font-size: 1.0em;
+        line-height: 110%;
+    }
+    .de01 #myCarousel .carousel-control .glyphicon-menu-left {
+        left: 1%;
+        padding: 5px;
+    }
+    .de01 #myCarousel .carousel-control .glyphicon-menu-right {
+        right: 1%;
+        padding: 5px;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de02 : 슬라이드 (배경이미지 + 이미지 콘텐츠)
+*****************************************************************/
+.de02 .carousel-inner {
+    position: relative;
+    z-index: 1;
+}
+.de02 .carousel-inner .item {
+    height: 600px;/* 높이값 조절 */
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.de02 .carousel-inner .item:before {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.0);/* overlay */
+    width: 100%;
+    height: 100%;
+    z-index: 2;
+}
+.de02 .carousel-inner .item:hover:before {
+    background: rgba(0, 0, 0, 0.1);/* overlay */
+}
+
+.de02 .carousel-caption {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    bottom: auto;
+    z-index: 10;
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    
+    margin: 0 auto;
+    max-width: 1300px;
+    width: 100%;
+    height: 100%;
+    display: table;
+    padding: 0 80px;
+}
+.de02 .carousel-caption .box {
+    display: table-cell;
+    vertical-align: middle;
+    animation-duration: 1s;
+    animation-delay: 1s;
+    text-align: center;/* left, center, right */
+/*    border: 1px solid #000;*/
+    
+}
+
+.de02 #myCarousel2 .carousel-control {
+    z-index: 11;
+    width: 7%;
+}
+.de02 #myCarousel2 .carousel-control .glyphicon-menu-left {
+/*    visibility: hidden;*/
+    position: absolute;
+    top: 48%;
+    left: 30%;
+    z-index: 5;
+    margin-top: -10px;
+    display: inline-block;
+    font-size: 15px;
+    background-color: rgba(220, 220, 220, 0.9);
+    border-radius: 2px;
+    text-shadow: none;
+    padding: 10px;
+    color: #111;
+}
+.de02 #myCarousel2 .carousel-control .glyphicon-menu-right {
+/*    visibility: hidden;*/
+    position: absolute;
+    top: 48%;
+    right: 30%;
+    z-index: 5;
+    margin-top: -10px;
+    display: inline-block;
+    font-size: 15px;
+    background-color: rgba(220, 220, 220, 0.9);
+    border-radius: 2px;
+    text-shadow: none;
+    padding: 10px;
+    color: #111;
+}
+
+.de02 #myCarousel2 .carousel-indicators li {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    width: 16px;
+    height: 16px;
+    background-color: rgba(220, 220, 220, 0.8);
+    border: 0px solid #888;
+    border-radius: 2px;
+    margin: 0px;
+}
+.de02 #myCarousel2 .carousel-indicators li.active {
+    width: 32px;
+    height: 16px;
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* 제목 */
+.de02 .carousel-caption .box h2 {
+    letter-spacing: -1px;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+    font-size: 2.5em;
+    font-weight: 300;
+    color: #fff;
+}
+.de02 .carousel-caption .box h2 strong {
+    font-weight: 700;
+    color: #fff;
+}
+    
+/* 내용 */
+.de02 .carousel-caption .box p {
+    padding: 10px 0;
+    line-height: 110%;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.6);
+    font-size: 1.250em;
+    font-weight: 300;
+    color: rgba(255, 255, 255, 0.8);
+}
+/* 링크버튼 */
+.de02 .box a.btn {
+    background-color: rgba(210, 210, 210, 0.6);
+    border: 0px solid #000;
+    font-size: 0.875em;
+    color: #fff;
+}
+.de02 .box a.btn:hover {
+    background-color: rgba(200, 200, 200, 0.9);
+}
+
+/* 이미지 */
+.de02 .carousel-caption .box img {
+    max-width: 100%;
+    width: 100%;
+}
+
+@media screen and (max-width: 768px) {
+    .de02 .carousel-inner .item {
+        height: 400px;
+    }
+    .de02 .carousel-caption {
+        padding: 0 50px;
+    }
+    .de02 .carousel-caption .box h2 {
+        font-size: 1.5em;
+        line-height: 110%;
+    }
+    .de02 .carousel-caption .box p {
+        font-size: 1.0em;
+        line-height: 110%;
+    }
+    .de02 #myCarousel2 .carousel-control .glyphicon-menu-left {
+        left: 1%;
+        padding: 5px;
+    }
+    .de02 #myCarousel2 .carousel-control .glyphicon-menu-right {
+        right: 1%;
+        padding: 5px;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de03 : 슬라이드 (이미지만 사용 : 정비율적용)
+*****************************************************************/
+.de03 .carousel-inner {
+    position: relative;
+    z-index: 1;
+}
+
+.de03 #myCarousel3 .carousel-control {
+    z-index: 11;
+    width: 7%;
+}
+
+.de03 .carousel .carousel-inner img {
+    width: 100%;
+    height: auto;
+}
+
+
+
+
+
+/*****************************************************************
+de04 : 추출게시물1
+*****************************************************************/
+.de04 {
+    border: 0px solid #f00;
+}
+
+
+
+
+
+/*****************************************************************
+de05 : 추출게시물2
+*****************************************************************/
+.de05 {
+    border: 0px solid #f00;
+}
+.de05 .nm_customer {
+    text-align: left;
+}
+.de05 .nm_customer h4 {
+    background-color: #333;
+    border-radius: 3px;
+    padding: 10px;
+    text-align: left;
+    letter-spacing: 1px;
+    font-size: 1.0em;
+    color: #fff;
+}
+.de05 .nm_customer h4 i {
+    background-color: rgba(0, 0, 0, 0.4);
+    border-radius: 3px;
+    padding: 10px;
+    margin-right: 10px;
+    color: #fff;
+}
+
+.de05 .nm_customer ul {
+    padding: 13px;
+    border: 1px solid #ddd;
+}
+.de05 .nm_customer li {
+    line-height: 25px;
+}
+
+@media screen and (max-width: 991px) {
+    .de05 .row > div {
+        margin: 0 0 30px;
+    }
+}
+
+
+
+
+
+
+/*****************************************************************
+de06 : 추출게시물3
+*****************************************************************/
+.de06 {
+    border: 0px solid #f00;
+}
+
+
+
+
+
+/*****************************************************************
+de07 : 1단형이미지
+*****************************************************************/
+.de07 {
+    margin: 0px 0px;
+    border: 0px solid #f00;
+}
+.de07 p {
+    font-size: 0;
+}
+.de07 img {
+    width: 100%;
+}
+
+
+
+
+
+/*****************************************************************
+de08 : 3단형
+*****************************************************************/
+.de08 {
+    margin: 0px 0px;
+    text-align: left;
+}
+
+.de08 .row > div {
+    margin: 0 0 30px;
+}
+
+
+/**/
+.de08 .row > div .imgArea {
+    font-size: 0px;
+    overflow: hidden;
+}
+.de08 .row > div .imgArea img {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+    width: 100%;
+}
+.de08 .row > div:hover .imgArea img {
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+
+/**/
+.de08 .row > div .txtArea {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    width: 100%;
+    position: relative;
+}
+.de08 .row > div .txtArea p {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    font-size: 1.500em;
+    color: #fff;
+    padding-left: 10px;
+    background-color: rgba(175, 159, 145, 0.8);
+}
+.de08 .row > div:hover .txtArea p {
+    padding-left: 20px;
+}
+.de08 .row > div:nth-child(odd) .txtArea p {
+    background-color: rgba(140, 170, 157, 0.8);
+}
+.de08 .row > div .txtArea i {
+    position: absolute;
+    top: 30px;
+    right: 25px;
+    font-size: 1.500em;
+    color: #fff;
+}
+
+.de08 .row > div .txtArea dl {
+    margin: 10px 0 0;
+}
+.de08 .row > div .txtArea dl dd {
+    font-size: 1.125em;
+    color: #555;
+}
+
+@media screen and (max-width: 768px) {
+}
+
+
+
+/*****************************************************************
+de09 : 제휴사
+*****************************************************************/
+.de09 {
+    border: 0px solid #f00;
+}
+
+.de09 .box {
+    position: relative;
+    overflow: hidden;
+    margin: 0px 0 30px;
+}
+
+/**/
+.de09 .box .imgArea {
+    position: relative;
+    overflow: hidden;
+}
+
+/* overlay color */
+.de09 .box .imgArea span.overlay {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    border-radius: 0px;
+    opacity: 0.1;
+}
+.de09 .box:hover .imgArea span.overlay {
+    opacity: 0.8;
+}
+
+.de09 .box .imgArea img {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+}
+.de09 .box:hover .imgArea img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/**/
+.de09 .box .txtArea {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    top: 50%;
+    left: 0px;
+    z-index: 2;
+    padding: 0px;
+    width: 100%;
+    transform: translate(0%, -100%);
+    opacity: 0;
+}
+.de09 .box:hover .txtArea {
+    transform: translate(0%, -50%);
+    opacity: 1;
+}
+
+.de09 .box .txtArea p {
+    background-color: #111;
+/*    box-shadow: 0px 0px 20px 5px rgba(255, 255, 255, 1.0);*/
+    border: 1px solid #888;
+    border-width: 1px 0;
+    height: 50px;
+    line-height: 50px;
+    text-align: center;
+    font-weight: 300;
+    font-size: 0.875em;
+    color: #fff;
+}
+
+
+
+
+
+
+/*****************************************************************
+de10 : 예약문의(메인폼메일)
+*****************************************************************/
+.de10 {
+    position: relative;
+    width: 100%;
+}
+
+.de10 .np_form.n_formStyle01 {
+    color: #fff;
+}
+.de10 .np_form > table > tbody > tr > td > table > tbody > tr:first-child {
+    border-top: 1px solid transparent;
+}
+.de10 .np_form.n_formStyle01 input[class=formmail_border] {
+    border: 1px solid rgba(200, 200, 200, 0.6);
+    background-color: transparent;
+}
+.de10 .np_form.n_formStyle01 td.formmail_title_bgcolor {
+    background-color: rgba(200, 200, 200, 0.1);
+    border-top: 1px solid rgba(200, 200, 200, 0.2);
+    color: #fff;
+}
+.de10 .np_form.n_formStyle01 td.formmail_cell_bgcolor {
+    width: 80%;
+    padding: 0px !important;
+}
+.de10 .np_form.n_formStyle01 select {
+    border: 1px solid rgba(200, 200, 200, 0.6);
+    background-color: transparent;
+    color: #fff;
+}
+.de10 .np_form.n_formStyle01 select option {
+    color: #000;
+}
+.de10 .np_form.n_formStyle01 td.formmail_cell_bgcolor textarea {
+/*    height: 200px !important;*/
+    background-color: transparent;
+    border: 1px solid rgba(200, 200, 200, 0.6);
+}
+
+/*개인정보 동의*/
+.de10 .np_form.n_formStyle01 td.formmail_cell_bgcolor .personalInformation {
+    color: rgba(200, 200, 200, 0.7);
+}
+.de10 .np_form.n_formStyle01 td.formmail_cell_bgcolor .personalInformation textarea {
+    border: 1px solid rgba(200, 200, 200, 0.6);
+/*    height: 47px !important;*/
+}
+
+/* 버튼(send) */
+.de10 .np_form.n_formStyle01 button {
+    margin: 10px;
+    width: 100px;
+    background-color: #a00000;
+    border: 0px;
+    border-radius: 2px;
+    font-size: 1.0em;
+    color: #fff;
+}
+.de10 .np_form.n_formStyle01 button:hover {
+    background-color: #8b0000;
+}
+
+
+
+
+
+
+/*****************************************************************
+de11 : 3단가로형(채용안내)
+*****************************************************************/
+.de11 {
+    
+}
+.de11 .row > div {
+    position: relative;
+    overflow: hidden;
+    margin: 0px 0 20px;
+}
+
+/**/
+.de11 .row div .imgArea {
+    float: left;
+    width: 40%;
+    height: 200px;
+    overflow: hidden;
+    position: relative;
+}
+
+.de11 .row div .imgArea:before {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    content: '';
+    width: 100%;
+    height: 100%;
+    background-color: #000;
+    opacity: 0.1;
+}
+.de11 .row div:hover .imgArea:before {
+    opacity: 0.5;
+}
+
+.de11 .row div .imgArea p {
+    -webkit-transition: all 0.6s ease-out;
+    transition: all 0.6s ease-out;
+    background-size: auto;
+    background-position: center center;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+}
+
+.de11 .row div:hover .imgArea p {
+    background-position: top;
+}
+
+.de11 .row div .imgArea p {
+    font-size: 0px;
+    display: block;
+}
+.de11 .row div .imgArea p img {
+    width: 100%;
+    min-height: 200px;
+}
+
+/**/
+.de11 .row div .txtArea {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    float: left;
+    width: 60%;
+    height: 200px;
+    display: table;
+    background-color: #fff;
+    border: 1px solid #ccc;
+}
+.de11 .row div:hover .txtArea {
+    background-color: #ccc;
+    border: 10px solid #ccc;
+}
+.de11 .row div .txtArea .box {
+    display: table-cell;
+    vertical-align: middle;
+    padding: 0 40px;
+    text-align: center;
+    font-size: 1.5em;
+    color: #111;
+}
+.de11 .row div .txtArea .box span i {
+    display: block;
+    padding-bottom: 10px;
+    font-size: 2.0em;
+    color: #aaa;
+}
+.de11 .row div:hover .txtArea .box span,
+.de11 .row div:hover .txtArea .box span i {
+    color: #fff;
+}
+
+@media screen and (max-width: 768px) {
+    .de11 .row div .imgArea,
+    .de11 .row div .txtArea {
+        width: 100%;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de12 : 3단아이콘
+*****************************************************************/
+.de12 {
+}
+
+.de12 .sec {
+    margin: 10px auto;
+    text-align: center;
+}
+
+.de12 .sec p.icon {
+    display: inline-block;
+    margin: 10px 0;
+    background: #ddd;
+    border: 10px solid #eee;
+    border-radius: 100%;
+}
+
+.de12 .sec i.glyphicon {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    display: table-cell;
+    vertical-align: middle;
+    padding: 70px;
+    font-size: 4em;
+}
+.de12 .sec:hover i.glyphicon {
+    cursor: pointer;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    color: #396b77;
+}
+
+.de12 .sec strong {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: block;
+    padding: 10px;
+    word-wrap: break-word;
+    text-align: center;
+    letter-spacing: -0.5px;
+    font-size: 1.750em;
+    color: #333;
+}
+.de12 .sec:hover strong {
+    color: #0e8188;
+}
+
+.de12 .sec span {
+    display: inline-block;
+    padding: 10px 20px;
+    font-size: 1.0em;
+    color: #666;
+}
+
+
+
+
+
+
+/*****************************************************************
+de13 : 좌우6단
+*****************************************************************/
+.de13 {
+    padding: 0px 0;
+    overflow: hidden;
+    border: 0px solid #f00;
+}
+
+.de13 .con_left {
+    text-align: left;
+    border: 0px solid #f00;
+}
+.de13 .con_right {
+    text-align: left;
+    border: 0px solid #f00;
+}
+.de13 .con {
+    overflow: hidden;
+    margin: 20px 0;
+}
+
+.de13 .con .glyphicon {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    width: 20%;
+    float: left;
+    background-color: #ddd;
+    border-radius: 3px;
+    max-width: 120px;
+    line-height: 120px;
+    text-align: center;
+    font-size: 2.0em;
+}
+.de13 .con:hover .glyphicon {
+    background-color: #333;
+    font-size: 2.0em;
+    color: #fff;
+}
+
+.de13 .con div {
+    width: 80%;
+    float: right;
+    padding-left: 10px;
+}
+
+.de13 .con div h4 {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    margin: 10px 0;
+    font-size: 1.250em;
+    color: #333;
+}
+.de13 .con div:hover h4 {
+    padding-left: 10px;
+}
+
+.de13 .con div p {
+    text-align: left;
+    font-size: 1.0em;
+    color: #666;
+}
+
+.de13 .con div em {
+    text-align: left;
+    font-size: 0.875em;
+    color: #aaa;
+}
+
+
+
+
+
+/*****************************************************************
+de14 : 아코디언
+*****************************************************************/
+.de14 {
+    text-align: left;
+    border: 0px solid #f00;
+}
+.de14 .panel-group .panel {
+    position: relative;
+    border: 1px solid #ccc;
+}
+.de14 .panel-group .panel .accordion-toggle:after {
+    font-family: 'Glyphicons Halflings';
+    content: "\e258";
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 1.0em;
+    color: #333;
+}
+.de14 .panel-group .panel .accordion-toggle.collapsed:after {
+    content: "\e259";
+    color: #333;
+}
+.de14 .panel-group .panel .panel-heading {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background-color: #f0f0f0;
+}
+.de14 .panel-group .panel .panel-heading.collapsed {
+    background-color: #fff;
+}
+.de14 .panel-group .panel .panel-heading h4 {
+    padding-left: 0px;
+    cursor: pointer;
+    font-weight: 700;
+    font-size: 1.0em;
+    color: #111;
+}
+.de14 .panel-group .panel .panel-heading.collapsed h4 {
+    padding-left: 0px;
+    font-weight: 400;
+    color: #333;
+}
+.de14 .panel-group .panel .panel-body {
+    word-break: break-all;
+    background-color: #fff;
+    color: #888;
+}
+
+
+
+
+
+
+/*****************************************************************
+de15 : 불규칙블록
+*****************************************************************/
+.de15 {
+    
+}
+.de15 .row > div {
+/*    padding: 5px;*/
+}
+.de15 .con {
+    position: relative;
+    margin: 0 0 30px;
+    display: table;
+    vertical-align: middle;
+    width: 100%;
+    background-size: cover;
+    background-position: center center;
+/*    border: 5px solid #fff;*/
+}
+.de15 .con_txt {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    background-color: rgba(0, 0, 0, 0.2);
+    display: table-cell;
+    vertical-align: middle;
+    text-align: center;
+    height: 200px;
+}
+.de15 .con_txt:hover {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.de15 .con span {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: inline-block;
+    text-align: center;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: rgba(255, 255, 255, 0.8);
+}
+.de15 .con:hover span {
+    padding: 30px;
+    border: 5px solid rgba(255, 255, 255, 0.8);
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+
+/*****************************************************************
+de16 : 롤오버6단
+*****************************************************************/
+.de16 {
+    
+}
+.de16 .row {
+    overflow: hidden;
+}
+.de16 .row > div {
+    margin: 0 0 30px;
+}
+
+.de16 .box {
+    position: relative;
+    overflow: hidden;
+}
+
+/**/
+.de16 .box .imgArea {
+    
+}
+.de16 .box .imgArea span.overlay {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 1;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.2;
+}
+.de16 .box:hover .imgArea span.overlay {
+    opacity: 0.8;
+}
+.de16 .box .imgArea img {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    width: 100%;
+}
+.de16 .box:hover .imgArea img {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+}
+
+/**/
+.de16 .box .txtArea {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 90%;
+    transform: translate(-50%, -20%);
+    z-index: 2;
+    padding: 10px;
+    text-align: center;
+    opacity: 0;
+}
+.de16 .box:hover .txtArea {
+    transform: translate(-50%, -50%);
+    opacity: 1;
+}
+.de16 .box .txtArea h3 {
+    padding: 5px 0;
+    font-weight: 700;
+    font-size: 1.5em;
+    color: #fff;
+}
+
+.de16 .box .txtArea p {
+    font-size: 0.875em;
+    color: #ddd;
+}
+
+.de16 .box .txtArea span {
+    display: block;
+    padding-top: 10px;
+}
+.de16 .box .txtArea span a {
+    font-size: 0.875em;
+}
+
+
+
+
+
+
+/*****************************************************************
+de17 : 롤오버4단
+*****************************************************************/
+.de17 {
+    border: 0px solid #f00;
+}
+.de17 .box {
+}
+
+/**/
+.de17 .box .imgArea {
+    position: relative;
+    overflow: hidden;
+}
+.de17 .box .imgArea span.overlay {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    z-index: 5;
+    background-color: #000;
+    width: 100%;
+    height: 100%;
+    opacity: 0.1;
+}
+.de17 .box:hover .imgArea span.overlay {
+    opacity: 0.6;
+}
+.de17 .box .imgArea img {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    width: 100%;
+}
+.de17 .box:hover .imgArea img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+/**/
+.de17 .box .txtArea {
+    padding: 10px 0 30px;
+    position: relative;
+    top: 10px;
+    left: 0px;
+    text-align: justify;
+    border: 0px solid #f00;
+}
+.de17 .box .txtArea h3 {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    font-size: 1.250em;
+    color: #666;
+}
+.de17 .box:hover .txtArea h3 {
+    padding-left: 10px;
+    color: #000;
+}
+.de17 .box .txtArea p {
+    padding: 10px 0;
+    text-align: left;
+    font-size: 1.0em;
+    color: #888;
+}
+.de17 .box:hover .txtArea p {
+    color: #000;
+}
+.de17 .box .txtArea span a {
+/*    display: block;*/
+    padding: 10px;
+    font-size: 0.875em;
+}
+.de17 .box:hover .txtArea span a {
+    background-color: #aaa;
+    color: #fff;
+}
+
+
+
+
+
+
+/*****************************************************************
+de18 : 롤오버2,4단
+*****************************************************************/
+.de18 {
+    border: 0px solid #f00;
+}
+
+/**/
+.de18 ul {
+    position: relative;
+    overflow: hidden;
+    height: 200px;/**/
+}
+.de18 ul li {
+    float: left;
+    width: 25%;/**/
+    height: 100%;/**/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    border-right: 1px solid #fff;
+    border-bottom: 1px solid #fff;
+    
+}
+
+/**/
+.de18 ul li .box {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: table;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.1);
+}
+
+.de18 ul li .box.color01 {
+    background-color: rgba(43, 49, 65, 0.5);
+}
+.de18 ul li .box.color02 {
+    background-color: rgba(57, 45, 74, 0.5);
+}
+.de18 ul li .box.color03 {
+    background-color: rgba(39, 64, 54, 0.5);
+}
+.de18 ul li .box.color04 {
+    background-color: rgba(65, 62, 42, 0.5);
+}
+
+.de18 ul li:hover .box.color01 {
+    background-color: rgba(40, 52, 70, 0.9);
+}
+.de18 ul li:hover .box.color02 {
+    background-color: rgba(45, 37, 54, 0.9);
+}
+.de18 ul li:hover .box.color03 {
+    background-color: rgba(35, 54, 46, 0.9);
+}
+.de18 ul li:hover .box.color04 {
+    background-color: rgba(67, 63, 43, 0.9);
+}
+
+/**/
+.de18 .box .txtArea {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+}
+.de18 .box .txtArea:hover {
+    padding-right: 20px;
+}
+
+.de18 .box .txtArea i {
+    display: inline-block;
+    padding-bottom: 10px;
+/*    opacity: 0.6;*/
+    font-size: 1.5em;
+    color: #fff;
+}
+.de18 .box .txtArea p {
+    text-align: center;
+    font-weight: 400;
+    font-size: 1.0em;
+    color: #fff;
+}
+
+.de18 .box p.imgArea {
+    font-size: 0px;
+    width: 100%;
+}
+
+@media screen and (max-width: 991px) {
+    .de18 ul {
+        height: 300px;/**/
+    }
+    .de18 ul li {
+        width: 50%;
+        height: 50%;/* 1/n */
+        margin-bottom: 0px;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de19 : 1단형텍스트
+*****************************************************************/
+.de19 {
+    
+}
+.de19 .section {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: relative;
+    margin: 0;
+    padding: 0;
+    z-index: 2;
+/*    background-color: rgba(16, 102, 134, 0.8);*/
+    display: table;
+    width: 100%;
+    height: 400px;/*높이값조절*/
+}
+.de19 .section:hover {
+/*    background-color: rgba(16, 102, 134, 0.9);*/
+}
+
+.de19 .section .con {
+    border: 0px solid #fff;
+    padding: 10px;
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: #fff;
+}
+
+.de19 .section .con h3 {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    text-align: center;
+    font-family: 'Playfair Display', serif;
+    font-weight: 900;
+    font-size: 2.5em;
+    color: #eee;
+}
+.de19 .section:hover h3 {
+    text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
+    color: #fff;
+}
+
+.de19 .section .con p {
+    padding: 10px;
+    text-align: center;
+    font-weight: 100;
+    font-size: 1.0em;
+    color: #eee;
+}
+
+.de19 .section .con a {
+    background-color: #a71a00;
+    border-radius: 20px;
+    max-width: 160px;
+    width: 100%;
+    height: 40px;
+    line-height: 40px;
+    display: inline-block;
+    margin: 5px;
+    text-align: center;
+    color: #fff;
+}
+.de19 .section .con a:hover {
+    background-color: #801400;
+    color: #fff;
+}
+
+
+
+
+
+
+/*****************************************************************
+de20 : 대표인사말
+*****************************************************************/
+.de20 {
+    text-align: left;
+    border: 0px solid #f00;
+}
+
+.de20 .con {
+    position: relative;
+    overflow: hidden;
+}
+
+/**/
+.de20 .con .imgArea {
+    float: left;
+    width: 30%;/**/
+    height: 600px;/**/
+    padding-right: 30px;
+    border: 0px solid #f00;
+/*    display: none;*/
+}
+.de20 .con .imgArea p {
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    border-radius: 5px;
+    width: 100%;
+    height: 100%;
+}
+
+/**/
+.de20 .con .txtArea {
+    float: left;
+    width: 70%;/**/
+    border: 0px solid #f00;
+}
+
+.de20 .con .txtArea .slogan {
+    text-align: left;
+    font-weight: 300;
+    font-size: 2.0em;
+    color: #5b95c9;
+}
+
+.de20 .con .txtArea dl {
+}
+
+.de20 .con .txtArea dl dt {
+    margin: 40px 0 10px;
+    font-size: 1.250em;
+    font-weight: 400;
+    color: #222;
+}
+
+.de20 .con .txtArea dl dd {
+    text-align: justify;
+    font-size: 1.0em;
+    line-height: 200%;
+    color: #666;
+}
+
+.de20 .con .txtArea p.sign {
+    float: right;
+    text-align: left;
+    padding: 50px 0 10px;
+    font-size: 1.0em;
+}
+
+.de20 .con .txtArea p.sign span {
+    text-align: right;
+    vertical-align: top;
+    display: inline-block;
+    font-size: 1.6em;
+    padding: 0px;
+}
+
+@media screen and (max-width: 991px) {
+    .de20 .con .imgArea {
+        width: 100%;
+        height: 200px;
+        padding-right: 0px;
+    }
+    .de20 .con .txtArea {
+        width: 100%;
+    }
+    .de20 .con .txtArea .slogan {
+        padding: 30px 0 0px;
+    }
+}
+
+
+
+
+
+
+/*****************************************************************
+de21 : 회사소개
+*****************************************************************/
+.de21 {
+    text-align: left;
+}
+
+.de21 .box {
+    overflow: hidden;
+    padding: 30px 0;
+    border-top: 1px dotted #aaa;
+}
+
+.de21 .box .txtArea {
+    float: left;
+    width: 55%;
+}
+.de21 .box .imgArea {
+    float: right;
+    width: 40%;
+    overflow: hidden;
+    font-size: 0;
+}
+
+/**/
+.de21 .box .txtArea h3 {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    padding: 20px 0 10px;
+    font-size: 2.0em;
+    font-weight: 400;
+    color: #666;
+}
+.de21 .box:hover .txtArea h3 {
+    padding: 20px 0 10px 5px;
+    color: #000;
+}
+.de21 .box .txtArea p {
+    text-align: left;
+    padding: 10px 0;
+    font-weight: 300;
+    font-size: 1.125em;
+    color: #666;
+}
+.de21 .box .txtArea em {
+    display: block;
+    font-weight: 00;
+    font-size: 1.0em;
+    color: #ccc;
+}
+
+/**/
+.de21 .box .imgArea img {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    -webkit-transform: scale(1.0);
+    transform: scale(1.0);
+    width: 100%;
+}
+.de21 .box:hover .imgArea img {
+    -webkit-transform: scale(1.1);
+    transform: scale(1.1);
+}
+
+@media screen and (max-width: 767px) {
+    .de21 .box .txtArea {
+        width: 100%;
+        padding-bottom: 10px;
+    }
+    .de21 .box .imgArea {
+        display: block;
+        width: 100%;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de22 : 회사연역
+*****************************************************************/
+.de22 {
+    position: relative;
+    text-align: left;
+    border-top: 1px dotted #aaa;
+}
+.de22 .sec {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+/*    margin: 20px 0;*/
+    padding: 20px 0;
+    border-bottom: 1px dotted #aaa;
+}
+.de22 .sec:hover {
+    background-color: #f4f4f4;
+}
+.de22 .sec p {
+    font-size: 1.0em;
+    padding: 10px 0;
+    text-align: left;
+}
+.de22 dl {
+    overflow: hidden;
+}
+
+.de22 dl dt {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    width: 30%;
+    float: left;
+    padding-bottom: 10px;
+    font-weight: 700;
+    font-size: 2.0em;
+    color: #222;
+}
+.de22 .sec:hover dl dt {
+    padding-left: 10px;
+}
+.de22 dl dd {
+    width: 70%;
+    float: right;
+    padding: 10px 0;
+    overflow: hidden;
+}
+.de22 dl dd span {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: block;
+    float: left;
+    width: 14%;
+    padding: 5px 10px;
+    background-color: #888;
+    text-align: center;
+    border-radius: 2px;
+    letter-spacing: 2px;
+    font-weight: 400;
+    color: #fff;
+}
+.de22 dl dd:hover span {
+    width: 15%;
+    background-color: #111;
+}
+.de22 dl dd > div {
+    float: left;
+    width: 85%;
+    padding: 5px 10px;
+    vertical-align: top;
+}
+
+@media (max-width:768px) {
+    .de22 dl dt,
+    .de22 dl dd {
+        width: 100%;
+    }
+}
+
+
+
+
+
+
+/*****************************************************************
+de23 : 동영상
+*****************************************************************/
+.de23 {
+    border: 0px solid #f00;
+}
+.de23 .movie {
+    width: 100%;
+}
+
+
+
+
+
+
+/*****************************************************************
+de24 : 모달팝업
+*****************************************************************/
+.de24 {
+    
+}
+
+/* 클릭버튼이미지 */
+.de24 img {
+    width: 100%;
+}
+
+/* 팝업창내용 */
+.de24 h4 {
+    font-weight: 400;
+    font-size: 1.250em;
+}
+.de24 .close {
+    opacity: 1.0 !important;
+    margin: 0 !important;
+    vertical-align: top;
+    font-size: 1.5em !important;
+    color: #000;
+}
+.de24 .modal-body p {
+    text-align: left;
+    margin: 10px 0 0;
+}
+
+
+
+
+
+
+/*****************************************************************
+de25 : 사이트맵
+*****************************************************************/
+.de25 {
+    text-align: left;
+}
+.de25 .sitemap {
+    font-size: 0.875em;
+}
+.de25 .sitemap ul {
+    overflow: hidden;
+}
+
+/* grid : 가로갯수 */
+.de25 .sitemap ul.grid3 li:nth-child(3n+1) {
+    clear: both;
+}
+.de25 .sitemap ul.grid4 li:nth-child(4n+1) {
+    clear: both;
+}
+.de25 .sitemap ul.grid5 li:nth-child(5n+1) {
+    clear: both;
+}
+
+.de25 .sitemap ul.grid3 li.m1 {
+    width: 33.33%;
+}
+.de25 .sitemap ul.grid4 li.m1 {
+    width: 25%;
+}
+.de25 .sitemap ul.grid5 li.m1 {
+    width: 20%;
+}
+
+.de25 .sitemap ul li.m1 {
+    float: left;
+    padding: 1px;
+    margin: 0 0 20px;
+}
+
+.de25 .sitemap ul li.m1 > a {
+    -webkit-transition: all 0.4s ease-out;
+    transition: all 0.4s ease-out;
+    display: block;
+    line-height: 40px;
+    padding: 0 10px;
+    background-color: #ddd;
+    color: #222;
+}
+.de25 .sitemap ul li.m1:hover > a {
+    background-color: #333;
+    color: #fff;
+}
+
+.de25 .sitemap ul li dl {
+    margin: 5px 0 0;
+}
+.de25 .sitemap ul li dl dd.m2 {
+    
+}
+.de25 .sitemap ul li dl dd.m2 > a {
+    padding: 5px 10px;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: block;
+    position: relative;
+}
+.de25 .sitemap ul li dl dd.m2:hover > a {
+    padding-left: 20px;
+    font-weight: 700;
+    color: #000;
+}
+.de25 .sitemap ul li dl dd.m2:hover > a:before {
+    position: absolute;
+    top: 13px;
+    left: 0px;
+    content: '';
+    background-color: #111;
+    width: 7px;
+    height: 1px;
+}
+
+@media screen and (max-width: 768px) {
+    .de25 .sitemap ul li {
+        width: 100% !important;
+    }
+}
+
+
+
+
+
+
+/*****************************************************************
+de26 : 픽토다단
+*****************************************************************/
+.de26 {
+    position: relative;
+    margin: 0px 0 50px;
+}
+
+.de26 > div {
+    margin: 0px 0 150px;
+}
+
+.de26 > div .iconArea {
+    background-position: center center;
+    background-size: cover;
+}
+
+
+/**/
+.de26 .txtArea h3 {
+    padding: 50px 0;
+    border: 1px solid #ccc;
+    text-align: center;
+    font-weight: 500;
+    font-size: 3.0em;
+    color: #333;
+}
+.de26 .txtArea h3 em {
+    font-weight: 100;
+    font-size: 0.5em;
+    color: #333;
+}
+
+
+/**/
+.de26 .iconArea ul {
+    padding: 50px;
+    overflow: hidden;
+    text-align: center;
+}
+.de26 .iconArea ul li {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    display: inline-block;
+    width: 20%;
+    text-align: center;
+    width: 180px; height: 180px;
+    background-color: rgba(255, 255, 255, 0.85);
+    border: 10px solid #aaa;
+    border-radius: 100%;
+    padding-top: 50px;
+    margin: 10px 5px;
+    cursor: pointer;
+}
+.de26 .iconArea ul li:hover {
+    background-color: #fff;
+}
+.de26 .iconArea ul li i {
+    background-color: #888;
+    font-size: 1.500em;
+    color: #fff;
+    padding: 10px;
+/*    margin-right: 5px;*/
+    display: inline-block;
+    border-radius: 5px;
+    word-wrap: break-word;
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+}
+.de26 .iconArea ul li:hover i {
+    background-color: #111;
+}
+.de26 .iconArea ul li span {
+    display: block;
+    font-size: 1.250em;
+    font-weight: 300;
+    color: #111;
+    padding: 5px 0;
+}
+
+
+
+
+
+
+/*****************************************************************
+de27 : 픽토3,4단
+*****************************************************************/
+.de27 {
+    position: relative;
+    border: 0px solid #f00;
+}
+.de27 > div {
+    padding: 20px 0;
+}
+
+/**/
+.de27 .txtArea {
+    position: relative;
+}
+.de27 .txtArea .tit {
+    position: absolute;
+    z-index: 10;
+    top: 20px;
+    left: 40px;
+}
+.de27 .txtArea h3 {
+    margin: 30px 0 10px;
+    display: inline-block;
+    font-weight: 400;
+    font-size: 3.0em;
+    color: #fff;
+}
+.de27 .txtArea em {
+    font-weight: 300;
+    font-size: 1.5em;
+    color: #fff;
+}
+.de27 .txtArea span {
+    display: block;
+    position: relative;
+    width: 100%;
+    height: 120px;/**/
+    overflow: hidden;
+    border-radius: 0 0 30px 0;
+}
+.de27 .txtArea span img {
+    width: 100%; height: auto;
+}
+.de27 .txtArea p {
+    margin: 10px 0;
+}
+
+
+/**/
+.de27 .iconArea {
+    margin-bottom: 100px;
+}
+.de27 .iconArea div .con {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    min-height: 150px;/* 높이값조절 */
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #eee;
+    border: 1px solid #fff;
+    border-radius: 0px 0px 40px 0px;/**/
+}
+
+/* 컬러변경 */
+.de27 .iconArea div .con.color01 {
+    background-color: #d6dce0;
+}
+.de27 .iconArea div .con.color02 {
+    background-color: #e0ddd6;
+}
+.de27 .iconArea div .con.color03 {
+    background-color: #d6e0d6;
+}
+
+.de27 .iconArea div .con:hover {
+    padding-top: 10px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+}
+
+/**/
+.de27 .iconArea div .con i {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+/*    display: block;*/
+    width: 60%;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 0px 0px 15px 0px;/**/
+    word-wrap: break-word;
+    font-size: 1.5em;
+    color: #fff;
+}
+.de27 .iconArea div .con:hover i {
+    background-color: rgba(0, 0, 0, 0.6);
+}
+.de27 .iconArea div .con span {
+    display: block;
+    padding-top: 10px;
+    font-size: 1.250em;
+    font-weight: 400;
+    color: #111;
+}
+
+
+
+
+
+
+/*****************************************************************
+de28 : 시설안내(탭)
+*****************************************************************/
+.de28 {
+    text-align: left;
+    border: 0px solid #f00;
+}
+
+/**/
+.de28 h3 {
+    margin: 30px 0 50px;
+    font-size: 2.250em;
+    color: #000;
+}
+
+/**/
+.de28 .txtArea {
+    margin: 30px 0;
+}
+.de28 .txtArea strong {
+    font-weight: 300;
+    font-size: 1.750em;
+    color: #111;
+}
+.de28 .txtArea p {
+    margin: 10px 0;
+    text-align: left;
+    color: #999;
+}
+
+/**/
+.de28 .tableArea {
+    margin: 30px 0;
+}
+.de28 .tableArea table {
+    width: 100%;
+    border-top: 3px solid #5b95c9;
+    border-collapse: collapse;
+    table-layout: fixed;
+}
+.de28 .tableArea table caption {
+    visibility: hidden;
+    overflow: hidden;
+    width: 0;
+    height: 0;
+    font-size: 0;
+    line-height: 0;
+}
+.de28 .tableArea table tbody {
+    vertical-align: middle;
+}
+.de28 .tableArea table th,
+.de28 .tableArea table td {
+    border-bottom: 1px solid #ccc;
+    vertical-align: middle;
+    padding: 20px;
+}
+.de28 .tableArea table th {
+    background-color: #f0f0f0;
+    text-align: center;
+    word-break: break-all;
+}
+.de28 .tableArea table td {
+    background-color: #fff;
+    text-align: left;
+    word-break: break-all;
+}
+
+.de28 .tableArea p {
+    background-color: #fff;
+    text-align: left;
+    
+}
+
+/**/
+.de28 .iconArea {
+    margin: 30px 0;
+}
+.de28 .iconArea p {
+    overflow: hidden;
+    margin: 20px 0;
+}
+.de28 .iconArea p i {
+    font-size: 4.0em;
+    font-weight: 500;
+    color: #fff;
+    vertical-align: top;
+    margin-right: 15px;
+    padding: 30px;
+    display: block;/*none*/
+    float: left;
+    background-color: #bbc8d6;
+}
+
+/**/
+.de28 .imgArea {
+    margin: 30px 0;
+}
+.de28 .imgArea img {
+    width: 100%;
+}
+
+@media (max-width: 768px) {
+    .de28 .nav-tabs a {
+        font-size: 0.875em;
+        padding: 15px 10px;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de29 : 조직도
+*****************************************************************/
+.de29 {
+    position: relative;
+    text-align: center;
+}
+
+/* 767px이하 본문이미지 */
+@media (max-width:768px) {
+    .de29 .pc_view {
+        display: none;
+    }
+    .de29 .mo_view {
+        display: block;
+    }
+}
+
+/* 768px이상 본문이미지 */
+@media (min-width:768px) {
+    .de29 .pc_view {
+        display: block;
+    }
+    .de29 .mo_view {
+        display: none;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+de30 : 구글지도
+*****************************************************************/
+.de30 {
+    border: 0px solid #f00;
+}
+
+.de30 .map_google {
+    width: 100%;
+}
+.de30 .map_google iframe{
+    display: block;
+    width: 100%;/**/
+/*    height: 450px;*/
+    position: relative;
+    pointer-events: none;
+}
+.de30 .map_google iframe.clicked{
+    pointer-events: auto;
+}
+
+
+
+
+
+
+/*****************************************************************
+de31 : 아이콘모음
+*****************************************************************/
+.de31 {
+    position: relative;
+}
+
+.de31 ul {
+    margin: 0px 0 50px;
+    text-align: center;
+    overflow: hidden;
+}
+
+.de31 ul li {
+    float: left;
+    background-color: #ddd;
+    border: 1px solid #fff;
+    padding: 30px 10px 10px;
+    width: 20%;
+    height: 120px;
+    overflow: hidden;
+    line-height: 1.4;
+    word-wrap: break-word;
+    /*    word-break: break-all;*/
+}
+
+.de31 ul li:hover {
+    background-color: #555;
+    color: #fff;
+}
+
+.de31 span.glyphicon {
+    margin-top: 5px;
+    margin-bottom: 10px;
+    font-size: 1.5em;
+}
+
+.de31 span.glyphicon-class {
+    display: block;
+    font-size: 1.0em;
+}
+
+@media (max-width: 991px) {
+    .de31 ul li {
+        width: 33.3%;
+        font-size: 12px;
+    }
+}
+
+
+
+
+
+
+/*****************************************************************
+de32 : 텍스트바
+*****************************************************************/
+.de32 {
+    position: relative;
+    margin: 20px 0;
+}
+.de32 > div > div {
+    margin: 10px 0;
+}
+
+.de32 dl dt {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    padding: 10px 10px 10px 20px;
+    margin: 5px 1px;
+    background-color: #aaa;
+    border-radius: 2px;
+    display: block;
+    font-size: 1.0em;
+    color: #fff;
+}
+.de32 dl:hover dt {
+    padding: 10px 10px 10px 30px;
+    background-color: #111;
+}
+
+.de32 dl dd {
+    display: list-item;
+    list-style-type: disc;
+    list-style-position: inside;
+    padding-left: 5px;
+}
+
+
+
+
+
+
+/*****************************************************************
+de33 : 이미지,표
+*****************************************************************/
+.de33 {
+    margin: 0px 0 30px;
+}
+
+/**/
+.de33 .tableArea .n_table {
+    margin: 30px 0;
+    border-top: 3px solid #5b95c9;
+}
+
+.de33 .tableArea .n_table th,
+.de33 .tableArea .n_table td {
+    padding: 20px;
+}
+
+/**/
+.de33 .txtArea {
+    margin: 30px 0;
+}
+.de33 .txtArea h3 {
+    margin: 10px 0;
+    line-height: 140%;
+    font-size: 1.5em;
+    color: #29619a;
+}
+.de33 .txtArea p {
+    margin: 10px 0;
+    line-height: 140%;
+    font-size: 1.0em;
+    color: #888;
+}
+
+
+
+
+
+
+/*****************************************************************
+de34 : 쇼핑몰추출상품 ( > 상품관리 > 메인상품 관리 > 상품개수 : 조절 )
+*****************************************************************/
+.de34 {
+    padding: 0px 0 0;
+}
+
+
+
+
+
+
+

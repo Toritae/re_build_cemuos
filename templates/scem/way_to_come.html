@@ -1,0 +1,105 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SCEM</h2>
+    <ul>
+        <li><a href="{% url 'scem:index' %}">인사말</a></li>
+        <li><a href="{% url 'scem:bylaws' %}">연구실내규</a></li>
+        <li><a href="{% url 'scem:come' %}">오시는길</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SCEM &gt; 오시는길</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>오시는길</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<div class="de30">
+    
+    <!-- 지도 -->
+    <div class="row">
+        <div class="col-md-12">
+            <div class="map_google">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3161.776939031523!2d127.05658841480361!3d37.58386993089388!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x357cbb6a8bd72901%3A0x2567e73b1f7cb26c!2z7ISc7Jq47Iuc66a964yA7ZWZ6rWQ!5e0!3m2!1sko!2skr!4v1628003170342!5m2!1sko!2skr" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            </div>
+        </div>
+    </div>
+    <div class="de32">
+    <div class="row">
+        
+        <!---->
+        <div class="col-md-6">
+            <dl>
+                <dt>본사위치</dt>
+                <dd>주소 : 서울시 동대문구 서울시립대로 163, 서울시립대학교 건설공학관 3-227호</dd>
+                <dd>전화 : 02-6490-5568, 5585</dd>
+                <dd>팩스 : 02-6490-2749</dd>
+                <dd>이메일 : cepgmuos@gmail.com</dd>
+            </dl>
+        </div>
+        
+        <!---->
+        <div class="col-md-6">
+            <dl>
+                <dt>주변지하철</dt>
+                <dd>청량리역 (1호선, 경의중앙선, 수인분당선)</dd>
+                <dd>회기역 (1호선, 경의중앙선)</dd>
+            </dl>
+        </div>
+        
+        <div class="clearfix visible-md-block visible-lg-block"></div>
+        
+        <!---->
+        <div class="col-md-6">
+            <dl>
+                <dt>주변정류장</dt>
+                <dd>서울시립대입구 | 떡전교앞방면 (06188)</dd>
+                <dd>서울시립대 | 영광빌딩 방면 (06575)</dd>
+            </dl>
+        </div>
+        
+        <!---->
+        <div class="col-md-6">
+            <dl>
+                <dt>주변버스</dt>
+                <dd>간선 : 121, 420, 720</dd>
+                <dd>지선 : 1227, 2230, 3216, 3220</dd>
+                <dd>마을 : 동대문05</dd>
+            </dl>
+        </div>
+        
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

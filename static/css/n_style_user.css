@@ -1,0 +1,266 @@
+@charset 'utf-8';
+
+/*****************************************************************
+   deletion of the current branch prohibited
+   powered by nnin ( http://www.nnin.com )
+*****************************************************************/
+
+
+/*****************************************************************
+전체폰트크기조절 : 14px 기본크기
+*****************************************************************/
+.ft_reset {
+    font-weight: 400;/* 300, 400 */
+    font-size: 13px;/* 14px, 15px, 16px ... */
+    font-family: "Noto Sans KR", sans-serif;
+/*    color: #f00 !important;*/
+}
+
+@media all and (max-width: 768px) {
+    .ft_reset {
+        font-size: 13px;
+    }
+}
+
+
+
+
+
+/*****************************************************************
+상단우측영역 > 사이트맵 아이콘 숨기기
+*****************************************************************/
+/*
+.nt_sitemap {
+    display: none;
+}
+.mainmenu.on {
+    padding-right: 0px;
+}
+*/
+
+
+
+
+
+/*****************************************************************
+상단 버튼들 : 사용값 (block, none)
+*****************************************************************/
+/* 전화번호 */
+.nt_phone {
+    display: block;
+}
+
+/* 검색 */
+.nt_search {
+    display: none;
+}
+
+/* 퀵메뉴 */
+.nt_quick {
+    display: block;
+}
+
+/* 언어 */
+.nt_language {
+    display: block;
+}
+
+/* sns */
+.nt_sns {
+    display: block;
+}
+
+/* 로그인 */
+.nt_login {
+    display: block;
+}
+
+/* 쇼핑몰 버튼(상단) */
+.nt_shop {
+    display: block;
+}
+
+@media screen and (max-width: 991px) {
+    /* 전화번호 */
+    .nt_phone {
+        display: block;
+    }
+
+    /* 검색 */
+    .nt_search {
+        display: none;
+    }
+
+    /* 퀵메뉴 */
+    .nt_quick {
+        display: none;
+    }
+
+    /* 언어 */
+    .nt_language {
+        display: none;
+    }
+
+    /* sns */
+    .nt_sns {
+        display: none;
+    }
+
+    /* 로그인 */
+    .nt_login {
+        display: block;
+    }
+
+    /* 쇼핑몰 버튼(상단) */
+    .nt_shop {
+        display: none;
+    }
+}
+
+
+
+
+
+
+/*****************************************************************
+하단 버튼들 : 사용시에는 아래 소스 삭제 또는 비활성화
+*****************************************************************/
+/* 어드민 버튼(하단) */
+.adminbtn {
+    display: block;
+}
+
+/* 쇼핑몰 버튼(하단) */
+.shoppingmall {
+    display: block;
+}
+
+
+
+
+
+
+
+/*****************************************************************
+하단 정보 : 3단 중에서 1번째, 2번재, 3번째를 선택하여 삭제 / 이동
+*****************************************************************/
+#n_footer > .sec02 > .container > .row > div:nth-child(3) {
+    display: none;
+}
+#n_footer > .sec02 > .container > .row > div:nth-child(2) {
+    float: right;
+}
+@media all and (max-width: 991px) {
+    #n_footer > .sec02 > .container > .row > div:nth-child(2) {
+        float: left;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************
+공통사용전체모듈 > 로그인,sns,기타 : 전체 비사용시 상단높이값 고정
+*****************************************************************/
+/*
+#header {
+    height: 100px;
+}
+#header .gnb.on {
+    top: 0px;
+}
+#header .gnb:after {
+    border-bottom: 0px;
+}
+#header .gnb .nav {
+    margin: 10px auto;
+}
+
+.topArea {
+    display: none;
+}
+@media screen and (max-width: 991px) {
+    #header {
+        height: 60px;
+    }
+    #header .gnb .nav {
+        margin: 0px auto;
+    }
+}
+*/
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************
+temp > index_description.html ("전체모듈보기" 임시소스)
+*****************************************************************/
+.temp {
+    padding: 50px 0;
+}
+
+/**/
+.temp > div {
+    margin: 50px auto 300px;
+/*    padding: 0px;*/
+/*    background: none;*/
+}
+.temp > div:before {
+/*    background: none;*/
+}
+
+/**/
+.temp > div > .nm_tit {
+    max-width: 800px;
+    position: relative;
+    z-index: 2;
+    margin: 20px auto;
+    padding: 10px 20px;
+    text-align: left;
+}
+.temp > div > .nm_tit > h3 {
+    margin: 5px;
+    padding: 10px 20px;
+    background-color: #f00;
+    border-radius: 10px;
+    font-weight: 700;
+    font-size: 24px;
+    color: #fff;
+}
+.temp > div > .nm_tit > p {
+    margin: 5px;
+    padding-left: 0px;
+    font-weight: 500;
+    font-size: 14px;
+    color: #f00;
+}
+.temp > div > .nm_tit > span {
+    display: block;
+    margin: 5px;
+    padding: 0px;
+    font-size: 14px;
+    color: #f00;
+}
+
+
+
+
+
+
+
+

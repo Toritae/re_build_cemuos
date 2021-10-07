@@ -1,0 +1,143 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>MEMBERS</h2>
+    <ul>
+        <li><a href="/default/mp3/mp3_sub1.php?sub=01">연구분야</a></li>
+        <li><a href="{% url 'member_board_Phd:index' %}">박사과정</a></li>
+        <li><a href="{% url 'member_board_MA:index' %}">석사과정</a></li>
+        <li><a href="{% url 'member_board_alum_Phd:index' %}">동문</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>박사과정</h2>
+</div>
+{% if data_list %}
+{% for data in data_list %}
+<table width="665" border="0" align="center" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td colspan="4"></td>
+</tr>
+<tr>
+<td rowspan="3" width="150" height="177"><a><img src="{{data.photo.url}}" width="150" height="177"></a></td></tr><tr>
+<td colspan="3"></td>
+</tr>
+<tr>
+<td colspan="4"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr>
+<td width="10" height="25"></td>
+<td width="100" class="textarea3"><div align="center">이&nbsp;름</div></td>
+<td width="300">{{data.title}}</td>
+</tr>
+<tr>
+
+
+<td height="1" colspan="3"><div align="right"><img src="{% static 'img/line_1.gif' %}" width="505" height="1"></div></td>
+</tr>
+<tr>
+<td width="10" height="25"></td>
+<td width="100" height="20" class="textarea3"><div align="center">E-mail</div></td>
+<td width="300">{{data.email}}</td>
+</tr>
+<tr>
+
+
+<td height="1" colspan="3"><div align="right"><img src="{% static 'img/line_1.gif' %}" width="505" height="1"></div></td>
+</tr>
+<tr>
+<td width="10" height="25" rowspan="3"></td>
+<td width="100" height="20" rowspan="3" class="textarea3"><div align="center">약&nbsp;력</div></td>
+<td width="300"><img src="{% static 'img/line_2.gif' %}" width="300" height="5">&nbsp;</td>
+</tr>
+<tr>
+<td style="padding:5px;"><div style="width:410px;height:120px; ;border:1px solid #cccccc;background:#f6f6f6;font-size:11px">
+<style body{font-family:&#160;Tahoma,Verdana,Arial;font-size:&#160;11px;color:&#160;#555555;margin:&#160;0px}td{font-size&#160;:11px;&#160;font-family:&#160;Tahoma,Verdana,Arial;}p{margin-top:1px;margin-bottom:1px;}></style>
+{{data.content}}</div></td>
+</tr>
+<tr>
+<td><img src="{% static 'img/line_2.gif' %}" width="300" height="5"></td>
+</tr>
+</tbody></table></td>
+</tr>
+</tbody></table>
+<table width="620" border="0" align="center" cellpadding="0" cellspacing="0">
+<tbody><tr>
+<td><img src="{% static 'img/line_3.png' %}" width="620" height="10"></td>
+</tr>
+</tbody></table>
+{% endfor %}
+{% endif %}
+{% if user.username == 'cemuos' or user.username == 'admin' %}
+    <div>
+        <div>
+            <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'member_board_Phd:create' %}'">글쓰기</button>
+        </div>
+    </div>
+{% endif %}
+<ul class="pagination justify-content-center">
+        <!-- 이전페이지 -->
+        {% if data_list.has_previous %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data_list.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+        </li>
+        {% endif %}
+        <!-- 페이지리스트 -->
+        {% for page_number in data_list.paginator.page_range %}
+        {% if page_number >= question_list.number|add:-5 and page_number <= question_list.number|add:5 %}
+            {% if page_number == data_list.number %}
+            <li class="page-item active" aria-current="page">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+            </li>
+            {% endif %}
+        {% endif %}
+        {% endfor %}
+        <!-- 다음페이지 -->
+        {% if data_list.has_next %}
+        <li class="page-item">
+            <a class="page-link" href="?page={{ data_list.next_page_number }}">다음</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+        </li>
+        {% endif %}
+    </ul>
+</div>
+</div>
+</div>
+
+</div>
+</div>
+</div>
+{% endblock content %}

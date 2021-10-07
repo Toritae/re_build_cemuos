@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SITE LINK</h2>
+    <ul>
+        <li><a href="{% url 'site_link:index' %}">대학 CEM 연구실</a></li>
+        <li><a href="{% url 'site_link:public' %}">공공연구소</a></li>
+        <li><a href="{% url 'site_link:gov' %}">정부기관</a></li>
+        <li><a href="{% url 'site_link:insitute' %}">학회 및 협회</a></li>
+        <li><a href="{% url 'site_link:oversea' %}">해외건설관련</a></li>
+        <li><a href="{% url 'site_link:other' %}">기타</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 학회 및 협회</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>학회 및 협회</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<div align="left"><img src="{% static 'img/site_link/sitelink_4_1.png' %}" width="665" height="776" border="0" usemap="#Map">
+<map name="Map">
+&nbsp; <area shape="rect" coords="55,75,173,93" href="http://www.construction-institute.org/scriptcontent" target="_blank">
+</map>
+</div></td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
