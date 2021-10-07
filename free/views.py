@@ -99,7 +99,6 @@ def free_detail_view(request, pk):
 def free_write_view(request):
     if request.method == "POST":
         form = FreeWriteForm(request.POST, request.FILES)
-        user = request.session['user_id']
         user_id = request.user.username
         
         if form.is_valid():
@@ -122,7 +121,7 @@ def free_write_view(request):
 def free_edit_view(request, pk):
     free = Free.objects.get(id=pk)
     if request.method == "POST":
-        if(free.writer == request.user or request.user.username == 'admin' or request.user.username == 'cemuos'):
+        if(free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos'):
 
             file_change_check = request.POST.get('fileChange', False)
             file_check = request.POST.get('upload_files-clear', False)
@@ -143,7 +142,7 @@ def free_edit_view(request, pk):
                 return redirect('/free/'+str(pk))
     else:
         free = Free.objects.get(id=pk)
-        if free.writer == request.user or request.user.username == 'admin' or request.user.username == 'cemuos':
+        if free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos':
             form = FreeWriteForm(instance=free)
             context = {
                 'form': form,
@@ -163,7 +162,7 @@ def free_edit_view(request, pk):
 @login_required(login_url='common:login')
 def free_delete_view(request, pk):
     free = Free.objects.get(id=pk)
-    if free.writer == request.user or request.user.username == 'admin' or request.user.username == 'cemuos':
+    if free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos':
         free.delete()
         messages.success(request, "삭제되었습니다.")
         return redirect('/free/')
@@ -221,7 +220,7 @@ def comment_delete_view(request, pk):
     comment_id = request.POST.get('comment_id')
     target_comment = Comment.objects.get(pk = comment_id)
 
-    if request.user == target_comment.writer or request.user.username == 'cmeuos' or request.user.username == 'admin':
+    if request.user.username == target_comment.writer or request.user.username == 'cmeuos' or request.user.username == 'admin':
         # target_comment.delete()
         # target_comment.content = ('삭제된 댓글입니다.')
         target_comment.deleted = True
