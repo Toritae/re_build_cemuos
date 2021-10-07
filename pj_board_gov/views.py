@@ -70,7 +70,7 @@ def update(request,pk):
     return render(request, 'pj_board_gov/create.html', context)
 
 def notice_edit_view(request, pk):
-    notice = get_object_or_404(pj_post_gov, id=pk)
+    notice = get_object_or_404(pj_post_gov, pk=pk)
     if request.method == "POST":
         file_check = request.POST.get('Photo', False)
         form = PostForm(request.POST, request.FILES, instance=notice)
