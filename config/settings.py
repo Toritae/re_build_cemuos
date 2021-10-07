@@ -46,7 +46,7 @@ PROJECT_APPS = [
     'pj_board_gov.apps.PjBoardGovConfig',
     'site_link.apps.SiteLinkConfig',
     'scem.apps.ScemConfig',
-    'research_pj.apps.Research_PjConfig',
+    'research_pj.apps.ReserchPjConfig',
     'professor.apps.ProfessorConfig',
     'paper_patent.apps.PaperPatentConfig',
     'notice.apps.NoticeConfig',
