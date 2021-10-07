@@ -1,6 +1,36 @@
 {% extends "users/main_base.html" %}
 {% load humanize %}
-{% block contents %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>COMMUNITY</h2>
+    <ul>
+        <li><a href="{% url 'notice:notice_list' %}">공지사항</a></li>
+        <li><a href="{% url 'free:all_list' %}">자유게시판</a></li>
+        <li><a href="{% url 'notice:notice_list' %}">포토갤러리</a></li>
+        <li><a href="{% url 'notice:notice_list' %}">세미나</a></li>
+        <li><a href="{% url 'notice:notice_list' %}">자료실</a></li>
+        <li><a href="{% url 'notice:notice_list' %}">Q A</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+{% block content %}
 <br><br><br>
 <div class="container">
     <div class="row-mt-5">
