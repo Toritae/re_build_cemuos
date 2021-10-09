@@ -64,7 +64,7 @@ def update(request,pk):
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
-            return redirect('reference_board:detail', pk=question.id)
+            return redirect('ref_board:detail', pk=question.id)
     else:
         form = ReferenceForm(instance=question)
     context = {'form': form, 'edit':'수정하기'}
@@ -93,7 +93,7 @@ def notice_edit_view(request, pk):
                 #------------------------------------#
                 # form.save()
                 messages.success(request, "수정되었습니다.")
-                return redirect('/reference_board/'+str(pk))
+                return redirect('/ref_board/'+str(pk))
     else:
         notice = DataRoom.objects.get(id=pk)
         if notice.writer == request.user:
@@ -110,7 +110,7 @@ def notice_edit_view(request, pk):
             return render(request, "reference_board/write.html", context)
         else:
             messages.error(request, "본인 게시글이 아닙니다.")
-            return redirect('/reference_board/'+str(pk))
+            return redirect('/ref_board/'+str(pk))
 
 @login_required(login_url='common:login')
 def delete(request, pk):
@@ -118,7 +118,7 @@ def delete(request, pk):
     if request.user.username == 'cemuos' or request.user.username == 'admin':
         notice.delete()
         messages.success(request, "삭제되었습니다.")
-        return redirect('reference_board:index')
+        return redirect('ref_board:index')
 
 def download(request, pk):
     file = get_object_or_404(DataRoom, pk=pk)

@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 
-app_name = 'reference_board'
+app_name = 'ref_board'
 
 def protected_file(request, path, document_root=None):
     messages.error(request, "접근 불가")
