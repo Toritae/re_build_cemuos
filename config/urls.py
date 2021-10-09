@@ -28,7 +28,7 @@ urlpatterns = [
     path('paper_patent/',include('paper_patent.urls')),
     path('notice/',include('notice.urls')),
     path('free/',include('free.urls')),
-    path('ref_board/',include('reference_board.urls')),
+    path('ref_board/',include('reference_board.urls', namespace='ref_board')),
     path('professor/',include('professor.urls')),
     path('research_pj/',include('reserch_pj.urls')),
     path('summernote/', include('django_summernote.urls')),
