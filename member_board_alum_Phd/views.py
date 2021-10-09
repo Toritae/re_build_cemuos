@@ -115,7 +115,7 @@ def notice_edit_view(request, pk):
 @login_required(login_url='common:login')
 def delete(request, pk):
     notice = member_post_alum_Phd.objects.get(id=pk)
-    if request.user == 'cemuos' or request.user == 'admin':
+    if request.user.username == 'cemuos' or request.user.username == 'admin':
         notice.delete()
         messages.success(request, "삭제되었습니다.")
         return redirect('member_board_alum_Phd:index')
