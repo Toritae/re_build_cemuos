@@ -19,7 +19,7 @@ class ReferenceForm(forms.ModelForm):
         })
     class Meta:
         model = DataRoom
-        fields = ['title', 'content', 'upload_files' 'create_date']
+        fields = ['title', 'content', 'upload_files', 'create_date']
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control'}),
             'content': SummernoteWidget(),
