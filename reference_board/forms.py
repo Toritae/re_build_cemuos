@@ -23,11 +23,10 @@ class ReferenceForm(forms.ModelForm):
         widgets = {
             'title': forms.TextInput(attrs={'class':'form-control'}),
             'content': SummernoteWidget(),
-            'create_date': forms.HiddenInput
+            'create_date': forms.HiddenInput,
         }
         labels = {
             'title': '제목',
             'photo' : '썸네일',
-            'front_content' : '전면부 내용' ,
             'content' : '내용',
         }
