@@ -52,6 +52,7 @@ PROJECT_APPS = [
     'notice.apps.NoticeConfig',
     'photo.apps.PhotoConfig',
     'free.apps.FreeConfig',
+    'reference_board.apps.ReferenceBoardConfig',
     'seminar.apps.SeminarConfig',
     'QA.apps.QaConfig',
     'member_board_MA.apps.MemberBoardMaConfig',

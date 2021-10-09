@@ -32,6 +32,7 @@ urlpatterns = [
     path('research_pj/',include('reserch_pj.urls')),
     path('summernote/', include('django_summernote.urls')),
     path('common/', include('common.urls')),
+    path('reference_board/',include('reference_board.urls')),
     path('member_board_MA/',include('member_board_MA.urls')),
     path('member_board_Phd/',include('member_board_Phd.urls')),
     path('member_board_alum_MA/',include('member_board_alum_MA.urls')),
