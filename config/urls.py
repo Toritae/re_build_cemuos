@@ -28,7 +28,6 @@ urlpatterns = [
     path('paper_patent/',include('paper_patent.urls')),
     path('notice/',include('notice.urls')),
     path('free/',include('free.urls')),
-    path('ref_board/',include('reference_board.urls', namespace='ref_board')),
     path('professor/',include('professor.urls')),
     path('research_pj/',include('reserch_pj.urls')),
     path('summernote/', include('django_summernote.urls')),
@@ -40,5 +39,6 @@ urlpatterns = [
     path('member_board_alum_MA_city/',include('member_board_alum_MA_city.urls')),
     path('member_board_alum_special/',include('member_board_alum_special.urls')),
     path('',views.index, name='index'),
+    path('ref_board/',include('reference_board.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
