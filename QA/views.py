@@ -2,11 +2,11 @@ from django.shortcuts import render, get_object_or_404, redirect
 # from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import View, ListView, DetailView, FormView, CreateView
-from .models import Free, Comment
+from .models import QA, Answer
 from django.db.models import Q
 from django.contrib import messages
 from django.urls import reverse
-from .forms import FreeWriteForm
+from .forms import QAForm
 import mimetypes
 from mimetypes import guess_type
 import os
@@ -22,13 +22,13 @@ from django.contrib.auth.decorators import login_required
 
 # 자유게시판 모두보기
 class AllListView(ListView):
-    model = Free
+    model = QA
     paginate_by = 15
     template_name = 'free/free_list.html'  #DEFAULT : <app_label>/<model_name>_list.html
     context_object_name = 'free_list'        #DEFAULT : <app_label>_list
 
     def get_queryset(self):
-        free_list = Free.objects.order_by('-id') 
+        free_list = QA.objects.order_by('-id') 
 
         return free_list
 
@@ -56,8 +56,8 @@ class AllListView(ListView):
 # 자유게시판 글 상세보기
 
 def free_detail_view(request, pk):
-    free = get_object_or_404(Free, pk=pk)
-    comment = Comment.objects.filter(post=pk).order_by('created')
+    free = get_object_or_404(QA, pk=pk)
+    comment = Answer.objects.filter(post=pk).order_by('created')
     # comment_count = comment.count()
     comment_count = comment.exclude(deleted=True).count()
     reply = comment.exclude(reply='0')
@@ -74,7 +74,7 @@ def free_detail_view(request, pk):
         'comment_count': comment_count,
         'replys': reply,
     }
-    response = render(request, 'free/free_detail.html', context)
+    response = render(request, 'QA/free_detail.html', context)
     free.hits += 1
     free.save()
     return response
@@ -84,7 +84,7 @@ def free_detail_view(request, pk):
 @login_required(login_url='common:login')
 def free_write_view(request):
     if request.method == "POST":
-        form = FreeWriteForm(request.POST, request.FILES)
+        form = QAForm(request.POST, request.FILES)
         user_id = request.user
         
         if form.is_valid():
@@ -98,14 +98,14 @@ def free_write_view(request):
             free.save()
             return redirect('free:all_list')
     else:
-        form = FreeWriteForm()
-    return render(request, "free/free_write.html", {'form': form})
+        form = QAForm()
+    return render(request, "QA/free_write.html", {'form': form})
 
 
 # 자유게시판 글 수정
 @login_required(login_url='common:login')
 def free_edit_view(request, pk):
-    free = Free.objects.get(id=pk)
+    free = QA.objects.get(id=pk)
     if request.method == "POST":
         if(free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos'):
 
@@ -115,7 +115,7 @@ def free_edit_view(request, pk):
             if file_check or file_change_check:
                 os.remove(os.path.join(settings.MEDIA_ROOT, free.upload_files.path))
 
-            form = FreeWriteForm(request.POST, request.FILES, instance=free)
+            form = QAForm(request.POST, request.FILES, instance=free)
             if form.is_valid():
                 free = form.save(commit = False)
 
@@ -125,11 +125,11 @@ def free_edit_view(request, pk):
 
                 free.save()
                 messages.success(request, "수정되었습니다.")
-                return redirect('/free/'+str(pk))
+                return redirect('/QA/'+str(pk))
     else:
-        free = Free.objects.get(id=pk)
+        free = QA.objects.get(id=pk)
         if free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos':
-            form = FreeWriteForm(instance=free)
+            form = QAForm(instance=free)
             context = {
                 'form': form,
                 'edit': '수정하기',
@@ -137,30 +137,30 @@ def free_edit_view(request, pk):
             if free.filename and free.upload_files:
                 context['filename'] = free.filename
                 context['file_url'] = free.upload_files.url
-            return render(request, "free/free_write.html", context)
+            return render(request, "QA/free_write.html", context)
             # return render(request, "free/free_write.html", {'form': form, 'edit': '수정하기'})
         else:
             messages.error(request, "본인 게시글이 아닙니다.")
-            return redirect('/free/'+str(pk))
+            return redirect('/QA/'+str(pk))
 
 
 # 자유게시판 글 삭제
 @login_required(login_url='common:login')
 def free_delete_view(request, pk):
-    free = Free.objects.get(id=pk)
+    free = QA.objects.get(id=pk)
     if free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos':
         free.delete()
         messages.success(request, "삭제되었습니다.")
-        return redirect('/free/')
+        return redirect('/QA/')
     else:
         messages.error(request, "본인 게시글이 아닙니다.")
-        return redirect('/free/'+str(pk))
+        return redirect('/QA/'+str(pk))
 
 
 # 자유게시판 게시글 첨부파일 다운로드
 @login_required(login_url='common:login')
 def free_download_view(request, pk):
-    free = get_object_or_404(Free, pk=pk)
+    free = get_object_or_404(QA, pk=pk)
     url = free.upload_files.url[1:]
     file_url = urllib.parse.unquote(url)
     
@@ -176,14 +176,14 @@ def free_download_view(request, pk):
 # 게시글 댓글달기
 @login_required(login_url='common:login')
 def comment_write_view(request, pk):
-    post = get_object_or_404(Free, id=pk)
+    post = get_object_or_404(QA, id=pk)
     writer = request.POST.get('writer')
     content = request.POST.get('content')
     reply = request.POST.get('reply')
     if content:
-        comment = Comment.objects.create(post=post, content=content, writer=request.user, reply=reply)
+        comment = Answer.objects.create(post=post, content=content, writer=request.user, reply=reply)
         # comment_count = Comment.objects.filter(post=pk).count()
-        comment_count = Comment.objects.filter(post=pk).exclude(deleted=True).count()
+        comment_count = Answer.objects.filter(post=pk).exclude(deleted=True).count()
         post.comments = comment_count
         post.save()
         data = {
@@ -202,9 +202,9 @@ def comment_write_view(request, pk):
 # 게시글 댓글 삭제
 @login_required(login_url='common:login')
 def comment_delete_view(request, pk):
-    post = get_object_or_404(Free, id=pk)
+    post = get_object_or_404(QA, id=pk)
     comment_id = request.POST.get('comment_id')
-    target_comment = Comment.objects.get(pk = comment_id)
+    target_comment = Answer.objects.get(pk = comment_id)
 
     if request.user.username == target_comment.writer or request.user.username == 'cmeuos' or request.user.username == 'admin':
         # target_comment.delete()
@@ -212,7 +212,7 @@ def comment_delete_view(request, pk):
         target_comment.deleted = True
         target_comment.save()
         # comment_count = Comment.objects.filter(post=pk).count()
-        comment_count = Comment.objects.filter(post=pk).exclude(deleted=True).count()
+        comment_count = Answer.objects.filter(post=pk).exclude(deleted=True).count()
         post.comments = comment_count
         post.save()
         data = {

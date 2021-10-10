@@ -7,7 +7,7 @@ from django.core.paginator import EmptyPage, Paginator
 from django.views.generic import View, ListView, DetailView, FormView, CreateView
 # Create your views here.
 from django.http import HttpResponse
-from .forms import ReferenceForm
+from .forms import sem_form
 from .models import seminar_post
 from django.contrib.auth.decorators import login_required
 import os
@@ -32,7 +32,7 @@ def index(request):
 @login_required(login_url='common:login')
 def create(request):
     if request.method == "POST":
-        form = ReferenceForm(request.POST, request.FILES)
+        form = sem_form(request.POST, request.FILES)
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
@@ -44,7 +44,7 @@ def create(request):
             messages.error(request, 'Error!')
             return render(request,'seminar/test.html',{'form':form})
     else:
-        form = ReferenceForm()
+        form = sem_form()
     return render(request, 'seminar/write.html', {'form':form})
 
 def detail(request, pk):
@@ -60,13 +60,13 @@ def detail(request, pk):
 def update(request,pk):
     question = get_object_or_404(seminar_post, pk=pk)
     if request.method == "POST":
-        form = ReferenceForm(request.POST, instance=question)
+        form = sem_form(request.POST, instance=question)
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
             return redirect('seminar:detail', pk=question.id)
     else:
-        form = ReferenceForm(instance=question)
+        form = sem_form(instance=question)
     context = {'form': form, 'edit':'수정하기'}
     return render(request, 'seminar/write.html', context)
 
@@ -82,7 +82,7 @@ def notice_edit_view(request, pk):
             # if file_check or file_change_check:
             #     os.remove(os.path.join(settings.MEDIA_ROOT, notice.upload_files.path))
 
-            form = ReferenceForm(request.POST, request.FILES, instance=notice)
+            form = sem_form(request.POST, request.FILES, instance=notice)
             if form.is_valid():
                 # test-------------------------------#
                 notice = form.save(commit = False)
@@ -97,7 +97,7 @@ def notice_edit_view(request, pk):
     else:
         notice = seminar_post.objects.get(id=pk)
         if notice.writer == request.user:
-            form = ReferenceForm(instance=notice)
+            form = sem_form(instance=notice)
             # test---------------------------------------------------------#
             context = {
                 'form': form,

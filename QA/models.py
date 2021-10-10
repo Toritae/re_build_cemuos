@@ -7,7 +7,7 @@ from uuid import uuid4
 from notice.models import get_file_path
 
 
-class Free(models.Model):
+class QA(models.Model):
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, verbose_name='작성자')
     title = models.CharField(max_length=128, verbose_name='제목')
     content = models.TextField(verbose_name='내용')
@@ -27,7 +27,7 @@ class Free(models.Model):
     def delete(self, *args, **kargs):
         if self.upload_files:
             os.remove(os.path.join(settings.MEDIA_ROOT, self.upload_files.path))
-        super(Free, self).delete(*args, **kargs)
+        super(QA, self).delete(*args, **kargs)
 
     @property
     def created_string(self):
@@ -51,8 +51,8 @@ class Free(models.Model):
         verbose_name_plural = 'QA'
 
 
-class Comment(models.Model):
-    post = models.ForeignKey(Free, on_delete=models.CASCADE, verbose_name='게시글')
+class Answer(models.Model):
+    post = models.ForeignKey(QA, on_delete=models.CASCADE, verbose_name='게시글')
     writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, verbose_name='댓글작성자')
     # writer = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE, verbose_name='댓글작성자')
     # writer = models.CharField(max_length=17, null=True, verbose_name='댓글작성자')
