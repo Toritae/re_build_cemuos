@@ -21,7 +21,6 @@ from main import views
 
 urlpatterns = [
     path('site_link/',include('site_link.urls')),
-    path('admin/', admin.site.urls, name='admin'),
     path('pj_board/',include('pj_board.urls')),
     path('pj_board_gov/',include('pj_board_gov.urls')),
     path('scem/',include('scem.urls')),
@@ -38,10 +37,11 @@ urlpatterns = [
     path('member_board_alum_Phd/',include('member_board_alum_Phd.urls')),
     path('member_board_alum_MA_city/',include('member_board_alum_MA_city.urls')),
     path('member_board_alum_special/',include('member_board_alum_special.urls')),
-    path('',views.index, name='index'),
-    path('ref_board/',include('reference_board.urls')),
+    path('ref_room/',include('reference_board.urls')),
     path('photo/',include('photo.urls')),
     path('seminar/',include('seminar.urls')),
     path('QA/',include('QA.urls')),
+    path('admin/', admin.site.urls, name='admin'),
+    path('',views.index, name='index'),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
