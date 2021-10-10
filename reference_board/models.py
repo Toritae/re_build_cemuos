@@ -8,6 +8,7 @@ class DataRoom(models.Model):
     content = models.TextField(verbose_name='내용',blank=True)
     create_date = models.DateTimeField(default=timezone.now)
     upload_files = models.FileField(upload_to='media/reference_room/',null=True,blank=True)
+    filename = models.CharField(max_length=64, null=True, verbose_name='첨부파일명',blank=True)
     
     class Meta:
         db_table = 'DataRoom'

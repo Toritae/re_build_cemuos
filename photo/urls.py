@@ -6,14 +6,14 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 
-app_name = 'ref_room'
+app_name = 'photo'
+
 urlpatterns = [
     path('', views.index, name='index'),
-    path('write/', views.create, name='write'),
+    path('create/', views.create, name='create'),
     path('<int:pk>/', views.detail, name='detail'),
-    path('<int:pk>/edit/', views.notice_edit_view, name='notice_edit'),
+    path('<int:pk>/edit/', views.update, name='update'),
     path('<int:pk>/delete/', views.delete, name='delete'),
-    path('download/<int:pk>', views.download, name="download"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

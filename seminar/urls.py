@@ -6,7 +6,7 @@ from django.contrib import messages
 from django.shortcuts import redirect
 
 
-app_name = 'ref_room'
+app_name = 'seminar'
 urlpatterns = [
     path('', views.index, name='index'),
     path('write/', views.create, name='write'),
