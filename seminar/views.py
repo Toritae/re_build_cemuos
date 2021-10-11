@@ -12,22 +12,52 @@ from .models import seminar_post
 from django.contrib.auth.decorators import login_required
 import os
 from django.conf import settings
-def index(request):
+class AllListView(ListView):
+    model = seminar_post
+    paginate_by = 15
+    template_name = 'seminar/list.html'  #DEFAULT : <app_label>/<model_name>_list.html
+    context_object_name = 'free_list'        #DEFAULT : <app_label>_list
+
+    def get_queryset(self):
+        free_list = seminar_post.objects.order_by('-id') 
+
+        return free_list
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        paginator = context['paginator']
+        page_numbers_range = 5
+        max_index = len(paginator.page_range)
+
+        page = self.request.GET.get('page')
+        current_page = int(page) if page else 1
+
+        start_index = int((current_page - 1) / page_numbers_range) * page_numbers_range
+        end_index = start_index + page_numbers_range
+        if end_index >= max_index:
+            end_index = max_index
+
+        page_range = paginator.page_range[start_index:end_index]
+        context['page_range'] = page_range
+         
+        return context
+
+# def index(request):
     
-    data_list = seminar_post.objects.all().order_by('-id')
+#     data_list = seminar_post.objects.all().order_by('-id')
 
-    # 페이징처리
-    paginator = Paginator(data_list, 5)  # 페이지당 10개씩 보여주기
-    page_num = request.GET.get('page', '1')  # 페이지
-    try :
-        page = paginator.page(page_num)
-    except EmptyPage:
-        page = paginator.page(1)
+#     # 페이징처리
+#     paginator = Paginator(data_list, 5)  # 페이지당 10개씩 보여주기
+#     page_num = request.GET.get('page', '1')  # 페이지
+#     try :
+#         page = paginator.page(page_num)
+#     except EmptyPage:
+#         page = paginator.page(1)
         
-    page_obj = paginator.get_page(page)
+#     page_obj = paginator.get_page(page)
 
-    context = {'data_list': page_obj, 'page': page}  # <------ so 추가
-    return render(request, 'seminar/list.html', context)
+#     context = {'data_list': page_obj, 'page': page}  # <------ so 추가
+#     return render(request, 'seminar/list.html', context)
 
 @login_required(login_url='common:login')
 def create(request):

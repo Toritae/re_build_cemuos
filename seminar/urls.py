@@ -8,7 +8,7 @@ from django.shortcuts import redirect
 
 app_name = 'seminar'
 urlpatterns = [
-    path('', views.index, name='index'),
+    path('', views.AllListView.as_view(), name='index'),
     path('write/', views.create, name='write'),
     path('<int:pk>/', views.detail, name='detail'),
     path('<int:pk>/edit/', views.notice_edit_view, name='notice_edit'),
