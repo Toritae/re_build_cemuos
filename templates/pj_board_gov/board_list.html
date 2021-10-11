@@ -65,7 +65,7 @@
                                     <tbody>
                                         <tr>
                                             <td width="10" height="25"></td>
-                                            <td align="left"><a href="{% url 'pj_board_gov:detail' data.id %}">{{ data.title }}</a></td>
+                                            <td align="left"><a href="{% url 'pj_board:detail' data.id %}">{{ data.title }}</a></td>
                                         </tr>
                                         <tr>
                                             <td height="1"><img src="{% static 'img/line_2.gif' %}" width="10" height="1"></td>
@@ -111,11 +111,13 @@
 {% comment %} </table> {% endcomment %}
 
 {% comment %} </tbody></table> {% endcomment %}
+    {% if user.username == 'cemuos' or user.username == 'admin' %}
     <div>
         <div>
-            <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'pj_board:create' %}'">글쓰기</button>
+            <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'pj_board_gov:create' %}'">글쓰기</button>
         </div>
     </div>
+    {% endif %}
 <ul class="pagination justify-content-center">
         <!-- 이전페이지 -->
         {% if data_list.has_previous %}
@@ -155,9 +157,7 @@
 </div>
 </div>
 </div>
-</div>
 
-</div>
 </div>
 </div>
 </div>
