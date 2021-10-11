@@ -36,8 +36,8 @@ def create(request):
         if form.is_valid():
             post = form.save(commit=False)
             post.author = request.user
-            # if request.FILES:
-            #     post.filename = request.FILES['upload_files'].name
+            if request.FILES:
+                post.filename = request.FILES['upload_files'].name
             post.save()
             return redirect('seminar:index')
         else:
