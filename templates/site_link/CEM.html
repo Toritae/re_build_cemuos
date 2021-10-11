@@ -1,0 +1,88 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SITE LINK</h2>
+    <ul>
+        <li><a href="{% url 'site_link:index' %}">대학 CEM 연구실</a></li>
+        <li><a href="{% url 'site_link:public' %}">공공연구소</a></li>
+        <li><a href="{% url 'site_link:gov' %}">정부기관</a></li>
+        <li><a href="{% url 'site_link:insitute' %}">학회 및 협회</a></li>
+        <li><a href="{% url 'site_link:oversea' %}">해외건설관련</a></li>
+        <li><a href="{% url 'site_link:other' %}">기타</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 대학 CEM 연구실</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>대학 CEM 연구실</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<table width="665" border="0" align="center" cellpadding="0" cellspacing="0"><tbody><tr><td><div align="left"><img src="{% static 'img/site_link/sitelink_1_.png' %}" width="100%" height="776" border="0" usemap="#Map">
+<map name="Map">
+<area shape="rect" coords="55,76,226,93" href="http://www.gradinfo.ce.gatech.edu" target="_blank">
+<area shape="rect" coords="360,77,567,93" href="http://web.mit.edu" target="_blank">
+<area shape="rect" coords="55,116,217,131" href="http://www.psu.edu" target="_blank">
+<area shape="rect" coords="360,117,459,131" href="http://www.purdue.edu" target="_blank">
+<area shape="rect" coords="55,156,138,169" href="http://www.rice.edu" target="_blank">
+<area shape="rect" coords="360,155,463,170" href="http://cee.stanford.edu" target="_blank">
+<area shape="rect" coords="55,196,177,209" href="http://tamu.edu/" target="_blank">
+<area shape="rect" coords="360,196,553,210" href="http://ce.berkeley.edu/epm/" target="_blank">
+<area shape="rect" coords="55,236,247,251" href="http://ce.berkeley.edu" target="_blank">
+<area shape="rect" coords="360,235,541,251" href="http://colorado.edu" target="_blank">
+<area shape="rect" coords="55,275,284,290" href="http://uiuc.edu" target="_blank">
+<area shape="rect" coords="360,275,543,289" href="http://engin.umich.edu/cem/cem" target="_blank">
+<area shape="rect" coords="55,316,212,331" href="http://ce.utexas.edu" target="_blank">
+<area shape="rect" coords="360,316,549,330" href="http://ce.washington.edu" target="_blank">
+<area shape="rect" coords="55,356,245,372" href="http://engr.wisc.edu/cee/cem" target="_blank">
+<area shape="rect" coords="360,356,535,372" href="http://cm.gsnu.ac.kr" target="_blank">
+<area shape="rect" coords="55,395,198,410" href="http://kcem.khu.ac.kr" target="_blank">
+<area shape="rect" coords="360,394,501,411" href="http://explore.kwangwoon.ac.kr/~cm21c" target="_blank">
+<area shape="rect" coords="55,435,197,451" href="http://www.dkucem.info" target="_blank">
+<area shape="rect" coords="360,435,457,450" href="http://cem.dongguk.ac.kr" target="_blank">
+<area shape="rect" coords="55,474,195,492" href="http://lcm.donga.ac.kr" target="_blank">
+<area shape="rect" coords="360,475,500,492" href="http://cicms.org" target="_blank">
+<area shape="rect" coords="57,514,196,532" href="http://cem.snu.ac.kr" target="_blank">
+<area shape="rect" coords="360,514,512,532" href="http://ecm.skku.ac.kr" target="_blank">
+<area shape="rect" coords="55,554,195,572" href="http://cem.ajou.ac.kr" target="_blank">
+<area shape="rect" coords="360,553,537,571" href="http://cem.yonsei.ac.kr" target="_blank">
+<area shape="rect" coords="55,594,229,611" href="http://cmi.yonsei.ac.kr" target="_blank">
+<area shape="rect" coords="360,595,473,610" href="http://suscom.yonsei.ac.kr/korean/portal.php" target="_blank">
+<area shape="rect" coords="55,636,197,652" href="http://dept.incheon.ac.kr/~uicem/main.htm" target="_blank">
+<area shape="rect" coords="360,635,502,653" href="http://cm.inha.ac.kr" target="_blank">
+<area shape="rect" coords="55,675,218,692" href="http://cmit.cau.ac.kr" target="_blank">
+<area shape="rect" coords="360,674,502,691" href="http://contil.org" target="_blank">
+<area shape="rect" coords="55,715,197,732" href="http://cmcic.hanyang.ac.kr" target="_blank">
+</map></div></td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SCEM</h2>
+    <ul>
+        <li><a href="{% url 'scem:index' %}">인사말</a></li>
+        <li><a href="{% url 'scem:bylaws' %}">연구실내규</a></li>
+        <li><a href="{% url 'scem:come' %}">오시는길</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SCEM &gt; 연구실내규</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>연구실내규</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<div class="de21">
+    <div class="row">
+       
+        <div class="col-md-12">
+<p><img src="{% static 'img/scem/1-2.png' %}"></p>
+</div>
+        
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}

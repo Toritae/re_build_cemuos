@@ -1,0 +1,941 @@
+@charset 'utf-8';
+
+/*****************************************************************
+   deletion of the current branch prohibited
+   powered by nnin ( http://www.nnin.com )
+*****************************************************************/
+
+
+
+
+
+/*****************************************************************
+******************************************************************
+******************************************************************
+ - 공통설정
+ - 메인페이지 : 각 모듈의 타이틀(h3제목, p설명)
+******************************************************************
+******************************************************************
+*****************************************************************/
+
+.nm_tit {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    margin: 10px 10px 30px;
+/*    border: 1px solid #ddd;*/
+}
+.nm_tit > h3 {
+    background-color: transparent;
+    border-radius: 3px;
+    padding: 5px;
+/*    font-family: 'Nanum Myeongjo', serif;*/
+    letter-spacing: -0.2px;
+    font-size: 1.750em;
+    font-weight: 500;
+    color: #555;
+    
+}
+.nm_tit > p {
+    display: inline-block;
+    max-width: 800px;
+    padding: 5px;
+    font-weight: 300;
+    font-size: 1.0em;
+    color: #555;
+}
+
+@media screen and (max-width: 991px) {
+    .nm_tit > h3 {
+        font-size: 1.5em;
+    }
+    .nm_tit > p {
+        font-size: 1.0em;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************
+******************************************************************
+******************************************************************
+ - 개별설정
+ - 메인페이지 : 각 모듈의 타이틀(h3제목, span설명), 상하여백, 배경이미지 
+******************************************************************
+******************************************************************
+*****************************************************************/
+
+
+/*****************************************************************
+ms01 : 슬라이드
+*****************************************************************/
+.ms01 {
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms04 : 추출게시물
+*****************************************************************/
+/* 제목, 설명 */
+.ms04 > .nm_tit > h3 {
+    
+}
+.ms04 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms04 {
+    margin: 0px 0;
+    padding: 70px 0 40px;
+}
+
+
+
+/*****************************************************************
+ms05 : 추출게시물, 고객센터
+*****************************************************************/
+/* 제목, 설명 */
+.ms05 > .nm_tit > h3 {
+    
+}
+.ms05 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms05 {
+    margin: 0px 0 0px;
+    padding: 50px 0 40px;
+}
+
+
+
+/*****************************************************************
+ms06 : 추출갤러리
+*****************************************************************/
+/* 제목, 설명 */
+.ms06 > .nm_tit > h3 {
+}
+.ms06 > .nm_tit > p {
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms06 {
+    margin: 0px 0 0px;
+    padding: 40px 0 40px;
+    background-color: #eee;
+}
+
+
+
+/*****************************************************************
+ms07 : 1단이미지
+*****************************************************************/
+/* 제목, 설명 */
+.ms07 > .nm_tit > h3 {
+    
+}
+.ms07 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms07 {
+    position: relative;
+    margin: 0px 0;
+    padding: 0px 0 0px;
+    background-color: #fff;
+    background-image: url(../../img/_des/de01/de01_img04.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.ms07:before {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 100%;
+}
+.ms07:hover:before {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+
+
+/*****************************************************************
+ms08 : 3단형
+*****************************************************************/
+/* 제목, 설명 */
+.ms08 > .nm_tit > h3 {
+    
+}
+.ms08 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms08 {
+    position: relative;
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+    background-image: url(../../img/_des/de02/de02_img02.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.ms08:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*****************************************************************
+ms09 : 제휴사
+*****************************************************************/
+/* 제목, 설명 */
+.ms09 > .nm_tit > h3 {
+    
+}
+.ms09 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms09 {
+    position: relative;
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+/*    background-image: url(../../img/_des/de02/de02_img02.jpg);*/
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.ms09:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+/*    background-color: rgba(215, 217, 210, 0.0);*/
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/*****************************************************************
+ms10 : 예약문의(메인폼메일)
+*****************************************************************/
+/* 제목, 설명 */
+.ms10 > .nm_tit > h3 {
+/*    font-family: 'Playfair Display', serif;*/
+    font-weight: 900;
+    color: #fff;
+}
+.ms10 > .nm_tit > p {
+    color: #fff;
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms10 {
+    position: relative;
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+    background-image: url(../../img/_des/de01/de01_img03.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: repeat;
+    background-attachment: fixed;
+}
+.ms10:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(70, 78, 6, 0.56);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/*****************************************************************
+ms11 : RECRUIT : 채용안내
+*****************************************************************/
+/* 제목, 설명 */
+.ms11 > .nm_tit > h3 {
+    
+}
+.ms11 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms11 {
+    margin: 0px 0;
+    padding: 50px 0;
+}
+
+
+
+
+/*****************************************************************
+ms12 : 3단아이콘
+*****************************************************************/
+/* 제목, 설명 */
+.ms12 > .nm_tit > h3 {
+    
+}
+.ms12 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms12 {
+    position: relative;
+    margin: 0px 0;
+    padding: 60px 0;
+    background-color: #fff;
+/*    background-image: url(../../img/_des/de01/de01_img01.jpg);*/
+    background-position: center center;
+    background-repeat: repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.ms12:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*****************************************************************
+ms13 : 좌우6단
+*****************************************************************/
+/* 제목, 설명 */
+.ms13 > .nm_tit > h3 {
+    
+}
+.ms13 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms13 {
+    margin: 0px 0;
+    padding: 60px 0 60px;
+    background-color: #f4f4f4;
+}
+
+
+
+/*****************************************************************
+ms14 : 아코디언(고객센터)
+*****************************************************************/
+/* 제목, 설명 */
+.ms14 > .nm_tit > h3 {
+    
+}
+.ms14 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms14 {
+    margin: 0px 0;
+    padding: 50px 0;
+}
+
+
+
+/*****************************************************************
+ms15 : 불규칙블록
+*****************************************************************/
+/* 제목, 설명 */
+.ms15 > .nm_tit > h3 {
+    
+}
+.ms15 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms15 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+/**/
+.ms15 .nFluid .de15 .con {
+    margin: 0 0 0px;
+    border: 1px solid #fff;
+}
+
+
+/*****************************************************************
+ms16 : 롤오버6단
+*****************************************************************/
+/* 제목, 설명 */
+.ms16 > .nm_tit > h3 {
+    
+}
+.ms16 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms16 {
+    position: relative;
+    margin: 0px 0 0px;
+    padding: 10px 0 50px;
+    background-color: #fff;
+/*    background-image: url(../../img/_des/de02/de02_img03.jpg);*/
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.ms16:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.0);
+    width: 100%;
+    height: 100%;
+}
+
+/**/
+.ms16 .container-fluid.nFluid .de16 .row > div {
+    margin: 0 0 0px;
+}
+
+
+/*****************************************************************
+ms17 : 롤오버4단
+*****************************************************************/
+/* 제목, 설명 */
+.ms17 > .nm_tit > h3 {
+    
+}
+.ms17 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms17 {
+    margin: 0px 0 0px;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms18 : 4단블럭
+*****************************************************************/
+/* 제목, 설명 */
+.ms18 > .nm_tit > h3 {
+    
+}
+.ms18 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms18 {
+    margin: 0px 0 0px;
+    padding: 40px 0 80px;
+    background-color: #eee;
+}
+
+
+
+/*****************************************************************
+ms19 : 1단형텍스트
+*****************************************************************/
+/* 제목, 설명 */
+.ms19 > .nm_tit > h3 {
+    
+}
+.ms19 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms19 {
+    position: relative;
+    margin: 0px 0;
+    padding: 0px 0 0px;
+    background-color: #fff;
+    background-image: url(../../img/_des/de01/de01_img03.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.ms19:before {
+    -webkit-transition: all 0.2s ease-out;
+    transition: all 0.2s ease-out;
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(9, 15, 29, 0.7);
+    width: 100%;
+    height: 100%;
+}
+.ms19:hover:before {
+    background-color: rgba(9, 15, 29, 0.8);
+}
+
+
+
+/*****************************************************************
+ms20 : 인사말
+*****************************************************************/
+/* 제목, 설명 */
+.ms20 > .nm_tit > h3 {
+    
+}
+.ms20 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms20 {
+    margin: 0px 0;
+    padding: 100px 0 80px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms21 : 회사소개
+*****************************************************************/
+/* 제목, 설명 */
+.ms21 > .nm_tit > h3 {
+    
+}
+.ms21 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms21 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms22 : 회사연역
+*****************************************************************/
+/* 제목, 설명 */
+.ms22 > .nm_tit > h3 {
+    
+}
+.ms22 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms22 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms23 : 동영상
+*****************************************************************/
+/* 제목, 설명 */
+.ms23 > .nm_tit > h3 {
+    
+}
+.ms23 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms23 {
+    position: relative;
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+    background-image: url(../../img/_des/de01/de01_img03.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.ms23:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(255, 255, 255, 0.6);
+    width: 100%;
+    height: 100%;
+}
+
+
+
+/*****************************************************************
+ms24 : CLICK HERE : 모달팝업
+*****************************************************************/
+/* 제목, 설명 */
+.ms24 > .nm_tit > h3 {
+    
+}
+.ms24 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms24 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+}
+
+
+
+
+/*****************************************************************
+ms25 : 사이트맵
+*****************************************************************/
+/* 제목, 설명 */
+.ms25 > .nm_tit > h3 {
+    
+}
+.ms25 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms25 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms26 : 사업분야1
+*****************************************************************/
+/* 제목, 설명 */
+.ms26 > .nm_tit > h3 {
+    
+}
+.ms26 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms26 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms27 : 사업분야2
+*****************************************************************/
+/* 제목, 설명 */
+.ms27 > .nm_tit > h3 {
+    
+}
+.ms27 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms27 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms28 : 시설안내 : 탭기능
+*****************************************************************/
+/* 제목, 설명 */
+.ms28 > .nm_tit > h3 {
+    
+}
+.ms28 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms28 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms29 : 조직도
+*****************************************************************/
+/* 제목, 설명 */
+.ms29 > .nm_tit > h3 {
+    
+}
+.ms29 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms29 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms30 : 구글지도
+*****************************************************************/
+/* 제목, 설명 */
+.ms30 > .nm_tit > h3 {
+    
+}
+.ms30 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms30 {
+    margin: 0px 0;
+    padding: 0px 0 0;
+    background-color: #fff;
+}
+
+/**/
+.ms30 .de30 .map_google iframe {
+    height: 450px;/**/
+}
+.ms30 .de30 .n_map_text {
+    display: block;/* none,block */
+}
+
+
+
+/*****************************************************************
+ms31 : 아이콘모음
+*****************************************************************/
+/* 제목, 설명 */
+.ms31 > .nm_tit > h3 {
+    
+}
+.ms31 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms31 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+/*****************************************************************
+ms32 : 텍스트바
+*****************************************************************/
+/* 제목, 설명 */
+.ms32 > .nm_tit > h3 {
+    
+}
+.ms32 > .nm_tit > p {
+    
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.ms32 {
+    margin: 0px 0;
+    padding: 20px 0 20px;
+    background-color: #fff;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*****************************************************************
+msGrid01 : 혼합형
+*****************************************************************/
+.msGrid01 {
+    margin: 0px 0 20px;
+    background-color: #fff;
+}
+
+.msGrid01 .de01 .carousel-inner .item {
+    height: 700px;
+}
+
+.msGrid01 .de19 .section {
+    width: 100.5%;
+    height: 700px;
+}
+
+.msGrid01 .de18 ul {
+    height: 700px;
+}
+.msGrid01 .de18 ul li {
+    width: 100%;
+    height: 25%;
+    border: none;
+}
+
+@media screen and (max-width: 991px) {
+    .msGrid01 .de01 .carousel-inner .item {
+        height: 500px;
+    }
+    
+    .msGrid01 .de19 .section {
+        height: 300px;
+    }
+    
+    .msGrid01 .de18 ul {
+        height: 300px;
+    }
+    .msGrid01 .de18 ul li {
+        width: 50%;
+        height: 50%;
+    }
+    
+}
+
+@media screen and (max-width: 768px) {
+    .msGrid01 .de19 .section {
+        width: 100%;
+    }
+    
+}
+
+
+
+
+
+
+/*****************************************************************
+msGrid02 : 혼합형(지도 + 폼메일or아코디언)
+*****************************************************************/
+/* 제목, 설명 */
+.msGrid02 > .nm_tit > h3 {
+    color: #ccc;
+}
+.msGrid02 > .nm_tit > p {
+    color: #aaa;
+}
+
+/* 상하단 여백, 배경컬러 or 배경이미지 */
+.msGrid02 {
+    position: relative;
+    margin: 0px 0;
+    padding: 50px 0 70px;
+    background-color: #222;
+    background-image: url(../../img/_des/de01/de01_img03.jpg);
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+.msGrid02:before {
+    position: absolute;
+    content: '';
+    top: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    width: 100%;
+    height: 100%;
+}
+.msGrid02 > .container,
+.msGrid02 > .container-fluid {
+    position: relative;
+}
+
+/**/
+.msGrid02 .de30 .map_google iframe {
+    width: 100%;
+    height: 490px;
+}
+
+/**/
+.msGrid02 .de10 .np_form > table > tbody > tr > td > table > tbody > tr:first-child {
+    border-top: 1px solid transparent;
+}
+
+/**/
+@media screen and (max-width: 991px) {
+    /**/
+    .msGrid02 .de10 {
+        margin: 30px 0 0;
+    }
+    
+    /**/
+    .msGrid02 .de14 {
+        margin: 30px 0 0;
+    }
+}
+

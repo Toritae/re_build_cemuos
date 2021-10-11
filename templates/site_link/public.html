@@ -1,0 +1,81 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>SITE LINK</h2>
+    <ul>
+        <li><a href="{% url 'site_link:index' %}">대학 CEM 연구실</a></li>
+        <li><a href="{% url 'site_link:public' %}">공공연구소</a></li>
+        <li><a href="{% url 'site_link:gov' %}">정부기관</a></li>
+        <li><a href="{% url 'site_link:insitute' %}">학회 및 협회</a></li>
+        <li><a href="{% url 'site_link:oversea' %}">해외건설관련</a></li>
+        <li><a href="{% url 'site_link:other' %}">기타</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://www.naver.com">NAVER</option>
+        <option value="http://www.daum.net">DAUM</option>
+        <option value="http://map.naver.com/">네이버 지도</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 공공연구소</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>공공연구소</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<div align="left"><img src="{% static 'img/site_link/sitelink_2_.png' %}" width="665" height="611" border="0" usemap="#Map">
+<map name="Map">
+    <area shape="rect" coords="55,76,150,92" href="http://www.primavera.co.kr" target="_blank">
+    <area shape="rect" coords="56,395,160,412" href="http://www.kict.re.kr/kict.asp" target="_blank">
+    <area shape="rect" coords="56,356,117,371" href="http://www.kab.co.kr" target="_blank">
+    <area shape="rect" coords="360,316,443,330" href="http://www.khi.re.kr/korean/home_kr.php" target="_blank">
+    <area shape="rect" coords="360,275,421,290" href="http://www.kiet.re.kr/index.jsp" target="_blank">
+    <area shape="rect" coords="56,316,136,331" href="http://www.ips.or.kr" target="_blank">
+    <area shape="rect" coords="56,275,138,290" href="http://www.ktl.re.kr" target="_blank">
+    <area shape="rect" coords="360,195,443,211" href="http://www.jajae.co.kr" target="_blank">
+    <area shape="rect" coords="360,235,421,250" href="http://www.krihs.re.kr" target="_blank">
+    <area shape="rect" coords="56,235,137,250" href="http://www.iso.org/iso/en/ISOOnline.frontpage" target="_blank">
+    <area shape="rect" coords="56,195,149,211" href="http://www.cric.or.kr" target="_blank">
+    <area shape="rect" coords="56,155,138,172" href="http://www.kicte.or.kr" target="_blank">
+    <area shape="rect" coords="360,155,454,171" href="http://www.kict.re.kr/tech" target="_blank">
+    <area shape="rect" coords="360,114,431,130" href="http://www.kcfc.co.kr/web/index.jsp" target="_blank">
+    <area shape="rect" coords="56,115,138,131" href="http://www.csr.co.kr/" target="_blank">
+    <area shape="rect" coords="360,354,468,372" href="http://www.kdi.re.kr" target="_blank">
+    <area shape="rect" coords="360,76,461,92" href="http://www.calspia.re.kr" target="_blank">
+    <area shape="rect" coords="360,394,463,411" href="http://www.cerik.re.kr" target="_blank">
+    <area shape="rect" coords="55,434,181,451" href="http://kqici.re.kr" target="_blank">
+    <area shape="rect" coords="360,435,442,450" href="http://www.koti.re.kr" target="_blank">
+    <area shape="rect" coords="55,475,157,491" href="http://www.cmcost.or.kr" target="_blank">
+    <area shape="rect" coords="360,474,475,492" href="http://www.kier.re.kr/main01.html" target="_blank">
+    <area shape="rect" coords="55,514,159,531" href="http://www.kigam.re.kr" target="_blank">
+    <area shape="rect" coords="360,514,474,531" href="http://www.kriss.re.kr" target="_blank">
+    <area shape="rect" coords="55,555,180,572" href="http://www.kei.re.kr" target="_blank">
+</map>
+</div></td></tr>
+</tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
