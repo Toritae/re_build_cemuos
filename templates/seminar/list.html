@@ -125,7 +125,7 @@
         {% comment %} {% if request.user.level == '0' or request.user.level == '1' %} {% endcomment %}
         <div>
             <div>
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'seminar:create' %}'">글쓰기</button>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'seminar:write' %}'">글쓰기</button>
                 {% comment %} <a href="{% url 'notice:notice_write' %}" id="write_btn" class="btn btn-sm">글쓰기</a> {% endcomment %}
             </div>
         </div>
