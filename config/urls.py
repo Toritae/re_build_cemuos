@@ -36,7 +36,7 @@ urlpatterns = [
     path('member_board_alum_MA/',include('member_board_alum_MA.urls')),
     path('member_board_alum_Phd/',include('member_board_alum_Phd.urls')),
     path('member_board_alum_MA_city/',include('member_board_alum_MA_city.urls')),
-    path('member_board_alum_special/',include('member_board_alum_special.urls')),
+    # path('member_board_alum_special/',include('member_board_alum_special.urls')),
     # path('ref_room/',include('reference_board.urls')),
     # path('photo/',include('photo.urls')),
     # path('seminar/',include('seminar.urls')),
