@@ -26,7 +26,7 @@ def index(request):
     page_obj = paginator.get_page(page)
 
     context = {'data_list': page_obj, 'page': page}  # <------ so 추가
-    return render(request, 'pj_board/board_list.html', context)
+    return render(request, 'photo/board_list.html', context)
 
 @login_required(login_url='common:login')
 def create(request):
@@ -38,13 +38,13 @@ def create(request):
             # if request.FILES:
             #     post.filename = request.FILES['photo'].name
             post.save()
-            return redirect('pj_board:index')
+            return redirect('photo:index')
         else:
             messages.error(request, 'Error!')
-            return render(request,'pj_board/test.html',{'form':form})
+            return render(request,'photo/test.html',{'form':form})
     else:
         form = PostForm()
-    return render(request, 'pj_board/create.html', {'form':form})
+    return render(request, 'photo/create.html', {'form':form})
 
 def detail(request, pk):
     notice = get_object_or_404(photo_post, pk=pk)
@@ -53,7 +53,7 @@ def detail(request, pk):
         'notice': notice,
     }
 
-    return render(request, 'pj_board/detail.html', context)
+    return render(request, 'photo/detail.html', context)
 
 @login_required(login_url='common:login')
 def update(request,pk):
@@ -63,11 +63,11 @@ def update(request,pk):
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
-            return redirect('pj_board:detail', pk=question.id)
+            return redirect('photo:detail', pk=question.id)
     else:
         form = PostForm(instance=question)
     context = {'form': form, 'edit':'수정하기'}
-    return render(request, 'pj_board/create.html', context)
+    return render(request, 'photo/create.html', context)
 
 def notice_edit_view(request, pk):
     notice = photo_post.objects.get(id=pk)
@@ -92,7 +92,7 @@ def notice_edit_view(request, pk):
                 #------------------------------------#
                 # form.save()
                 messages.success(request, "수정되었습니다.")
-                return redirect('/pj_board/'+str(pk))
+                return redirect('/photo/'+str(pk))
     else:
         notice = photo_post.objects.get(id=pk)
         if notice.writer == request.user:
@@ -118,4 +118,4 @@ def delete(request, pk):
     if request.user.username == 'cemuos' or request.user.username == 'admin':
         notice.delete()
         messages.success(request, "삭제되었습니다.")
-        return redirect('pj_board:index')
+        return redirect('photo:index')
