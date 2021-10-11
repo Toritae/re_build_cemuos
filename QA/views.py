@@ -24,8 +24,8 @@ from django.contrib.auth.decorators import login_required
 class AllListView(ListView):
     model = QA
     paginate_by = 15
-    template_name = 'free/free_list.html'  #DEFAULT : <app_label>/<model_name>_list.html
-    context_object_name = 'free_list'        #DEFAULT : <app_label>_list
+    template_name = 'QA/free_list.html'  #DEFAULT : <app_label>/<model_name>_list.html
+    context_object_name = 'QA_list'        #DEFAULT : <app_label>_list
 
     def get_queryset(self):
         free_list = QA.objects.order_by('-id') 

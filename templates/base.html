@@ -132,10 +132,10 @@ powered by nnin ( http://www.nnin.com )
         <div class="submenu">
             <a href="{% url 'notice:notice_list' %}">공지사항</a>
             <a href="{% url 'free:all_list' %}">자유게시판</a>
-            <a href="/default/mp5/mp5_sub6.php?sub=03">포토갤러리</a>
-            <a href="/default/mp5/mp5_sub3.php?sub=04">세미나</a>
-            <a href="/ref_board/">자료실</a>
-            <a href="/default/mp5/mp5_sub7.php?sub=06">Q&amp;A</a>
+            <a href="{% url 'photo:index' %}">포토갤러리</a>
+            <a href="{% url 'seminar:index' %}">세미나</a>
+            <a href="{% url 'ref_room:index' %}">자료실</a>
+            <a href="{% url 'QA:all_list' %}">Q&amp;A</a>
         </div>
     </li>
 
