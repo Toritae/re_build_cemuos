@@ -20,7 +20,7 @@ class member_post_MA(models.Model):
     content = models.TextField(blank=True)
     email = models.TextField(blank=True)
     create_date = models.DateTimeField(blank=True, default=timezone.now)
-    photo = models.ImageField(upload_to = 'media/member_board_MA',blank = True, null=True)
+    photo = models.ImageField(upload_to = 'media/member_board_MA')
 
     def __str__(self):
         return self.title

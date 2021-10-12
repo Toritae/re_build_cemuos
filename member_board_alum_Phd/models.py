@@ -20,7 +20,7 @@ class member_post_alum_Phd(models.Model):
     content = models.TextField(blank=True)
     email = models.TextField(blank=True)
     create_date = models.DateTimeField(blank=True, default=timezone.now)
-    photo = models.ImageField(upload_to = get_file_path,blank = True, null=True)
+    photo = models.ImageField(upload_to = get_file_path)
 
     def __str__(self):
         return self.title
