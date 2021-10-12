@@ -60,8 +60,8 @@ def free_detail_view(request, pk):
     free = get_object_or_404(QA, pk=pk)
     comment = Answer.objects.filter(board_id=pk).order_by('created_at')
     # comment_count = comment.count()
-    comment_count = comment.exclude(deleted=True).count()
-    reply = comment.exclude(reply='0')
+    # comment_count = comment.exclude(deleted=True).count()
+    # reply = comment.exclude(reply='0')
 
     if request.user == free.writer:
         free_auth = True
@@ -72,8 +72,8 @@ def free_detail_view(request, pk):
         'free': free,
         'free_auth': free_auth,
         'comments': comment,
-        'comment_count': comment_count,
-        'replys': reply,
+        # 'comment_count': comment_count,
+        # 'replys': reply,
     }
     response = render(request, 'QA/free_detail.html', context)
     free.hits += 1
