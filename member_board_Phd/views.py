@@ -61,6 +61,8 @@ def update(request,pk):
     if request.method == "POST":
         form = PostForm(request.POST, instance=question)
         if form.is_valid():
+            if 'photo' not in request.FILES.keys():
+                return redirect('member_board_Phd:update',pk)
             question = form.save(commit=False)
             question.save()
             return redirect('member_board_Phd:detail', pk=question.id)
