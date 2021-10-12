@@ -27,7 +27,7 @@ class Q_A(models.Model):
     def delete(self, *args, **kargs):
         if self.upload_files:
             os.remove(os.path.join(settings.MEDIA_ROOT, self.upload_files.path))
-        super(QA, self).delete(*args, **kargs)
+        super(Q_A, self).delete(*args, **kargs)
 
     @property
     def created_string(self):
@@ -61,7 +61,7 @@ class Q_A_Answer(models.Model):
     created_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)  # auto_now_add : '객체를 하나 생성할 때만 시간을 담겠다' 라는 의미
     updated_at = models.DateTimeField(auto_now=True,blank=True,null=True)  # auto_now : 지금 작업을 할 때
     # 일(게시판) 대 다(댓글들) 관계 이기 때문에 foreign key 설정을 해줘야한다.
-    board = models.ForeignKey(QA, on_delete=models.CASCADE,blank=True)
+    board = models.ForeignKey(Q_A, on_delete=models.CASCADE,blank=True)
 
     class Meta:
         db_table = 'Q_A_Answer'
