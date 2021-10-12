@@ -72,7 +72,7 @@ def update(request,pk):
     return render(request, 'reference_board/write.html', context)
 
 def notice_edit_view(request, pk):
-    notice = DataRoom.objects.get(id=pk)
+    notice = DataRoom.objects.get(pk=pk)
 
     if request.method == "POST":
         if(request.user.username == 'admin' or request.user.username == 'cemuos'):
@@ -95,8 +95,11 @@ def notice_edit_view(request, pk):
                 # form.save()
                 messages.success(request, "수정되었습니다.")
                 return redirect('/ref_room/'+str(pk))
+            else:
+                messages.error(request, 'Error!')
+                return render(request,'seminar/test.html',{'form':form})
     else:
-        notice = DataRoom.objects.get(id=pk)
+        notice = DataRoom.objects.get(pk=pk)
         if notice.writer == request.user:
             form = ReferenceForm(instance=notice)
             # test---------------------------------------------------------#
