@@ -97,7 +97,7 @@ def notice_edit_view(request, pk):
                 return redirect('/ref_room/'+str(pk))
             else:
                 messages.error(request, 'Error!')
-                return render(request,'seminar/test.html',{'form':form})
+                return render(request,'reference_board/test.html',{'form':form})
     else:
         notice = DataRoom.objects.get(pk=pk)
         if notice.writer == request.user:
