@@ -12,6 +12,7 @@ from .models import DataRoom
 from django.contrib.auth.decorators import login_required
 import os
 from django.conf import settings
+
 def index(request):
     
     data_list = DataRoom.objects.all().order_by('-id')
@@ -39,7 +40,7 @@ def create(request):
             if request.FILES:
                 post.filename = request.FILES['upload_files'].name
             post.save()
-            return redirect('reference_board:index')
+            return redirect('ref_room:index')
         else:
             messages.error(request, 'Error!')
             return render(request,'reference_board/test.html',{'form':form})
@@ -93,7 +94,7 @@ def notice_edit_view(request, pk):
                 #------------------------------------#
                 # form.save()
                 messages.success(request, "수정되었습니다.")
-                return redirect('/ref_room/'+str(pk))
+                return redirect('/seminar/'+str(pk))
     else:
         notice = DataRoom.objects.get(id=pk)
         if notice.writer == request.user:
@@ -107,7 +108,7 @@ def notice_edit_view(request, pk):
                 context['filename'] = notice.filename
                 context['file_url'] = notice.upload_files.url
             #--------------------------------------------------------------#
-            return render(request, "reference_room/write.html", context)
+            return render(request, "reference_board/write.html", context)
         else:
             messages.error(request, "본인 게시글이 아닙니다.")
             return redirect('/ref_room/'+str(pk))
