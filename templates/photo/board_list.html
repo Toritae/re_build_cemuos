@@ -125,12 +125,15 @@
             </div>
         </form>
         {% comment %} {% if request.user.level == '0' or request.user.level == '1' %} {% endcomment %}
+        {% if user.username == 'admin' or user.username == 'cemuos' %}
         <div>
             <div>
                 <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'photo:create' %}'">글쓰기</button>
                 {% comment %} <a href="{% url 'notice:notice_write' %}" id="write_btn" class="btn btn-sm">글쓰기</a> {% endcomment %}
             </div>
-        </div><ul class="pagination justify-content-center">
+        </div>
+        {% endif %}
+        <ul class="pagination justify-content-center">
 <!-- 이전페이지 -->
         {% if data_list.has_previous %}
         <li class="page-item">

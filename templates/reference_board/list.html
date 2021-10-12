@@ -123,23 +123,25 @@
             </div>
         </form>
         {% comment %} {% if request.user.level == '0' or request.user.level == '1' %} {% endcomment %}
+        {% if user.username == 'admin' or user.username == 'cemuos' %}
         <div>
             <div>
                 <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'ref_room:write' %}'">글쓰기</button>
                 {% comment %} <a href="{% url 'notice:notice_write' %}" id="write_btn" class="btn btn-sm">글쓰기</a> {% endcomment %}
             </div>
         </div>
+        {% endif %}
         <br>
         {% comment %} {% else %}
         <br><br><br>
         {% endif %} {% endcomment %}
         <div class="col-md-offset-6">
-            {% if is_paginated %}
+            {% comment %} {% if is_paginated %} {% endcomment %}
             <!-- <ul class="pagination justify-content-center pagination-sm"> -->
             <ul class="pagination justify-content-center">
-                {% if page_obj.has_previous %}
+                {% if data_list.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ page_obj.previous_page_number }}"
+                    <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ data_list.previous_page_number }}"
                         tabindex="-1" style="font-size: 15px;">이전</a>
                 </li>
                 {% else %}
@@ -149,15 +151,15 @@
                 {% endif %}
 
                 {% for page in page_range %}
-                <li class="page-item {% if page == page_obj.number %} activate {% endif %}">
+                <li class="page-item {% if page == data_list.number %} activate {% endif %}">
                     <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ page }}" style="font-size: 15px;">{{ page }}</a>
                 </li>
                 {% endfor %}
 
-                {% if page_obj.has_next %}
+                {% if data_list.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                        href="?type={{ type }}&q={{ q }}&page={{ page_obj.next_page_number }}" style="font-size: 15px;">다음</a>
+                        href="?type={{ type }}&q={{ q }}&page={{ data_list.next_page_number }}" style="font-size: 15px;">다음</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">

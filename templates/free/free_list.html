@@ -75,11 +75,9 @@
             </tbody>
         </table>
     </div>
-            {% if user.username == 'admin' or user.username == 'cemuos' %}
             <div>
-                <a href="{% url 'free:free_write' %}" id="write_btn" class="btn btn-sm">글쓰기</a>
+                <a href="{% url 'free:free_write' %}" id="write_btn" class="btn btn-danger">글쓰기</a>
             </div>
-            {% endif %}
         </div>
         <br>
         <div class="col-md-offset-6">
