@@ -41,33 +41,30 @@
 </div>
 <!-- 모듈미사용 -->
 <div class="de_module">
-<table border="0" cellpadding="0">
-<table border="0" cellspacing="0" cellpadding="0" width="650" bgcolor="#FFFFFF" background="">
-    <tbody><tr valign="top">
-        {% if data_list %}
-        {% for data in data_list %}
-        <td valign="bottom" align="center" width="25%" class="boxArea">
-            <table border="0" cellpadding="0" cellspacing="0" width="100%">
-                <tbody><tr>
-                    <td valign="top" align="center" class="bbsnewf5" style="word-break:break-all;"><!-- overflow:auto; -->
-                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
-                            <tbody><tr class="nSize">
-                            <td valign="bottom" align="center">
-                            <a href="{% url 'photo:detail' data.id %}">
-                            <img alt="" src="{{data.photo.url}}" width="120" height="120" border="0"></a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td class="gallery_subject" style="text-align:center">
-                            <a href="{% url 'photo:detail' data.id %}"><span class="gallery_title">{{data.title}}</span>    </a><br>                                                                                                                                                </td>
-                        </tr>
-                        </tbody></table>
-                    </td>
-                </tr>
-            </tbody></table>
-        </td>
+<div class="container">
+    <div class="row">
+        {% for album in data_list %}
+
+        <div class="col">
+            <div class="card dpg-album-card">
+                <div class="card-image">
+                    <img src="{{ album.photo.url }}" alt="{{ album.title }}" class="dpg-album-card-image" />
+                </div>
+                <div class="card-content">
+                    <span class="card-title">{{ album.title }}</span>
+                </div>
+                <div class="card-action">
+                    <a href="{% url 'QA:detail' album.id %}">
+                        More Images
+                    </a>
+                </div>
+            </div>
+        </div>
+
         {% endfor %}
-        {% endif %}
+
+    </div>
+</div>
     {% if user.username == 'cemuos' or user.username == 'admin' %}
     <div>
         <div>

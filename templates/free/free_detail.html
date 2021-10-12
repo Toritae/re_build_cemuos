@@ -103,7 +103,7 @@
                                         {% else %}
                                         <span style="float:right; color:gray;">{{ comment.created_string }}</span>
                                         {% endif %}
-                                        {% if comment.writer == request.user or user.username == 'cemuos' or user.username == 'admin' or user.username == 'cemuos' or user.username == 'admin' %}
+                                        {% if comment.writer == request.user or user.username == 'cemuos' or user.username == 'admin' %}
                                         <div>
                                             <div style="white-space:pre-wrap; text-align:left;">{{ comment.content }}</div>
                                             <div style="text-align: right; margin:-20px 0px -10px 0;">
