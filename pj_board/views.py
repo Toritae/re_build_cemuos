@@ -33,10 +33,10 @@ def create(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            if 'photo' not in request.FILES.keys():
+                return redirect('pj_board:create')
             post = form.save(commit=False)
             post.author = request.user
-            # if request.FILES:
-            #     post.filename = request.FILES['photo'].name
             post.save()
             return redirect('pj_board:index')
         else:

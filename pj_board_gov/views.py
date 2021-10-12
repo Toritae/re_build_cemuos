@@ -33,12 +33,12 @@ def create(request):
     if request.method == "POST":
         form = PostForm(request.POST, request.FILES)
         if form.is_valid():
+            if 'photo' not in request.FILES.keys():
+                return redirect('pj_board_gov:create')
             post = form.save(commit=False)
             post.author = request.user
-            # if request.FILES:
-            #     post.filename = request.FILES['photo'].name
             post.save()
-            return redirect('pj_board:index')
+            return redirect('pj_board_gov:index')
         else:
             messages.error(request, 'Error!')
             return render(request,'pj_board_gov/test.html',{'form':form})
@@ -81,9 +81,6 @@ def notice_edit_view(request, pk):
         if form.is_valid():
             # test-------------------------------#
             notice = form.save(commit = False)
-            if request.FILES:
-                if 'photo' in request.FILES.keys():
-                    notice.photo = request.FILES['photo'].name
             notice.save()
             #------------------------------------#
             # form.save()
