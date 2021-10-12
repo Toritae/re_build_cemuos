@@ -20,7 +20,7 @@ class pj_post_gov(models.Model):
     content = models.TextField(blank=True)
     front_content = models.TextField(blank=True)
     create_date = models.DateTimeField(blank=True, default=timezone.now)
-    photo = models.ImageField(upload_to = get_file_path)
+    photo = models.ImageField(upload_to = get_file_path,blank = True, null=True)
 
     def __str__(self):
         return self.title
