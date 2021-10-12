@@ -22,7 +22,7 @@ urlpatterns = [
     path('download/<int:pk>', views.free_download_view, name="free_download"),
 
     path('<int:pk>/comment/write/', views.comment_create, name='comment_create'),
-    path('<int:pk>/comment/delete/', views.comment_delete, name='comment_delete'),
+    path('<int:pk>/<int:comment_id>/comment/delete/', views.comment_delete, name='comment_delete'),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, protected_file, document_root=settings.MEDIA_ROOT)
