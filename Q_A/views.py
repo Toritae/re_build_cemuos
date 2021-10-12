@@ -3,7 +3,7 @@ from django.shortcuts import render, get_object_or_404, redirect, resolve_url
 from django.utils.decorators import method_decorator
 from django.views.generic import View, ListView, DetailView, FormView, CreateView
 from .models import Q_A, Q_A_Answer
-from django.db.models import QA
+from django.db.models import Q
 from django.contrib import messages
 from django.urls import reverse
 from .forms import Q_AForm, Q_A_AnswerForm

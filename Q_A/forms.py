@@ -5,7 +5,7 @@ from django_summernote.widgets import SummernoteWidget
 
 class Q_AForm(forms.ModelForm):
     def __init__(self, *args, **kwargs):
-        super(QAForm, self).__init__(*args, **kwargs)
+        super(Q_AForm, self).__init__(*args, **kwargs)
         self.fields['title'].label = '제목'
         self.fields['title'].widget.attrs.update({
             'placeholder': '제목을 입력해주세요.',
