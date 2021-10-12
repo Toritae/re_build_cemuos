@@ -58,8 +58,8 @@ class Answer(models.Model):
     # create_date = models.DateTimeField(blank=True)
     # modify_date = models.DateTimeField(null=True, blank=True)
     content = models.TextField(blank=True)  # 댓글 내용
-    created_at = models.DateTimeField(auto_now_add=True,blank=True)  # auto_now_add : '객체를 하나 생성할 때만 시간을 담겠다' 라는 의미
-    updated_at = models.DateTimeField(auto_now=True,blank=True)  # auto_now : 지금 작업을 할 때
+    created_at = models.DateTimeField(auto_now_add=True,blank=True,null=True)  # auto_now_add : '객체를 하나 생성할 때만 시간을 담겠다' 라는 의미
+    updated_at = models.DateTimeField(auto_now=True,blank=True,null=True)  # auto_now : 지금 작업을 할 때
     # 일(게시판) 대 다(댓글들) 관계 이기 때문에 foreign key 설정을 해줘야한다.
     board = models.ForeignKey(QA, on_delete=models.CASCADE,blank=True)
 
