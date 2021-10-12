@@ -52,33 +52,16 @@ class QA(models.Model):
 
 
 class Answer(models.Model):
-    post = models.ForeignKey(QA, on_delete=models.CASCADE, verbose_name='게시글')
-    writer = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.SET_NULL, null=True, verbose_name='댓글작성자')
-    # writer = models.ForeignKey(settings.AUTH_USER_MODEL, null=True, on_delete=models.CASCADE, verbose_name='댓글작성자')
-    # writer = models.CharField(max_length=17, null=True, verbose_name='댓글작성자')
-    content = models.TextField(verbose_name='댓글내용')
-    created = models.DateTimeField(auto_now_add=True, verbose_name='작성일')
-    deleted = models.BooleanField(default=False, verbose_name='삭제여부')
-    reply = models.IntegerField(verbose_name='답글위치', default=0)
-    
-    def __str__(self):
-        return self.content
-
-    @property
-    def created_string(self):
-        time = datetime.now(tz=timezone.utc) - self.created
-
-        if time < timedelta(minutes=1):
-            return '방금 전'
-        elif time < timedelta(hours=1):
-            return str(int(time.seconds / 60)) + '분 전'
-        elif time < timedelta(days=1):
-            return str(int(time.seconds / 3600)) + '시간 전'
-        elif time < timedelta(days=7):
-            time = datetime.now(tz=timezone.utc).date() - self.created.date()
-            return str(time.days) + '일 전'
-        else:
-            return False 
+    # author =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE, related_name='author_answer',blank=True)
+    # question = models.ForeignKey(QA, on_delete=models.CASCADE,blank=True)
+    # content = models.TextField(blank=True)
+    # create_date = models.DateTimeField(blank=True)
+    # modify_date = models.DateTimeField(null=True, blank=True)
+    content = models.TextField(blank=True)  # 댓글 내용
+    created_at = models.DateTimeField(auto_now_add=True,blank=True)  # auto_now_add : '객체를 하나 생성할 때만 시간을 담겠다' 라는 의미
+    updated_at = models.DateTimeField(auto_now=True,blank=True)  # auto_now : 지금 작업을 할 때
+    # 일(게시판) 대 다(댓글들) 관계 이기 때문에 foreign key 설정을 해줘야한다.
+    board = models.ForeignKey(QA, on_delete=models.CASCADE,blank=True)
 
     class Meta:
         db_table = 'QA_Answer'

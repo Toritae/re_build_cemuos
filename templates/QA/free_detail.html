@@ -70,7 +70,7 @@
                         </div>
                     </div>
                     <br>
-                    {% if comments %}
+                    {% comment %} {% if comments %}
                     <div id="hide_more_button"><strong><a id=hide_button_count style="color:black;">&nbsp;댓글 접기 &middot;&nbsp;{{ comment_count }}개의 댓글<br></a></strong></div>
                     <div id="show_more_button" style="display:none;"><strong><a id=show_button_count style="color:black;">&nbsp;댓글 펼치기 &middot;&nbsp;{{ comment_count }}개의 댓글<br></a></strong></div>
                     {% else %}
@@ -210,11 +210,20 @@
                                     {% endif %}
                                 {% endif %}
                             {% endif %}
-                            {% endfor %}
-
-                        {% endif %}
-                        <input type="hidden" id="comment_writer" value={{request.user}}>
-                        <div id="comment_list"></div>
+                            {% endfor %} {% endcomment %}
+{% for comment in comments %}
+        <li>{{ comment.content }}</li>
+        <!--<form action="{# url 'boards:comment_delete' board_id=board.id comment_id=comment.id #}"></form> 같은 의미-->
+        <form action="{% url 'QA:comment_delete' free.id comment.id %}" method="post">
+            {% csrf_token %}
+        <input class="btn btn-outline-dark" type="submit" value="삭제">
+        </form>
+    {% empty %}
+        <p>아직 댓글이 없습니다 :(</p>
+    {% endfor %}
+                        {% comment %} {% endif %} {% endcomment %}
+                        {% comment %} <input type="hidden" id="comment_writer" value={{request.user}}>
+                        <div id="comment_list"></div> {% endcomment %}
                     </div>
                 </div>
             </div>

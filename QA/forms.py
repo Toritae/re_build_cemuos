@@ -1,6 +1,6 @@
 from django import forms
 from django.forms import widgets
-from .models import QA
+from .models import QA,Answer
 from django_summernote.widgets import SummernoteWidget
 
 class QAForm(forms.ModelForm):
@@ -20,4 +20,15 @@ class QAForm(forms.ModelForm):
         fields = ['title', 'content', 'upload_files']
         widgets = {
             'content' : SummernoteWidget(),
+        }
+    
+class AnswerForm(forms.ModelForm):
+    class Meta:
+        model = Answer
+        fields = ['content']
+        widgets = {
+            'content' : SummernoteWidget(),
+        }
+        labels = {
+            'content': '답변내용',
         }

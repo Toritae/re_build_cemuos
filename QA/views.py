@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404, redirect
+from django.shortcuts import render, get_object_or_404, redirect, resolve_url
 # from django.contrib.auth.decorators import login_required
 from django.utils.decorators import method_decorator
 from django.views.generic import View, ListView, DetailView, FormView, CreateView
@@ -6,7 +6,7 @@ from .models import QA, Answer
 from django.db.models import Q
 from django.contrib import messages
 from django.urls import reverse
-from .forms import QAForm
+from .forms import QAForm, AnswerForm
 import mimetypes
 from mimetypes import guess_type
 import os
@@ -19,6 +19,7 @@ import json
 from django.core import serializers
 from django.core.serializers.json import DjangoJSONEncoder
 from django.contrib.auth.decorators import login_required
+from django.utils import timezone
 
 # 자유게시판 모두보기
 class AllListView(ListView):
@@ -173,50 +174,124 @@ def free_download_view(request, pk):
         raise Http404
 
 
-# 게시글 댓글달기
-@login_required(login_url='common:login')
-def comment_write_view(request, pk):
-    post = get_object_or_404(QA, id=pk)
-    writer = request.POST.get('writer')
-    content = request.POST.get('content')
-    reply = request.POST.get('reply')
-    if content:
-        comment = Answer.objects.create(post=post, content=content, writer=request.user, reply=reply)
-        # comment_count = Comment.objects.filter(post=pk).count()
-        comment_count = Answer.objects.filter(post=pk).exclude(deleted=True).count()
-        post.comments = comment_count
-        post.save()
-        data = {
-            'writer': writer,
-            'content': content,
-            'created': '방금 전',
-            'comment_count': comment_count,
-            'comment_id': comment.id
-        }
-        if request.user == post.writer:
-            data['self_comment'] = '(글쓴이)'
+# # 게시글 댓글달기
+# @login_required(login_url='common:login')
+# def comment_write_view(request, pk):
+#     post = get_object_or_404(QA, id=pk)
+#     writer = request.POST.get('writer')
+#     content = request.POST.get('content')
+#     reply = request.POST.get('reply')
+#     if content:
+#         comment = Answer.objects.create(post=post, content=content, writer=request.user, reply=reply)
+#         # comment_count = Comment.objects.filter(post=pk).count()
+#         comment_count = Answer.objects.filter(post=pk).exclude(deleted=True).count()
+#         post.comments = comment_count
+#         post.save()
+#         data = {
+#             'writer': writer,
+#             'content': content,
+#             'created': '방금 전',
+#             'comment_count': comment_count,
+#             'comment_id': comment.id
+#         }
+#         if request.user == post.writer:
+#             data['self_comment'] = '(글쓴이)'
         
-        return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type = "application/json")
+#         return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type = "application/json")
 
 
-# 게시글 댓글 삭제
-@login_required(login_url='common:login')
-def comment_delete_view(request, pk):
-    post = get_object_or_404(QA, id=pk)
-    comment_id = request.POST.get('comment_id')
-    target_comment = Answer.objects.get(pk = comment_id)
+# # 게시글 댓글 삭제
+# @login_required(login_url='common:login')
+# def comment_delete_view(request, pk):
+#     post = get_object_or_404(QA, id=pk)
+#     comment_id = request.POST.get('comment_id')
+#     target_comment = Answer.objects.get(pk = comment_id)
 
-    if request.user.username == target_comment.writer or request.user.username == 'cmeuos' or request.user.username == 'admin':
-        # target_comment.delete()
-        # target_comment.content = ('삭제된 댓글입니다.')
-        target_comment.deleted = True
-        target_comment.save()
-        # comment_count = Comment.objects.filter(post=pk).count()
-        comment_count = Answer.objects.filter(post=pk).exclude(deleted=True).count()
-        post.comments = comment_count
-        post.save()
-        data = {
-            'comment_id': comment_id,
-            'comment_count': comment_count,
-        }
-        return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type = "application/json")
+#     if request.user.username == target_comment.writer or request.user.username == 'cmeuos' or request.user.username == 'admin':
+#         # target_comment.delete()
+#         # target_comment.content = ('삭제된 댓글입니다.')
+#         target_comment.deleted = True
+#         target_comment.save()
+#         # comment_count = Comment.objects.filter(post=pk).count()
+#         comment_count = Answer.objects.filter(post=pk).exclude(deleted=True).count()
+#         post.comments = comment_count
+#         post.save()
+#         data = {
+#             'comment_id': comment_id,
+#             'comment_count': comment_count,
+#         }
+#         return HttpResponse(json.dumps(data, cls=DjangoJSONEncoder), content_type = "application/json")
+
+# @login_required(login_url='common:login')
+# def answer_create(request, pk):
+#     """
+#     QA 답변등록
+#     """
+#     question = get_object_or_404(QA, pk=pk)
+#     if request.method == "POST":
+#         form = AnswerForm(request.POST)
+#         if form.is_valid():
+#             answer = form.save(commit=False)
+#             answer.author = request.user  # 추가한 속성 author 적용
+#             answer.create_date = timezone.now()
+#             answer.question = question
+#             answer.save()
+#             return redirect('/QA/'+str(pk))
+#     else:
+#         form = AnswerForm()
+#     context = {'question': question, 'form': form}
+#     return render(request, 'QA/free_detail.html', context)
+
+
+# @login_required(login_url='common:login')
+# def answer_modify(request, pk):
+#     """
+#     QA 답변수정
+#     """
+#     answer = get_object_or_404(Answer, pk=pk)
+#     if request.user != answer.author:
+#         messages.error(request, '수정권한이 없습니다')
+#         return redirect('QA:detail', question_id=answer.question.id)
+
+#     if request.method == "POST":
+#         form = AnswerForm(request.POST, instance=answer)
+#         if form.is_valid():
+#             answer = form.save(commit=False)
+#             answer.author = request.user
+#             answer.modify_date = timezone.now()
+#             answer.save()
+#             return redirect('/QA/'+str(pk))
+#     else:
+#         form = AnswerForm(instance=answer)
+#     context = {'answer': answer, 'form': form}
+#     return render(request, 'QA/answer_form.html', context)
+
+
+# @login_required(login_url='common:login')
+# def answer_delete(request, answer_id):
+#     """
+#     QA 답변삭제
+#     """
+#     answer = get_object_or_404(Answer, pk=answer_id)
+#     if request.user != answer.author:
+#         messages.error(request, '삭제권한이 없습니다')
+#     else:
+#         answer.delete()
+#     return redirect('/QA/'+str(pk))
+
+def comment_create(request, pk):
+    # 댓글 생성하는 로직
+    content = request.POST.get('content')
+    comment = Answer()
+    comment.board_id = pk
+    comment.content = content
+    comment.save()
+
+    return redirect('QA:free_detail', pk)
+
+def comment_delete(request, pk, comment_id):
+    # 댓글 삭제 로직
+    comment = Answer.objects.get(pk=comment_id)
+    comment.delete()
+
+    return redirect('QA:free_detail', pk)
