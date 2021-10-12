@@ -50,13 +50,6 @@
                         <span style="float:right;">조회수 : {{ free.hits }}</span>
                     </div>
                     <hr>
-                    {% if free.upload_files %}
-                    <div class="col-12 text-right">
-                        <span style="color: gray;">첨부파일 : </span>
-                        <a id="id_uploaded_file"
-                            href="{% url 'free:free_download' free.id %}">{{ free.filename|truncatechars:25 }}</a>
-                    </div>
-                    {% endif %}
                     <!--내용-->
                     <div>
                         {{ free.content | safe }}
@@ -229,14 +222,14 @@
             <br>
             <div class="text-right" style="margin-top:-15px;">
                 {% if free_auth or user.username == 'cemuos' or user.username == 'admin' %}
-                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/{{ free.id }}/edit/'">수정</button>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'QA:free_edit' free.id %}'">수정</button>
                 <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
-                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/'">목록으로</button>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'QA:all_list' %}'">목록으로</button>
                 {% elif user.username == 'cemuos' or user.username == 'admin' %}
                 <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
-                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/'">목록으로</button>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'QA:all_list' %}'">목록으로</button>
                 {% else %}
-                <button class="btn btn-sm" id="detail_btn" onclick="location.href='/free/'">목록으로</button>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'QA:all_list' %}'">목록으로</button>
                 {% endif %}
             </div>
         </div>
@@ -269,7 +262,7 @@
 
 <script type="text/javascript">
     function deleteModal() {
-        location.replace('/free/{{ free.id }}/delete/');
+        location.replace('{% url 'QA:free_delete' free.id %}');
     }
 </script>
 
@@ -283,7 +276,7 @@
             var writer= $("#comment_writer").val();
             $.ajax({
                 type: "POST",
-                url: "{% url 'free:comment_write' free.id %}",
+                url: "{% url 'QA:comment_write' free.id %}",
                 dataType: "json",
                 data: {
                     'writer': writer,
@@ -336,7 +329,7 @@
         if (delete_warning == true) {
             $.ajax({
                 type: "POST",
-                url: "{% url 'free:comment_delete' free.id %}",
+                url: "{% url 'QA:comment_delete' free.id %}",
                 dataType: "json",
                 data: {
                     'comment_id': comment_id,
@@ -360,7 +353,7 @@
         if (delete_warning == true) {
             $.ajax({
                 type: "POST",
-                url: "{% url 'free:comment_delete' free.id %}",
+                url: "{% url 'QA:comment_delete' free.id %}",
                 dataType: "json",
                 data: {
                     'comment_id': comment_id,

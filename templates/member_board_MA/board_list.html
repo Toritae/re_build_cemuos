@@ -42,7 +42,11 @@
 <td colspan="4"></td>
 </tr>
 <tr>
+{% if data.photo.url %}
 <td rowspan="3" width="150" height="177"><a><img src="{{data.photo.url}}" width="150" height="177"></a></td></tr><tr>
+{% else %}
+<td rowspan="3" width="150" height="177"><a><img src="" width="150" height="177"></a></td></tr><tr>
+{% endif %}
 <td colspan="3"></td>
 </tr>
 <tr>
