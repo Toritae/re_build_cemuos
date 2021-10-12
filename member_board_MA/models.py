@@ -11,7 +11,7 @@ def get_file_path(instance, filename):
     uuid_name = uuid4().hex
     extension = os.path.splitext(filename)[-1].lower()
     # return '/'.join(['upload_file/', ymd_path, uuid_name + extension,])
-    return '/'.join(['member_board_MA/', ymd_path, uuid_name+extension])
+    return '/'.join(['member_board_Phd/', ymd_path, uuid_name+extension])
 
 # Create your models here.
 class member_post_MA(models.Model):
@@ -20,7 +20,7 @@ class member_post_MA(models.Model):
     content = models.TextField(blank=True)
     email = models.TextField(blank=True)
     create_date = models.DateTimeField(blank=True, default=timezone.now)
-    photo = models.ImageField(upload_to = get_file_path,blank = True, null=True)
+    photo = models.ImageField(upload_to = 'media/member_board_MA',blank = True, null=True)
 
     def __str__(self):
         return self.title
