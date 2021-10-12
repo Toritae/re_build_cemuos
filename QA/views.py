@@ -58,7 +58,7 @@ class AllListView(ListView):
 
 def free_detail_view(request, pk):
     free = get_object_or_404(QA, pk=pk)
-    comment = Answer.objects.filter(board_id=pk).order_by('created_at')
+    comment = Answer.objects.filter(board_id=pk).order_by('id')
     # comment_count = comment.count()
     # comment_count = comment.exclude(deleted=True).count()
     # reply = comment.exclude(reply='0')
