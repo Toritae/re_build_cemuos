@@ -51,7 +51,7 @@
                     <th style="font-weight: bold; font-size: 16px;">등록일</th>
                     <th style="font-weight: bold; font-size: 16px;">조회수</th>
                 </tr>
-                {% if q %}
+                {% comment %} {% if q %}
                 {% else %}
                 {% if notice_fixed %}
                 {% for notice in notice_fixed %}
@@ -64,11 +64,11 @@
                 </tr>
                 {% endfor %}
                 {% endif %}
-                {% endif %}
+                {% endif %} {% endcomment %}
             </thead>
             <tbody>
-                {% if notice_list %}
-                {% for notice in notice_list %}
+                {% if data_list %}
+                {% for notice in data_list %}
                 <tr class="text-center" style="cursor:pointer;" onclick="location.href='/notice/{{ notice.id }}/'">
                     <td style="font-weight: 500;">{{ notice.id }}</td>
                     <td class="text-left" style="width:50%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.title|truncatechars:30 }}</a></td>
