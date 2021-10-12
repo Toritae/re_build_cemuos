@@ -438,7 +438,7 @@
         var writer= $("#comment_writer").val();
         $.ajax({
             type: "POST",
-            url: "{% url 'free:comment_write' free.id %}",
+            url: "{% url 'free:comment_create' free.id %}",
             dataType: "json",
             data: {
                 'writer': writer,
