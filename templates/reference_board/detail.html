@@ -67,7 +67,7 @@
             <br>
             <div class="text-right" style="margin-top:-15px;">
                 {% if user.username == 'admin' or user.username == 'cemuos' %}
-                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'ref_room:update' notice.id %}'">수정</button>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'ref_room:notice_edit' notice.id %}'">수정</button>
                 <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
                 <!-- <button class="btn btn-md btn-dark" onclick="location.href='/notice/{{ notice.id }}/delete/'">삭제</button> -->
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'ref_room:index' %}'">목록으로</button>
