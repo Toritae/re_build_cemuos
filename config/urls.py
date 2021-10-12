@@ -42,7 +42,7 @@ urlpatterns = [
     # path('seminar/',include('seminar.urls')),
     # path('QA/',include('QA.urls')),
     path('ref_room/', include('reference_board.urls')),
-    path('QA/', include('QA.urls')),
+    path('QA/', include('Q_A.urls')),
     path('seminar/', include('seminar.urls')),
     path('photo/', include('photo.urls')),
     path('admin/', admin.site.urls, name='admin'),

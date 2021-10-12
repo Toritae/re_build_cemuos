@@ -55,6 +55,7 @@ PROJECT_APPS = [
     'reference_board.apps.ReferenceBoardConfig',
     'seminar.apps.SeminarConfig',
     'QA.apps.QaConfig',
+    'Q_A.apps.QAConfig',
     'member_board_MA.apps.MemberBoardMaConfig',
     'member_board_Phd.apps.MemberBoardPhdConfig',
     'member_board_alum_MA.apps.MemberBoardAlumMaConfig',
