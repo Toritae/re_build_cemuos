@@ -97,7 +97,7 @@ def free_write_view(request):
                     free.filename = request.FILES['upload_files'].name
                     
             free.save()
-            return redirect('Q_A:all_list')
+            return redirect('QA:all_list')
     else:
         form = Q_AForm()
     return render(request, "Q_A/free_write.html", {'form': form})
@@ -126,7 +126,7 @@ def free_edit_view(request, pk):
 
                 free.save()
                 messages.success(request, "수정되었습니다.")
-                return redirect('/Q_A/'+str(pk))
+                return redirect('/QA/'+str(pk))
     else:
         free = Q_A.objects.get(id=pk)
         if free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos':
@@ -142,7 +142,7 @@ def free_edit_view(request, pk):
             # return render(request, "free/free_write.html", {'form': form, 'edit': '수정하기'})
         else:
             messages.error(request, "본인 게시글이 아닙니다.")
-            return redirect('/Q_A/'+str(pk))
+            return redirect('/QA/'+str(pk))
 
 
 # 자유게시판 글 삭제
@@ -152,10 +152,10 @@ def free_delete_view(request, pk):
     if free.writer == request.user.username or request.user.username == 'admin' or request.user.username == 'cemuos':
         free.delete()
         messages.success(request, "삭제되었습니다.")
-        return redirect('/Q_A/')
+        return redirect('/QA/')
     else:
         messages.error(request, "본인 게시글이 아닙니다.")
-        return redirect('/Q_A/'+str(pk))
+        return redirect('/QA/'+str(pk))
 
 
 # 자유게시판 게시글 첨부파일 다운로드
@@ -287,11 +287,11 @@ def comment_create(request, pk):
     comment.content = content
     comment.save()
 
-    return redirect('Q_A:free_detail', pk)
+    return redirect('QA:free_detail', pk)
 
 def comment_delete(request, pk, comment_id):
     # 댓글 삭제 로직
     comment = Q_A_Answer.objects.get(pk=comment_id)
     comment.delete()
 
-    return redirect('Q_A:free_detail', pk)
+    return redirect('QA:free_detail', pk)
