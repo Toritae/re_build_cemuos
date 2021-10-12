@@ -281,7 +281,6 @@
     }
 </script>
 
-
 <script type="text/javascript">
     $(document).ready(function () {
         $('img').css('width', '100%');
@@ -392,8 +391,8 @@
             // '<div id="layer"><textarea class="form-control" id="reply_content" rows="2" placeholder="답글을 입력해주세요." style="float: left; max-width: 85%; margin-top:7px;" autofocus></textarea><button onclick="replyWrite('+comment_id+');" class="btn btn-md" style="font-size:15px; background-color:#d14040f2; color:white; width: 11%; margin-left: 10px; height:62px;">답글달기</button><hr></div>'
             '<div id="layer"><div class="row"><div class="col-10"><textarea class="form-control" id="reply_content" rows="2" placeholder="답글을 입력해주세요." style="float: left; width: 103%; margin-top:5px;" autofocus></textarea></div><div class="col-md-auto"><button onclick="replyWrite('+comment_id+');" class="btn btn-md" style="font-size:15px; background-color:#d14040f2; color:white; height:60px;">답글달기</button></div></div><hr></div>'
         );
-    }
-
+    } {% endcomment %}
+{% comment %} 
     function deleteReplyArea($targetObj) {
         var isIn = true;
         var $objArr = Array();
@@ -471,7 +470,7 @@
                 }
             },
         })
-    };
+    }; {% endcomment %}
 
     
 </script>
