@@ -76,7 +76,7 @@
             <tbody>
                 {% if data_list %}
                 {% for notice in data_list %}
-                <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'seminar:detail' notice.id %}'">
+                <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'photo:detail' notice.id %}'">
                     <td style="font-weight: 500;">{{ notice.id }}</td>
                     <td class="text-left" style="width:50%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.title|truncatechars:30 }}</a></td>
                     
@@ -132,7 +132,7 @@
         {% comment %} {% if request.user.level == '0' or request.user.level == '1' %} {% endcomment %}
         <div>
             <div>
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'seminar:write' %}'">글쓰기</button>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'photo:create' %}'">글쓰기</button>
                 {% comment %} <a href="{% url 'notice:notice_write' %}" id="write_btn" class="btn btn-sm">글쓰기</a> {% endcomment %}
             </div>
         </div><ul class="pagination justify-content-center">
