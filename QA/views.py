@@ -26,7 +26,7 @@ class AllListView(ListView):
     model = QA
     paginate_by = 15
     template_name = 'QA/free_list.html'  #DEFAULT : <app_label>/<model_name>_list.html
-    context_object_name = 'QA_list'        #DEFAULT : <app_label>_list
+    context_object_name = 'free_list'        #DEFAULT : <app_label>_list
 
     def get_queryset(self):
         free_list = QA.objects.order_by('-id') 
@@ -97,7 +97,7 @@ def free_write_view(request):
                     free.filename = request.FILES['upload_files'].name
                     
             free.save()
-            return redirect('free:all_list')
+            return redirect('QA:all_list')
     else:
         form = QAForm()
     return render(request, "QA/free_write.html", {'form': form})
