@@ -17,7 +17,7 @@ def index(request):
 
     # 페이징처리
     paginator = Paginator(data_list, 5)  # 페이지당 10개씩 보여주기
-    page_num = request.GET.get('page')  # 페이지
+    page_num = request.GET.get('page','1')  # 페이지
     try :
         page = paginator.page(page_num)
     except EmptyPage:
