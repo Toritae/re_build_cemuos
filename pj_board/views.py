@@ -23,7 +23,7 @@ def index(request):
     except EmptyPage:
         page = paginator.page(1)
         
-    page_obj = paginator.get_page(page)
+    page_obj = paginator.get_page(page_num)
 
     context = {'data_list': page_obj, 'page': page}  # <------ so 추가
     return render(request, 'pj_board/board_list.html', context)
