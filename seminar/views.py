@@ -69,7 +69,7 @@ def update(request,pk):
 
         if file_check or file_change_check:
             os.remove(os.path.join(settings.MEDIA_ROOT, question.upload_files.path))
-            
+
         form = sem_form(request.POST, instance=question)
         if form.is_valid():
 
@@ -80,7 +80,16 @@ def update(request,pk):
             question.save()
             return redirect('seminar:detail', pk=question.id)
     else:
-        form = sem_form(instance=question)
+        if request.user.username == 'admin' or request.user.username == 'cemuos':
+            form = sem_form(instance=question)
+            context = {
+                'form': form,
+                'edit': '수정하기',
+            }
+            if question.filename and question.upload_files:
+                context['filename'] = question.filename
+                context['file_url'] = question.upload_files.url
+            return render(request, "free/free_write.html", context)
     context = {'form': form, 'edit':'수정하기'}
     return render(request, 'seminar/write.html', context)
 
