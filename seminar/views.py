@@ -66,17 +66,17 @@ def update(request,pk):
     if request.method == "POST":
         form = sem_form(request.POST, instance=question)
         if form.is_valid():
-            file_change_check = request.POST.get('fileChange', False)
-            file_check = request.POST.get('upload_files-clear', False)
+            # file_change_check = request.POST.get('fileChange', False)
+            # file_check = request.POST.get('upload_files-clear', False)
             
-            if file_check or file_change_check:
-                os.remove( question.upload_files.path)
+            # if file_check or file_change_check:
+            #     os.remove( question.upload_files.path)
 
             question = form.save(commit=False)
             if request.FILES:
                     if 'upload_files' in request.FILES.keys():
                         question.filename = request.FILES['upload_files'].name
-                        # question.upload_files = request.FILES['upload_files']
+                        question.upload_files = request.FILES['upload_files']
             question.save()
             return redirect('seminar:detail', pk=question.id)
     else:
