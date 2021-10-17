@@ -30,6 +30,9 @@
 {% block content %}
 
 <!-- 내용 영역 -->
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>RESEARCH_PJT &gt; 프로젝트</span>
+</div>
 <div class="col-sm-9">
 <div id="contentsArea">
 <div class="n_tit_page">
@@ -37,14 +40,15 @@
 </div>
 <!-- 모듈미사용 -->
 <div class="de_module">
-<table width="100%" border="0" cellspacing="0" cellpadding="0"><tbody><tr><td width="100%" height="150">
-<img src="{% static 'img/btn/category_menu_02.png' %}" width="1000" height="50" border="0" usemap="#Map">
-<map name="Map">
-    <area shape="rect" coords="287,8,439,41" href="{% url 'pj_board_gov:index' %}">
-    <area shape="rect" coords="561,8,712,41" href="{% url 'pj_board:index' %}">
-</map>
-</td></tr>
-</tbody></table>
+<link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'pj_board:index' %}"> 민간 R&amp;D </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'pj_board_gov:index' %}"> 정부 R&amp;D </a>
+</div>
 <table>
 {% if data_list %}
 {% for data in data_list %}
