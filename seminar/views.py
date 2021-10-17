@@ -89,7 +89,7 @@ def update(request,pk):
             if question.filename and question.upload_files:
                 context['filename'] = question.filename
                 context['file_url'] = question.upload_files.url
-            return render(request, "free/free_write.html", context)
+            return render(request, "seminar/write.html", context)
     context = {'form': form, 'edit':'수정하기'}
     return render(request, 'seminar/write.html', context)
 
