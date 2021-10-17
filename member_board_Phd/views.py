@@ -70,7 +70,7 @@ def update(request,pk):
             if 'photo' not in request.FILES.keys():
                 return redirect('member_board_Phd:update',pk)
             elif 'photo' in request.FILES.keys():
-                    question.filename = request.FILES['photo'].name
+                question.filename = request.FILES['photo'].name
             question = form.save(commit=False)
             question.save()
             return redirect('member_board_Phd:detail', pk=question.id)
@@ -83,9 +83,9 @@ def update(request,pk):
                 'form': form,
                 'edit': '수정하기',
             }
-            if notice.filename and notice.upload_files:
+            if notice.filename and notice.photo:
                 context['filename'] = notice.filename
-                context['file_url'] = notice.upload_files.url
+                context['file_url'] = notice.photo.url
             #--------------------------------------------------------------#
             # return render(request, "notice/notice_write.html", {'form': form, 'edit': '수정하기'})
             return render(request, "member_board_Phd/create.html", context)
