@@ -87,20 +87,17 @@
             {% csrf_token %}
             <div class="card" style="width: 100%;">
                 <!--제목,분류,작성일-->
-                <div class="card-header" style="padding: 0rem 0.8rem">
+                <div class="card-header" style="padding: 0rem 0.2rem">
                     <div class="md-form form-group" style="margin-top: 8.5px;">
                         <div style="padding: 0 5.5px;">
-                            <!-- <label for="form_title" class="control-label">{{ form.title.label }}</label> -->
+                        <!-- <label for="{{ form.title.id_for_label }}"
+                            class="col-sm-2 control-label">{{ form.title.label }}</label> -->
                             {{ form.title }}
                         </div>
                     </div>
                 </div>
-                <div class="card-body">
-                    <div class="form-group">
-                        <div class=" col-sm-12">
-                            {{ form.content }}
-                        </div>
-                    </div>
+                    <!--내용-->
+                    {{ form.content }}
                 </div>
             </div>
             
@@ -128,7 +125,6 @@
 </div>
 </div>
 </div>
-</div>  
 {% endblock %}
 
 {% block script %}
@@ -141,7 +137,6 @@
         checkUnload = false;
         $("submit").submit();
     });
-
 </script>
 
 {% if filename %}
@@ -176,5 +171,4 @@
     });
 </script>
 {% endif %}
-
 {% endblock %}

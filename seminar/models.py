@@ -20,7 +20,7 @@ class seminar_post(models.Model):
     
     def delete(self, *args, **kargs):
         if self.upload_files:
-            os.remove(self.upload_files.path)
+            os.remove(os.path.join(settings.MEDIA_ROOT, free.upload_files.path))
         super(seminar_post, self).delete(*args, **kargs)
 
     class Meta:

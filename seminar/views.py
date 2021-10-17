@@ -64,19 +64,19 @@ def detail(request, pk):
 def update(request,pk):
     question = get_object_or_404(seminar_post, pk=pk)
     if request.method == "POST":
+        file_change_check = request.POST.get('fileChange', False)
+        file_check = request.POST.get('upload_files-clear', False)
+
+        if file_check or file_change_check:
+            os.remove(os.path.join(settings.MEDIA_ROOT, question.upload_files.path))
+            
         form = sem_form(request.POST, instance=question)
         if form.is_valid():
-            # file_change_check = request.POST.get('fileChange', False)
-            # file_check = request.POST.get('upload_files-clear', False)
-            
-            # if file_check or file_change_check:
-            #     os.remove( question.upload_files.path)
 
             question = form.save(commit=False)
             if request.FILES:
                     if 'upload_files' in request.FILES.keys():
                         question.filename = request.FILES['upload_files'].name
-                        seminar_post.objects.filter(id=pk).update(upload_files= request.FILES['upload_files'])
             question.save()
             return redirect('seminar:detail', pk=question.id)
     else:
