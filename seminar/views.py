@@ -67,6 +67,9 @@ def update(request,pk):
         form = sem_form(request.POST, instance=question)
         if form.is_valid():
             question = form.save(commit=False)
+            if request.FILES:
+                    if 'upload_files' in request.FILES.keys():
+                        question.filename = request.FILES['upload_files'].name
             question.save()
             return redirect('seminar:detail', pk=question.id)
     else:
