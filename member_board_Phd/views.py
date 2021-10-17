@@ -59,45 +59,24 @@ def detail(request, pk):
 def update(request,pk):
     question = get_object_or_404(member_post_Phd, pk=pk)
     if request.method == "POST":
-        form = PostForm(request.POST, instance=question)
+        file_change_check = request.POST.get('fileChange', False)
+        file_check = request.POST.get('upload_files-clear', False)
+        
+        if file_check or file_change_check:
+            os.remove(os.path.join(settings.MEDIA_ROOT, question.upload_files.path))
+
+        form = PostForm(request.POST, request.FILES, instance=question)
         if form.is_valid():
             if 'photo' not in request.FILES.keys():
                 return redirect('member_board_Phd:update',pk)
+            elif 'photo' in request.FILES.keys():
+                    question.filename = request.FILES['photo'].name
             question = form.save(commit=False)
             question.save()
             return redirect('member_board_Phd:detail', pk=question.id)
     else:
-        form = PostForm(instance=question)
-    context = {'form': form, 'edit':'수정하기'}
-    return render(request, 'member_board_Phd/create.html', context)
-
-def notice_edit_view(request, pk):
-    notice = member_post_Phd.objects.get(id=pk)
-
-    if request.method == "POST":
-        if(request.user.username == 'admin' or request.user.username == 'cemuos'):
-
-            file_change_check = request.POST.get('fileChange', False)
-            file_check = request.POST.get('upload_files-clear', False)
-            
-            if file_check or file_change_check:
-                os.remove(os.path.join(settings.MEDIA_ROOT, notice.upload_files.path))
-
-            form = PostForm(request.POST, request.FILES, instance=notice)
-            if form.is_valid():
-                # test-------------------------------#
-                notice = form.save(commit = False)
-                if request.FILES:
-                    if 'photo' in request.FILES.keys():
-                        notice.filename = request.FILES['photo'].name
-                notice.save()
-                #------------------------------------#
-                # form.save()
-                messages.success(request, "수정되었습니다.")
-                return redirect('/member_board_Phd/'+str(pk))
-    else:
         notice = member_post_Phd.objects.get(id=pk)
-        if notice.writer == request.user:
+        if request.user.username == 'admin' or request.user.username == 'cemuos':
             form = PostForm(instance=notice)
             # test---------------------------------------------------------#
             context = {

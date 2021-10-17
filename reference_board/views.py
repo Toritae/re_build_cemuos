@@ -64,15 +64,32 @@ def detail(request, pk):
 def update(request,pk):
     question = get_object_or_404(DataRoom, pk=pk)
     if request.method == "POST":
-        form = ReferenceForm(request.POST, instance=question)
+        file_change_check = request.POST.get('fileChange', False)
+        file_check = request.POST.get('upload_files-clear', False)
+
+        if file_check or file_change_check:
+            os.remove(os.path.join(settings.MEDIA_ROOT, question.upload_files.path))
+
+        form = ReferenceForm(request.POST, request.FILES,instance=question)
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
             return redirect('ref_room:detail', pk=question.id)
     else:
-        form = ReferenceForm(instance=question)
-    context = {'form': form, 'edit':'수정하기'}
-    return render(request, 'reference_board/write.html', context)
+        if request.user.username == 'admin' or request.user.username == 'cemuos':
+            form = ReferenceForm(instance=question)
+            context = {
+                'form': form,
+                'edit': '수정하기',
+            }
+            if question.filename and question.upload_files:
+                context['filename'] = question.filename
+                context['file_url'] = question.upload_files.url
+            return render(request, "reference_board/write.html", context)
+        else:
+            messages.error(request, "본인 게시글이 아닙니다.")
+            return redirect('/ref_room/'+str(pk))
+        
 
 def notice_edit_view(request, pk):
     notice = DataRoom.objects.get(pk=pk)
