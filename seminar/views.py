@@ -76,7 +76,7 @@ def update(request,pk):
             if request.FILES:
                     if 'upload_files' in request.FILES.keys():
                         question.filename = request.FILES['upload_files'].name
-                        question.upload_files = request.FILES['upload_files']
+                        seminar_post.objects.filter(id=pk).update(upload_files= request.FILES['upload_files'])
             question.save()
             return redirect('seminar:detail', pk=question.id)
     else:
@@ -84,47 +84,6 @@ def update(request,pk):
     context = {'form': form, 'edit':'수정하기'}
     return render(request, 'seminar/write.html', context)
 
-def notice_edit_view(request, pk):
-    notice = seminar_post.objects.get(id=pk)
-
-    if request.method == "POST":
-        if(request.user.username == 'admin' or request.user.username == 'cemuos'):
-
-            # file_change_check = request.POST.get('fileChange', False)
-            # file_check = request.POST.get('upload_files-clear', False)
-            
-            # if file_check or file_change_check:
-            #     os.remove(os.path.join(settings.MEDIA_ROOT, notice.upload_files.path))
-
-            form = sem_form(request.POST, request.FILES, instance=notice)
-            if form.is_valid():
-                # test-------------------------------#
-                notice = form.save(commit = False)
-                if request.FILES:
-                    if 'upload_files' in request.FILES.keys():
-                        notice.filename = request.FILES['upload_files'].name
-                notice.save()
-                #------------------------------------#
-                # form.save()
-                messages.success(request, "수정되었습니다.")
-                return redirect('/seminar/'+str(pk))
-    else:
-        notice = seminar_post.objects.get(id=pk)
-        if notice.writer == request.user:
-            form = sem_form(instance=notice)
-            # test---------------------------------------------------------#
-            context = {
-                'form': form,
-                'edit': '수정하기',
-            }
-            if notice.filename and notice.upload_files:
-                context['filename'] = notice.filename
-                context['file_url'] = notice.upload_files.url
-            #--------------------------------------------------------------#
-            return render(request, "reference_room/write.html", context)
-        else:
-            messages.error(request, "본인 게시글이 아닙니다.")
-            return redirect('/seminar/'+str(pk))
 
 @login_required(login_url='common:login')
 def delete(request, pk):
