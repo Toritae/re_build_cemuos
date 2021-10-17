@@ -21,6 +21,7 @@ class member_post_alum_MA_city(models.Model):
     email = models.TextField(blank=True)
     create_date = models.DateTimeField(blank=True, default=timezone.now)
     photo = models.ImageField(upload_to = get_file_path,blank = True, null=True)
+    filename = models.CharField(max_length=64, null=True, verbose_name='첨부파일명',blank=True)
 
     def __str__(self):
         return self.title
