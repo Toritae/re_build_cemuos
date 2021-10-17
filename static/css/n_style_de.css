@@ -2307,7 +2307,13 @@ de34 : 쇼핑몰추출상품 ( > 상품관리 > 메인상품 관리 > 상품개�
 }
 
 
-
+@media screen and (max-width: 991px) {
+    .de36 img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: scale-down;
+    }
+}
 
 
 
