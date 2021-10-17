@@ -63,7 +63,7 @@ def update(request,pk):
         file_check = request.POST.get('upload_files-clear', False)
         
         if file_check or file_change_check:
-            os.remove(os.path.join(settings.MEDIA_ROOT, question.upload_files.path))
+            os.remove(os.path.join(settings.MEDIA_ROOT, question.photo.path))
 
         form = PostForm(request.POST, request.FILES, instance=question)
         if form.is_valid():
