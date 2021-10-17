@@ -32,6 +32,14 @@ powered by nnin ( http://www.nnin.com )
 <link rel="stylesheet" type="text/css" href="{% static 'css/n_style_all.css' %}">
 <link rel="stylesheet" type="text/css" href="{% static 'css/n_footer.css' %}">
 </head>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+ <script src="http://mattstow.com/experiment/responsive-image-maps/jquery.rwdImageMaps.min.js"></script>
+ <script>
+$(function(){
+	$('img[usemap]').rwdImageMaps();
+	$("#img").width("100%");
+});
+</script>
 <div id="header">
 <div class="gnb">
 <!-- topArea -->
