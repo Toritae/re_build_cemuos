@@ -70,7 +70,7 @@ def update(request,pk):
         if file_check or file_change_check:
             os.remove(os.path.join(settings.MEDIA_ROOT, question.upload_files.path))
 
-        form = sem_form(request.POST, instance=question)
+        form = sem_form(request.POST, request.FILES, instance=question)
         if form.is_valid():
 
             question = form.save(commit=False)
@@ -90,8 +90,9 @@ def update(request,pk):
                 context['filename'] = question.filename
                 context['file_url'] = question.upload_files.url
             return render(request, "seminar/write.html", context)
-    context = {'form': form, 'edit':'수정하기'}
-    return render(request, 'seminar/write.html', context)
+        else:
+            messages.error(request, "본인 게시글이 아닙니다.")
+            return redirect('/seminar/'+str(pk))
 
 
 @login_required(login_url='common:login')

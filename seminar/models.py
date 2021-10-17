@@ -18,10 +18,10 @@ class seminar_post(models.Model):
     upload_files = models.FileField(upload_to=get_file_path,null=True,blank=True)
     filename = models.CharField(max_length=64, null=True, verbose_name='첨부파일명',blank=True)
     
-    def delete(self, *args, **kargs):
-        if self.upload_files:
-            os.remove(os.path.join(settings.MEDIA_ROOT, seminar_post.upload_files.path))
-        super(seminar_post, self).delete(*args, **kargs)
+    # def delete(self, *args, **kargs):
+    #     if self.upload_files:
+    #         os.remove(os.path.join(settings.MEDIA_ROOT, seminar_post.upload_files.path))
+    #     super(seminar_post, self).delete(*args, **kargs)
 
     class Meta:
         db_table = 'seminar'
