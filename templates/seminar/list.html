@@ -144,7 +144,7 @@
             <ul class="pagination justify-content-center">
                 {% if data_list.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ data_list.previous_page_number }}"
+                    <a class="page-link" href="?page={{ data_list.previous_page_number }}"
                         tabindex="-1" style="font-size: 15px;">이전</a>
                 </li>
                 {% else %}
@@ -153,16 +153,23 @@
                 </li>
                 {% endif %}
 
-                {% for page in page_range %}
-                <li class="page-item {% if page == data_list.number %} activate {% endif %}">
-                    <a class="page-link" href="?type={{ type }}&q={{ q }}&page={{ page }}" style="font-size: 15px;">{{ page }}</a>
-                </li>
-                {% endfor %}
+                {% for page_number in data_list.paginator.page_range %}
+                {% if page_number >= data_list.number|add:-5 and page_number <= data_list.number|add:5 %}
+                    {% if page_number == data_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
 
                 {% if data_list.has_next %}
                 <li class="page-item">
                     <a class="page-link"
-                        href="?type={{ type }}&q={{ q }}&page={{ data_list.next_page_number }}" style="font-size: 15px;">다음</a>
+                        href="?page={{ data_list.next_page_number }}" style="font-size: 15px;">다음</a>
                 </li>
                 {% else %}
                 <li class="page-item disabled">
