@@ -12,6 +12,9 @@ from .models import DataRoom
 from django.contrib.auth.decorators import login_required
 import os
 from django.conf import settings
+from urllib.parse import quote
+import urllib
+import mimetypes
 
 def index(request):
     
@@ -125,11 +128,17 @@ def delete(request, pk):
         return redirect('ref_room:index')
 
 def download(request, pk):
-    file = get_object_or_404(DataRoom, pk=pk)
-    file_url = file.upload_files.url[7:]
+    notice = get_object_or_404(DataRoom, pk=pk)
+    url = notice.upload_files.url[7:]
+    print(type(url))
+    print(url)
+    file_url = urllib.parse.unquote(url)
+    
     if os.path.exists(file_url):
-        with open(file_url,'rb') as fh:
-            response = HttpResponse(fh.read(), content_type="")
-            response['Content-Disposition'] = 'attachment; filename=' + os.path.basename(file_url)
+        with open(file_url, 'rb') as fh:
+            # quote_file_url = urllib.parse.quote(file_url.encode('utf-8'))
+            quote_file_url = urllib.parse.quote(notice.filename.encode('utf-8'))
+            response = HttpResponse(fh.read(), content_type=mimetypes.guess_type(file_url)[0])
+            response['Content-Disposition'] = 'attachment;filename*=UTF-8\'\'%s' % quote_file_url
             return response
-    raise Http404
+        raise Http404
