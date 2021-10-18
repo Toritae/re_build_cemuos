@@ -12,3 +12,6 @@ def come(request):
 
 def bylaws(request):
     return render(request, 'scem/lab_bylaws.html')
+
+def history(request):
+    return render(request, 'scem/history.html')
