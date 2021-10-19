@@ -16,14 +16,14 @@ def index(request):
     data_list = photo_post.objects.all().order_by('-id')
 
     # 페이징처리
-    paginator = Paginator(data_list, 5)  # 페이지당 10개씩 보여주기
+    paginator = Paginator(data_list, 10)  # 페이지당 10개씩 보여주기
     page_num = request.GET.get('page', '1')  # 페이지
     try :
         page = paginator.page(page_num)
     except EmptyPage:
         page = paginator.page(1)
         
-    page_obj = paginator.get_page(page)
+    page_obj = paginator.get_page(page_num)
 
     context = {'data_list': page_obj, 'page': page}  # <------ so 추가
     return render(request, 'photo/board_list.html', context)
