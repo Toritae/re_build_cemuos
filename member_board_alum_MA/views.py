@@ -11,6 +11,7 @@ from .models import member_post_alum_MA
 from django.contrib.auth.decorators import login_required
 import os
 from django.conf import settings
+
 def index(request):
     
     data_list = member_post_alum_MA.objects.all().order_by('-id')
