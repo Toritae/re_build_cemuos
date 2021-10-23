@@ -29,7 +29,7 @@
                 <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'kor_conference:detail' notice.id %}'">
                     <td style="font-weight: 500;">{{ notice.pid }}</td>
                     <td class="text-left" style="width:50%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
-                    <td style="font-weight: 500;">{{ notice.create_date|date:'Y. m. d' }}</td>
+                    <td style="font-weight: 500;">{{ notice.content_created }}</td>
                 </tr>
                 {% endfor %}
                 {% else %}

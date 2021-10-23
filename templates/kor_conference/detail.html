@@ -11,7 +11,7 @@
             <div class="card" style="width: 100%;">
                 <!--제목,분류,작성일-->
                 <div class="card-header">
-                    <strong style="font-size: 18px;">{{ notice.content|truncatechars:20 }}</strong>&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[국내 컨퍼런스]</span>
+                    <strong style="font-size: 18px;">{{ notice.content|truncatechars:20|safe }}</strong>&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[국내 컨퍼런스]</span>
                 </div>
                 <div class="card-body" style="color:black;">
                     <!--작성자, 조회수-->
