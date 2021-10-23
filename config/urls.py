@@ -47,5 +47,6 @@ urlpatterns = [
     path('photo/', include('photo.urls')),
     path('admin/', admin.site.urls, name='admin'),
     path('',views.index, name='index'),
+    path('kor_conference/', include('kor_conference.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
