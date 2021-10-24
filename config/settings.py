@@ -63,6 +63,14 @@ PROJECT_APPS = [
     'member_board_alum_MA_city.apps.MemberBoardAlumMaCityConfig',
     'member_board_alum_special.apps.MemberBoardAlumSpecialConfig',
     'kor_conference.apps.KorConferenceConfig',
+    'kor_jounal.apps.KorJounalConfig',
+    'kor_thesis.apps.KorThesisConfig',
+    'world_jounal.apps.WorldJounalConfig',
+    'thesis_ma.apps.ThesisMaConfig',
+    'world_conference.apps.WorldConferenceConfig',
+    'property_1.apps.Property1Config',
+    'property_2.apps.Property2Config',
+    'property_3.apps.Property3Config',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS

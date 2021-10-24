@@ -4,15 +4,24 @@
 
 {% block content %}
 <div class="n_position">
-<img src="/default/img/_images/history_home.gif" alt=""><span>COMMUNITY &gt; 세미나</span>
+<img src="/default/img/_images/history_home.gif" alt=""><span>PAPER/PATENT &gt; 컨퍼런스</span>
 </div>
 <div class="container">
     <div class="row mt-5">
         <div class="col-sm-9">
         <div id="contentsArea">
         <div class="n_tit_page">
-        <h2>자료실</h2>
+        <h2>국내 컨퍼런스</h2>
         </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+    <div class = 'button-7'>
+    <div class="eff-7"></div>
+        <a href="{% url 'world_conference:index' %}"> 국제 컨퍼런스 </a>
+    </div>
+    <div class = 'button-7'>
+    <div class="eff-7"></div>
+        <a href="{% url 'kor_conference:index' %}"> 국내 컨퍼런스 </a>
     </div>
     <div>
         <table class="table table-sm table-hover">
@@ -28,7 +37,7 @@
                 {% for notice in data_list %}
                 <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'kor_conference:detail' notice.id %}'">
                     <td style="font-weight: 500;">{{ notice.pid }}</td>
-                    <td class="text-left" style="width:50%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
+                    <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                     <td style="font-weight: 500;">{{ notice.content_created }}</td>
                 </tr>
                 {% endfor %}

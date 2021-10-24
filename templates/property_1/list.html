@@ -1,0 +1,138 @@
+{% extends "left_menu/paper_patent_menu.html" %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>PAPER/PATENT &gt; 지적재산권</span>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-9">
+        <div id="contentsArea">
+        <div class="n_tit_page">
+        <h2>특허</h2>
+        </div>
+    </div>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+    <div class = 'button-7'>
+    <div class="eff-7"></div>
+        <a href="{% url 'property_1:index' %}"> 특허 </a>
+    </div>
+    <div class = 'button-7'>
+    <div class="eff-7"></div>
+        <a href="{% url 'property_2:index' %}"> 상표등록 등 </a>
+    </div>
+    <div class = 'button-7'>
+    <div class="eff-7"></div>
+        <a href="{% url 'property_3:index' %}"> 소프트웨어 </a>
+    </div>
+    <div>
+        <table class="table table-sm table-hover">
+            <thead style="border-top: 1px solid #dee2e6;">
+                <tr class="text-center">
+                    <th style="font-weight: bold; font-size: 16px;">번호</th>
+                    <th style="font-weight: bold; font-size: 16px;">명칭</th>
+                    <th style="font-weight: bold; font-size: 16px;">등록일자</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% if data_list %}
+                {% for notice in data_list %}
+                <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'property_1:detail' notice.id %}'">
+                    <td style="font-weight: 500;">{{ notice.pid }}</td>
+                    <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
+                    <td style="font-weight: 500;">{{ notice.content_created }}</td>
+                </tr>
+                {% endfor %}
+                {% else %}
+                    {% if q %}
+                    <tr class="text-center">
+                        <td style="font-weight: bold; color:gray;" colspan="5">
+                            <i class="fas fa-info-circle"></i>&nbsp;일치하는 검색 결과가 없습니다.
+                        </td>
+                    </tr>
+                    {% else %}
+                        <tr class="text-center">
+                            <td style="font-weight: bold; color:gray;" colspan="5">
+                                <i class="fas fa-info-circle"></i>&nbsp;작성된 게시글이 없습니다.
+                            </td>
+                        </tr>
+                    {% endif %}
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <form action="" method="GET">
+            
+        </form>
+        {% if user.username == 'admin' or user.username == 'cemuos' %}
+        <div>
+            <div>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'property_1:write' %}'">글쓰기</button>
+            </div>
+        </div>
+        {% endif %}
+        <br>
+        {% comment %} {% else %}
+        <br><br><br>
+        {% endif %} {% endcomment %}
+        <div class="col-md-offset-6">
+            {% comment %} {% if is_paginated %} {% endcomment %}
+            <!-- <ul class="pagination justify-content-center pagination-sm"> -->
+            <ul class="pagination justify-content-center">
+                {% if data_list.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ data_list.previous_page_number }}">이전</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                </li>
+                {% endif %}
+                <!-- 페이지리스트 -->
+                {% for page_number in data_list.paginator.page_range %}
+                {% if page_number >= data_list.number|add:-5 and page_number <= data_list.number|add:5 %}
+                    {% if page_number == data_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+                <!-- 다음페이지 -->
+                {% if data_list.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ data_list.next_page_number }}">다음</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% comment %} {% endif %} {% endcomment %}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    target = window.location.search.split('&')[0].split('=')[1]
+    var type = document.getElementsByTagName('option')
+    for (var i = 0; i < 5; i++) {
+        if (type[i].value === target) {
+            type[i].setAttribute('selected', 'selected')
+        }
+    }
+</script>
+{% endblock %}

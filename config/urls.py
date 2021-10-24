@@ -48,5 +48,13 @@ urlpatterns = [
     path('admin/', admin.site.urls, name='admin'),
     path('',views.index, name='index'),
     path('kor_conference/', include('kor_conference.urls')),
+    path('kor_jounal/', include('kor_jounal.urls')),
+    path('kor_thesis/', include('kor_thesis.urls')),
+    path('world_conference/', include('world_conference.urls')),
+    path('world_jounal/', include('world_jounal.urls')),
+    path('thesis_ma/', include('thesis_ma.urls')),
+    path('property_1/', include('property_1.urls')),
+    path('property_2/', include('property_2.urls')),
+    path('property_3/', include('property_3.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

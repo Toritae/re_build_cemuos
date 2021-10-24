@@ -13,7 +13,7 @@ class kor_conference_form(forms.ModelForm):
             'id': 'form_title',
             'autofocus': True,
         })
-        self.fields['content_created'].label = '논문번호'
+        self.fields['content_created'].label = '게재년도'
         self.fields['content_created'].widget.attrs.update({
             'placeholder': '게재년도를 입력해주세요.',
             'class': 'form-control',
