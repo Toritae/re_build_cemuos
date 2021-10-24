@@ -1,5 +1,5 @@
 from django import forms
-from .models import kor_conference, kor_jounal
+from .models import kor_jounal
 
 from django_summernote.widgets import SummernoteWidget
 
@@ -25,7 +25,7 @@ class kor_jounal_form(forms.ModelForm):
             'class': 'form-control',
         })
     class Meta:
-        model = kor_conference
+        model = kor_jounal
         fields = ['pid', 'content', 'content_created', 'upload_files', 'create_date']
         widgets = {
             'pid' : forms.TextInput(attrs={'class':'form-control'}),
