@@ -116,6 +116,7 @@ $(function(){
     <a href="{% url 'professor_hyun_8:index_2' %}"> 우수논문상 </a>
     </div>
     <div>
+    {% endif %}
         <table class="table table-sm table-hover">
             {% if check_num == '1' %}
                 {% if check_num2 == '2' or check_num2 == '3' or check_num2 == '4' or check_num2 == '5'%}
@@ -155,7 +156,7 @@ $(function(){
             </thead>
             {% endif %}
 
-            {% comment %} <tbody>
+            <tbody>
                 {% if data_list %}
                 {% for notice in data_list %}
                     {% if user.username == 'cemuos' or user.username == 'admin' %}
@@ -398,5 +399,5 @@ $(function(){
             type[i].setAttribute('selected', 'selected')
         }
     }
-</script> {% endcomment %}
+</script>
 {% endblock %}
