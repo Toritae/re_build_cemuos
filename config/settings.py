@@ -71,6 +71,14 @@ PROJECT_APPS = [
     'property_1.apps.Property1Config',
     'property_2.apps.Property2Config',
     'property_3.apps.Property3Config',
+    'professor_hyun_1',
+    'professor_hyun_2',
+    'professor_hyun_3',
+    'professor_hyun_4',
+    'professor_hyun_5',
+    'professor_hyun_6',
+    'professor_hyun_7',
+    'professor_hyun_8',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS

@@ -1,0 +1,201 @@
+{% load humanize %}
+
+{% block content %}
+<br><br><br>
+<div class="container">
+    <div class="row-mt-5">
+        <div class="col-sm-9">
+            <!--본문-->
+            <table>
+            <div class="card" style="width: 100%;">
+                <!--제목,분류,작성일-->
+                <div class="card-header">
+                    {% if check_num == '1' %}
+                        {% if check_num2 == '1' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[학위논문]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[국외논문]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[국내 학술지]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[국제 컨퍼런스]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[국내 컨퍼런스]</span></strong>
+                        {% endif %}
+                    {% elif check_num == '2' %}
+                    <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[저서]</span></strong>
+                    {% elif check_num == '3' %}
+                        {% if check_num2 == '1' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[지적재산권(특허)]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[지적재산권(소프트웨어)]</span></strong>
+                        {% endif %}
+                    {% elif check_num == '4' %}
+                    <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[논설/기타]</span></strong>
+                    {% elif check_num == '5' %}
+                        {% if check_num2 == '1' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[교내 보직 수행]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[서울시립대학교 위원회]</span></strong>
+                        {% endif %}
+                    {% elif check_num == '6' %}
+                    <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[학회활동]</span></strong>
+                    {% elif check_num == '7' %}
+                    <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[전문자격사항]</span></strong>
+                    {% elif check_num == '8' %}
+                        {% if check_num2 == '1' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[수상]</span></strong>
+                        {% elif check_num2 == '2' %}
+                        <strong style="font-size: 18px;">&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[우수논문상]</span></strong>
+                        {% endif %}
+                    {% endif %}
+                </div>
+                <div class="card-body" style="color:black;">
+                    <!--내용-->
+                    <div>
+                        {{ notice.content | safe }}
+                    </div>
+                </div>
+            </div>
+            <br>
+            <div class="text-right" style="margin-top:-15px;">
+                {% if check_num == '1' %}
+                    {% if check_num2 == '1' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:delete' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index' %}'">목록으로</button>
+                    {% elif check_num2 == '2' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_2' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:delete_2' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_2' %}'">목록으로</button>
+                    {% elif check_num2 == '3' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_3' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:delete_3' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_3' %}'">목록으로</button>
+                    {% elif check_num2 == '4' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_4' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:delete_4' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_4' %}'">목록으로</button>
+                    {% elif check_num2 == '5' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_5' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:delete_5' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_5' %}'">목록으로</button>
+                    {% endif %}
+                {% elif check_num == '2' %}
+                    {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_2:update' notice.id %}'">수정</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_2:delete' notice.id %}">삭제</button>
+                    {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_2:index' %}'">목록으로</button>
+                {% elif check_num == '3' %}
+                    {% if check_num2 == '1' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:update' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:delete' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:index' %}'">목록으로</button>
+                    {% elif check_num2 == '2' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:update_2' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:delete_2' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:index_2' %}'">목록으로</button>
+                    {% endif %}
+                {% elif check_num == '4' %}
+                    {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_4:update' notice.id %}'">수정</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_4:delete' notice.id %}">삭제</button>
+                    {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_4:index' %}'">목록으로</button>
+                {% elif check_num == '5' %}
+                    {% if check_num2 == '1' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:update' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:delete' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:index' %}'">목록으로</button>
+                    {% elif check_num2 == '2' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:update_2' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:delete_2' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:index_2' %}'">목록으로</button>
+                    {% endif %}
+                {% elif check_num == '6' %}
+                    {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_6:update' notice.id %}'">수정</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_6:delete' notice.id %}">삭제</button>
+                    {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_6:index' %}'">목록으로</button>
+                {% elif check_num == '7' %}
+                    {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_7:update' notice.id %}'">수정</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_7:delete' notice.id %}">삭제</button>
+                    {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_7:index' %}'">목록으로</button>
+                {% elif check_num == '8' %}
+                    {% if check_num2 == '1' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:update' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:delete' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:index' %}'">목록으로</button>
+                    {% elif check_num2 == '2' %}
+                        {% if user.username == 'admin' or user.username == 'cemuos' %}    
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:update_2' notice.id %}'">수정</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:delete_2' notice.id %}">삭제</button>
+                        {% endif %}
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:index_2' %}'">목록으로</button>
+                    {% endif %}
+                {% endif %}
+            </div>
+            </table>
+        </div>
+    </div>
+
+    <div id="delete_modal" class="modal fade" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">삭제경고</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <p>게시글을 삭제하시겠습니까?</p>
+                </div>
+                <div class="modal-footer">
+                    <button onclick="delete_modal()" type="button" class="btn btn-dark">삭제하기</button>
+                    <button type="button" class="btn btn-light" data-dismiss="modal">취소하기</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% comment %} <script type="text/javascript">
+    $(document).ready(function () {
+        $('img').css('width', '100%');
+    });
+
+    function delete_modal() {
+        location.replace('{% url 'professor_hyun_1:delete' notice.id %}');
+    }
+</script> {% endcomment %}
+
+{% endblock %}
