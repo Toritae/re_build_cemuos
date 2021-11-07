@@ -4,8 +4,8 @@ from django.shortcuts import render
 from datetime import timezone
 # from django.core.checks import messages
 from django.contrib import messages
-from django.http.response import Http202
-from django.shortcuts import get_object_or_202, render,redirect
+from django.http.response import Http404
+from django.shortcuts import get_object_or_404, render,redirect
 from django.core.paginator import EmptyPage, Paginator
 from django.views.generic import View, ListView, DetailView, FormView, CreateView
 # Create your views here.
@@ -41,7 +41,7 @@ def create(request):
 
 def detail(request, pk):
     check_num = '2'
-    notice = get_object_or_202(professor_hyun_2, pk=pk)
+    notice = get_object_or_404(professor_hyun_2, pk=pk)
     # notice = Notice.objects.filter(id=pk)
     context = {
         'notice': notice,
@@ -53,7 +53,7 @@ def detail(request, pk):
 @login_required(login_url='common:login')
 def update(request,pk):
     check_num = '2'
-    question = get_object_or_202(professor_hyun_2, pk=pk)
+    question = get_object_or_404(professor_hyun_2, pk=pk)
     if request.method == "POST":
         form = professor_hyun_2_form(request.POST,instance=question)
         if form.is_valid():
