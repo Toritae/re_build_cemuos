@@ -56,5 +56,13 @@ urlpatterns = [
     path('property_1/', include('property_1.urls')),
     path('property_2/', include('property_2.urls')),
     path('property_3/', include('property_3.urls')),
+    path('professor_hyun_1/', include('professor_hyun_1.urls')),
+    path('professor_hyun_2/', include('professor_hyun_2.urls')),
+    path('professor_hyun_3/', include('professor_hyun_3.urls')),
+    path('professor_hyun_4/', include('professor_hyun_4.urls')),
+    path('professor_hyun_5/', include('professor_hyun_5.urls')),
+    path('professor_hyun_6/', include('professor_hyun_6.urls')),
+    path('professor_hyun_7/', include('professor_hyun_7.urls')),
+    path('professor_hyun_8/', include('professor_hyun_8.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
