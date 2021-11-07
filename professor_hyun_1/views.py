@@ -315,7 +315,7 @@ def create_5(request):
 
 def detail_5(request, pk):
     check_num = '1'
-    check_num2 = '2'
+    check_num2 = '5'
     notice = get_object_or_404(professor_hyun_1_5, pk=pk)
     # notice = Notice.objects.filter(id=pk)
     context = {
@@ -332,7 +332,7 @@ def update_5(request,pk):
     check_num2 = '5'
     question = get_object_or_404(professor_hyun_1_5, pk=pk)
     if request.method == "POST":
-        form = professor_hyun_1_2_form(request.POST,instance=question)
+        form = professor_hyun_1_5_form(request.POST,instance=question)
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
@@ -353,7 +353,7 @@ def update_5(request,pk):
         
 @login_required(login_url='common:login')
 def delete_5(request, pk):
-    notice = professor_hyun_1_2.objects.get(id=pk)
+    notice = professor_hyun_1_5.objects.get(id=pk)
     if request.user.username == 'cemuos' or request.user.username == 'admin':
         notice.delete()
         messages.success(request, "삭제되었습니다.")
