@@ -29,7 +29,7 @@ class professor_hyun_2_form(forms.ModelForm):
         fields = ['pid', 'content', 'content_created', 'create_date']
         widgets = {
             'pid' : forms.TextInput(attrs={'class':'form-control'}),
-            'title': forms.TextInput(attrs={'class':'form-control'}),
+            'content_created' : forms.TextInput(attrs={'class':'form-control'}),
             'content': SummernoteWidget(),
             'create_date': forms.HiddenInput,
         }
