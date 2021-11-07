@@ -66,7 +66,7 @@ $(function(){
         {% endif %}
         </div>
     </div>
-    {% comment %} <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
     {% if check_num == '1' %}
     <div class = 'button-7'>
     <div class="eff-7"></div>
@@ -155,7 +155,7 @@ $(function(){
             </thead>
             {% endif %}
 
-            <tbody>
+            {% comment %} <tbody>
                 {% if data_list %}
                 {% for notice in data_list %}
                     {% if user.username == 'cemuos' or user.username == 'admin' %}
