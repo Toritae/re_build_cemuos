@@ -70,50 +70,50 @@ $(function(){
     {% if check_num == '1' %}
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_1:index' %}"> 학위논문 </a>
+    <a href="{% url 'professor_lee_1:index' %}"> 학위논문 </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_1:index_2' %}"> 국외논문 </a>
+    <a href="{% url 'professor_lee_1:index_2' %}"> 국외논문 </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_1:index_3' %}"> 국내 학술지 </a>
+    <a href="{% url 'professor_lee_1:index_3' %}"> 국내 학술지 </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_1:index_4' %}"> 국제 컨퍼런스 </a>
+    <a href="{% url 'professor_lee_1:index_4' %}"> 국제 컨퍼런스 </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_1:index_5' %}"> 국내 컨퍼런스 </a>
+    <a href="{% url 'professor_lee_1:index_5' %}"> 국내 컨퍼런스 </a>
     </div>
     {% elif check_num == '3' %}
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_3:index' %}"> 지적재산권(특허) </a>
+    <a href="{% url 'professor_lee_3:index' %}"> 지적재산권(특허) </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_3:index_2' %}"> 지적재산권(소프트웨어) </a>
+    <a href="{% url 'professor_lee_3:index_2' %}"> 지적재산권(소프트웨어) </a>
     </div>
     {% elif check_num == '5' %}
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_5:index' %}"> 교내 보직 수행 </a>
+    <a href="{% url 'professor_lee_5:index' %}"> 교내 보직 수행 </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_5:index_2' %}"> 서울시립대학교 위원회 </a>
+    <a href="{% url 'professor_lee_5:index_2' %}"> 서울시립대학교 위원회 </a>
     </div>
     {% elif check_num == '8' %}
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_8:index' %}"> 수상 </a>
+    <a href="{% url 'professor_lee_8:index' %}"> 수상 </a>
     </div>
     <div class = 'button-7'>
     <div class="eff-7"></div>
-    <a href="{% url 'professor_hyun_8:index_2' %}"> 우수논문상 </a>
+    <a href="{% url 'professor_lee_8:index_2' %}"> 우수논문상 </a>
     </div>
     <div>
     {% endif %}
@@ -162,29 +162,29 @@ $(function(){
                     {% if user.username == 'cemuos' or user.username == 'admin' %}
                         {% if check_num == '1' %}
                             {% if check_num2 == '1' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_1:detail' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail' notice.id %}'">
                                 {{ notice.content | safe }}
                             </tr>
                             {% elif check_num2 == '2' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_1:detail_2' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail_2' notice.id %}'">
                                 <td style="font-weight: 500;">{{ notice.pid }}</td>
                                 <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                                 <td style="font-weight: 500;">{{ notice.content_created }}</td>
                             </tr>
                             {% elif check_num2 == '3' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_1:detail_3' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail_3' notice.id %}'">
                                 <td style="font-weight: 500;">{{ notice.pid }}</td>
                                 <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                                 <td style="font-weight: 500;">{{ notice.content_created }}</td>
                             </tr>
                             {% elif check_num2 == '4' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_1:detail_4' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail_4' notice.id %}'">
                                 <td style="font-weight: 500;">{{ notice.pid }}</td>
                                 <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                                 <td style="font-weight: 500;">{{ notice.content_created }}</td>
                             </tr>
                             {% elif check_num2 == '5' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_1:detail_5' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail_5' notice.id %}'">
                                 <td style="font-weight: 500;">{{ notice.pid }}</td>
                                 <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                                 <td style="font-weight: 500;">{{ notice.content_created }}</td>
@@ -192,7 +192,7 @@ $(function(){
                             {% endif %}
 
                         {% elif check_num == '2' %}
-                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_2:detail' notice.id %}'">
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_2:detail' notice.id %}'">
                             <td style="font-weight: 500;">{{ notice.pid }}</td>
                             <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                             <td style="font-weight: 500;">{{ notice.content_created }}</td>
@@ -200,11 +200,11 @@ $(function(){
 
                         {% elif check_num == '3' %}
                             {% if check_num2 == '1' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_3:detail' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_3:detail' notice.id %}'">
                                 {{ notice.content | safe }}
                             </tr>
                             {% elif check_num2 == '2' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_3:detail_2' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_3:detail_2' notice.id %}'">
                                 <td style="font-weight: 500;">{{ notice.pid }}</td>
                                 <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                                 <td style="font-weight: 500;">{{ notice.content_created }}</td>
@@ -212,39 +212,39 @@ $(function(){
                             {% endif %}
 
                         {% elif check_num == '4' %}
-                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_4:detail' notice.id %}'">
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_4:detail' notice.id %}'">
                             <td style="font-weight: 500;">{{ notice.pid }}</td>
                             <td class="text-left" style="width:80%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                         </tr>
 
                         {% elif check_num == '5' %}
                             {% if check_num2 == '1' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_5:detail' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_5:detail' notice.id %}'">
                                     {{ notice.content | safe }}
                             </tr>
                             {% else %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_5:detail_2' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_5:detail_2' notice.id %}'">
                                     {{ notice.content | safe }}
                             </tr>
                             {% endif %}
 
                         {% elif check_num == '6' %}
-                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_6:detail' notice.id %}'">
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_6:detail' notice.id %}'">
                                 {{ notice.content | safe }}
                         </tr>
 
                         {% elif check_num == '7' %}
-                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_7:detail' notice.id %}'">
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_7:detail' notice.id %}'">
                                 {{ notice.content | safe }}
                         </tr>
 
                         {% elif check_num == '8' %}
                             {% if check_num2 == '1' %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_8:detail' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_8:detail' notice.id %}'">
                                     {{ notice.content | safe }}
                             </tr>
                             {% else %}
-                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_8:detail_2' notice.id %}'">
+                            <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_8:detail_2' notice.id %}'">
                                     {{ notice.content | safe }}
                             </tr>
                             {% endif %}
@@ -330,48 +330,48 @@ $(function(){
             <div>
                 {% if check_num == '1' %}
                     {% if check_num2 == '1' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_1:write' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_1:write' %}'">글쓰기</button>
                     {% elif check_num2 == '2' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_1:write_2' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_1:write_2' %}'">글쓰기</button>
                     {% elif check_num2 == '3' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_1:write_3' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_1:write_3' %}'">글쓰기</button>
                     {% elif check_num2 == '4' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_1:write_4' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_1:write_4' %}'">글쓰기</button>
                     {% elif check_num2 == '5' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_1:write_5' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_1:write_5' %}'">글쓰기</button>
                     {% endif %}
 
                 {% elif check_num == '2' %}
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_2:write' %}'">글쓰기</button>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_2:write' %}'">글쓰기</button>
 
                 {% elif check_num == '3' %}
                     {% if check_num2 == '1' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_3:write' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_3:write' %}'">글쓰기</button>
                     {% elif check_num2 == '2' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_3:write_2' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_3:write_2' %}'">글쓰기</button>
                     {% endif %}
 
                 {% elif check_num == '4' %}
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_4:write' %}'">글쓰기</button>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_4:write' %}'">글쓰기</button>
 
                 {% elif check_num == '5' %}
                     {% if check_num2 == '1' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_5:write' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_5:write' %}'">글쓰기</button>
                     {% elif check_num2 == '2' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_5:write_2' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_5:write_2' %}'">글쓰기</button>
                     {% endif %}
 
                 {% elif check_num == '6' %}
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_6:write' %}'">글쓰기</button>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_6:write' %}'">글쓰기</button>
 
                 {% elif check_num == '7' %}
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_7:write' %}'">글쓰기</button>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_7:write' %}'">글쓰기</button>
 
                 {% elif check_num == '8' %}
                     {% if check_num2 == '1' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_8:write' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_8:write' %}'">글쓰기</button>
                     {% elif check_num2 == '2' %}
-                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_hyun_8:write_2' %}'">글쓰기</button>
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'professor_lee_8:write_2' %}'">글쓰기</button>
                     {% endif %}
                 {% endif %}
             </div>
