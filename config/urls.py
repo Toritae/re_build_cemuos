@@ -64,5 +64,13 @@ urlpatterns = [
     path('professor_hyun_6/', include('professor_hyun_6.urls')),
     path('professor_hyun_7/', include('professor_hyun_7.urls')),
     path('professor_hyun_8/', include('professor_hyun_8.urls')),
+    path('professor_lee_1/', include('professor_lee_1.urls')),
+    path('professor_lee_2/', include('professor_lee_2.urls')),
+    path('professor_lee_3/', include('professor_lee_3.urls')),
+    path('professor_lee_4/', include('professor_lee_4.urls')),
+    path('professor_lee_5/', include('professor_lee_5.urls')),
+    path('professor_lee_6/', include('professor_lee_6.urls')),
+    path('professor_lee_7/', include('professor_lee_7.urls')),
+    path('professor_lee_8/', include('professor_lee_8.urls')),
 ]
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
