@@ -79,6 +79,14 @@ PROJECT_APPS = [
     'professor_hyun_6',
     'professor_hyun_7',
     'professor_hyun_8',
+    'professor_lee_1',
+    'professor_lee_2',
+    'professor_lee_3',
+    'professor_lee_4',
+    'professor_lee_5',
+    'professor_lee_6',
+    'professor_lee_7',
+    'professor_lee_8',
 ]
 
 INSTALLED_APPS = DJANGO_APPS + PROJECT_APPS
