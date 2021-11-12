@@ -9,7 +9,7 @@
 <div class="col-sm-3">
 <!-- 페이지메뉴 -->
 <div class="pageMenu wide">
-    <h2>PAPER/PATENT</h2>
+    <h2>RESEARCH_PJT</h2>
     <ul>
         <li><a href="{% url 'research_pj:index' %}">연구분야</a></li>
         <li><a href="{% url 'pj_board_gov:index' %}">프로젝트</a></li>
@@ -42,6 +42,10 @@
 <link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
 <div class = 'button-7'>
 <div class="eff-7"></div>
+<a href="#none"> Digital Twin </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
 <a href="{% url 'research_pj:index' %}"> CM </a>
 </div>
 <div class = 'button-7'>
@@ -50,15 +54,15 @@
 </div>
 <div class = 'button-7'>
 <div class="eff-7"></div>
-<a href="{% url 'research_pj:VE' %}"> VE </a>
+<a href="{% url 'research_pj:Clame' %}"> 계약/클레임 </a>
 </div>
 <div class = 'button-7'>
 <div class="eff-7"></div>
-<a href="{% url 'research_pj:Clame' %}"> Clame </a>
+<a href="{% url 'research_pj:VE' %}"> VE/LCC </a>
 </div>
 <div class = 'button-7'>
 <div class="eff-7"></div>
-<a href="{% url 'research_pj:PMIS' %}"> PMIS </a>
+<a href="{% url 'research_pj:PMIS' %}"> PMIS/BIM </a>
 </div>
 <div class = 'button-7'>
 <div class="eff-7"></div>
@@ -66,7 +70,7 @@
 </div>
 <div class = 'button-7'>
 <div class="eff-7"></div>
-<a href="{% url 'research_pj:Sustain' %}"> Sustain </a>
+<a href="{% url 'research_pj:Sustain' %}"> Sustainability </a>
 </div>
 <div class = 'button-7'>
 <div class="eff-7"></div>

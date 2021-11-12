@@ -1,4 +1,4 @@
-{% extends 'left_menu/reserch_pjt_menu.html' %}
+{% extends 'base.html' %}
 {% load static %}
 {% block left_menu %}
 <div class="n_contents">
@@ -9,7 +9,7 @@
 <div class="col-sm-3">
 <!-- 페이지메뉴 -->
 <div class="pageMenu wide">
-    <h2>PAPER/PATENT</h2>
+    <h2>RESEARCH_PJT</h2>
     <ul>
         <li><a href="{% url 'research_pj:index' %}">연구분야</a></li>
         <li><a href="{% url 'pj_board_gov:index' %}">프로젝트</a></li>
