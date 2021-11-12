@@ -15,7 +15,7 @@ class professor_lee_4_form(forms.ModelForm):
         })
     class Meta:
         model = professor_lee_4
-        fields = ['content', 'create_date']
+        fields = ['pid', 'content', 'create_date']
         widgets = {
             'pid' : forms.TextInput(attrs={'class':'form-control'}),
             'content': SummernoteWidget(),

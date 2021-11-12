@@ -9,12 +9,14 @@
 <div class="col-sm-3">
 <!-- 페이지메뉴 -->
 <div class="pageMenu wide">
-    <h2>SCEM</h2>
+    <h2>COMMUNITY</h2>
     <ul>
-        <li><a href="{% url 'scem:index' %}">인사말</a></li>
-        <li><a href="{% url 'scem:history' %}">연혁</a></li>
-        <li><a href="{% url 'scem:bylaws' %}">연구실내규</a></li>
-        <li><a href="{% url 'scem:come' %}">오시는길</a></li>
+        <li><a href="{% url 'notice:notice_list' %}">공지사항</a></li>
+        <li><a href="{% url 'free:all_list' %}">자유게시판</a></li>
+        <li><a href="{% url 'photo:index' %}">포토갤러리</a></li>
+        <li><a href="{% url 'seminar:index' %}">세미나</a></li>
+        <li><a href="{% url 'ref_room:index' %}">자료실</a></li>
+        {% comment %} <li><a href="{% url 'QA:all_list' %}">Q&amp;A</a></li> {% endcomment %}
     </ul>
 </div>
 <!-- 좌측 셀렉트 -->
@@ -37,26 +39,4 @@
 {% endblock left_menu %}
 
 {% block content %}
-<div class="n_position">
-<img src="/default/img/_images/history_home.gif" alt=""><span>SCEM &gt; 연혁</span>
-</div>
-<!-- 내용 영역 -->
-<div class="col-sm-9">
-<div id="contentsArea">
-<div class="n_tit_page">
-<h2>연혁</h2>
-</div>
-<!-- 디자인모듈 -->
-<div class="de_module">
-<div class="de20">
-    <div class="con">
-        <img src = {% static 'img/scem/history.png' %}>
-    </div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
 {% endblock content %}

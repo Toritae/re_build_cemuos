@@ -1,33 +1,6 @@
-{% extends 'base.html' %}
+{% extends 'left_menu/members_menu.html' %}
 
-{% block left_menu %}
-<div class="n_contents">
-<div class="container">
-<div class="row">
 
-<!-- 메뉴 영역 -->
-<div class="col-sm-3">
-<!-- 페이지메뉴 -->
-<div class="pageMenu wide">
-    <h2>MEMBERS</h2>
-    <ul>
-        <li><a href="{% url 'professor:index' %}">교수님</a></li>
-        <li><a href="{% url 'member_board_Phd:index' %}">박사과정</a></li>
-        <li><a href="{% url 'member_board_MA:index' %}">석사과정</a></li>
-        <li><a href="{% url 'member_board_alum_Phd:index' %}">동문</a></li>
-    </ul>
-</div>
-<!-- 좌측 셀렉트 -->
-<div class="form-group left_select">
-    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
-        <option value="">FAMILY SITE</option>
-        <option value="http://www.naver.com">NAVER</option>
-        <option value="http://www.daum.net">DAUM</option>
-        <option value="http://map.naver.com/">네이버 지도</option>
-    </select>
-</div>
-</div>
-{% endblock left_menu %}
 {% block content %}
 <div class = "col-sm-9">
 	<div id="contentsArea">
