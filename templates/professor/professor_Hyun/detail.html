@@ -82,7 +82,7 @@ $(function(){
                     {% if check_num2 == '1' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
                         <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <a href="{% url 'professor_hyun_1:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
                     <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index' %}'">목록으로</button>
                     {% elif check_num2 == '2' %}
