@@ -81,100 +81,100 @@ $(function(){
                 {% if check_num == '1' %}
                     {% if check_num2 == '1' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:update' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_1:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index' %}'">목록으로</button>
                     {% elif check_num2 == '2' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:update_2' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_2' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_1:delete_2' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:index_2' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_2' %}'">목록으로</button>
                     {% elif check_num2 == '3' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:update_3' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn"data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_3' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_1:delete_3' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:index_3' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_3' %}'">목록으로</button>
                     {% elif check_num2 == '4' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:update_4' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_4' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_1:delete_4' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:index_4' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_4' %}'">목록으로</button>
                     {% elif check_num2 == '5' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:update_5' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:update_5' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_1:delete_5' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_1:index_5' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_1:index_5' %}'">목록으로</button>
                     {% endif %}
                 {% elif check_num == '2' %}
                     {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_2:update' notice.id %}'">수정</button>
-                    <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_2:update' notice.id %}'">수정</button>
+                    <a href="{% url 'professor_hyun_2:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                     {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_2:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_2:index' %}'">목록으로</button>
                 {% elif check_num == '3' %}
                     {% if check_num2 == '1' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_3:update' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:update' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_3:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_3:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:index' %}'">목록으로</button>
                     {% elif check_num2 == '2' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_3:update_2' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:update_2' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_3:delete_2' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_3:index_2' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_3:index_2' %}'">목록으로</button>
                     {% endif %}
                 {% elif check_num == '4' %}
                     {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_4:update' notice.id %}'">수정</button>
-                    <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_4:update' notice.id %}'">수정</button>
+                    <a href="{% url 'professor_hyun_4:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                     {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_4:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_4:index' %}'">목록으로</button>
                 {% elif check_num == '5' %}
                     {% if check_num2 == '1' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_5:update' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:update' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_5:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_5:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:index' %}'">목록으로</button>
                     {% elif check_num2 == '2' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_5:update_2' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:update_2' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_5:delete_2' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_5:index_2' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_5:index_2' %}'">목록으로</button>
                     {% endif %}
                 {% elif check_num == '6' %}
                     {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_6:update' notice.id %}'">수정</button>
-                    <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_6:update' notice.id %}'">수정</button>
+                    <a href="{% url 'professor_hyun_6:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                     {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_6:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_6:index' %}'">목록으로</button>
                 {% elif check_num == '7' %}
                     {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_7:update' notice.id %}'">수정</button>
-                    <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_7:update' notice.id %}'">수정</button>
+                    <a href="{% url 'professor_hyun_7:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                     {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_7:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_7:index' %}'">목록으로</button>
                 {% elif check_num == '8' %}
                     {% if check_num2 == '1' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_8:update' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:update' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_8:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_8:index' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:index' %}'">목록으로</button>
                     {% elif check_num2 == '2' %}
                         {% if user.username == 'admin' or user.username == 'cemuos' %}    
-                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_8:update_2' notice.id %}'">수정</button>
-                        <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
+                        <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:update_2' notice.id %}'">수정</button>
+                        <a href="{% url 'professor_hyun_8:delete_2' notice.id %}"><button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button></a>
                         {% endif %}
-                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_lee_8:index_2' %}'">목록으로</button>
+                    <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'professor_hyun_8:index_2' %}'">목록으로</button>
                     {% endif %}
                 {% endif %}
             </div>
@@ -214,69 +214,69 @@ $(function(){
 {% if check_num == '1' %}
     {% if check_num2 == '1' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_1:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_1:delete' notice.id %}');
     }
     {% elif check_num2 == '2' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_1:delete_2' notice.id %}');
+        location.replace('{% url 'professor_hyun_1:delete_2' notice.id %}');
     }
     {% elif check_num2 == '3' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_1:delete_3' notice.id %}');
+        location.replace('{% url 'professor_hyun_1:delete_3' notice.id %}');
     }
     {% elif check_num2 == '4' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_1:delete_4' notice.id %}');
+        location.replace('{% url 'professor_hyun_1:delete_4' notice.id %}');
     }
     {% elif check_num2 == '5' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_1:delete_5' notice.id %}');
+        location.replace('{% url 'professor_hyun_1:delete_5' notice.id %}');
     }
     {% endif %}
 {% elif check_num == '2' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_2:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_2:delete' notice.id %}');
     }
 {% elif check_num == '3' %}
     {% if check_num2 == '1' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_3:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_3:delete' notice.id %}');
     }
     {% elif check_num2 == '2' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_3:delete_2' notice.id %}');
+        location.replace('{% url 'professor_hyun_3:delete_2' notice.id %}');
     }
     {% endif %}
 {% elif check_num == '4' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_4:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_4:delete' notice.id %}');
     }
 {% elif check_num == '5' %}
     {% if check_num2 == '1' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_5:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_5:delete' notice.id %}');
     }
     {% elif check_num2 == '2' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_5:delete_2' notice.id %}');
+        location.replace('{% url 'professor_hyun_5:delete_2' notice.id %}');
     }
     {% endif %}
 {% elif check_num == '6' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_6:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_6:delete' notice.id %}');
     }
 {% elif check_num == '7' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_7:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_7:delete' notice.id %}');
     }
 {% elif check_num == '8' %}
     {% if check_num2 == '1' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_8:delete' notice.id %}');
+        location.replace('{% url 'professor_hyun_8:delete' notice.id %}');
     }
     {% elif check_num2 == '2' %}
     function delete_modal() {
-        location.replace('{% url 'professor_lee_8:delete_2' notice.id %}');
+        location.replace('{% url 'professor_hyun_8:delete_2' notice.id %}');
     }
     {% endif %}
 {% endif %}

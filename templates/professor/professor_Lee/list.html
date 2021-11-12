@@ -163,7 +163,7 @@ $(function(){
                         {% if check_num == '1' %}
                             {% if check_num2 == '1' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail' notice.id %}'">
-                                {{ notice.content | safe }}
+                                <td>{{ notice.content | safe }}</td>
                             </tr>
                             {% elif check_num2 == '2' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_1:detail_2' notice.id %}'">
@@ -201,7 +201,9 @@ $(function(){
                         {% elif check_num == '3' %}
                             {% if check_num2 == '1' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_3:detail' notice.id %}'">
-                                {{ notice.content | safe }}
+                                <td style="font-weight: 500;">{{ notice.pid }}</td>
+                                <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
+                                <td style="font-weight: 500;">{{ notice.content_created }}</td>
                             </tr>
                             {% elif check_num2 == '2' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_3:detail_2' notice.id %}'">
@@ -220,32 +222,32 @@ $(function(){
                         {% elif check_num == '5' %}
                             {% if check_num2 == '1' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_5:detail' notice.id %}'">
-                                    {{ notice.content | safe }}
+                                    <td>{{ notice.content | safe }}</td>
                             </tr>
                             {% else %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_5:detail_2' notice.id %}'">
-                                    {{ notice.content | safe }}
+                                    <td>{{ notice.content | safe }}</td>
                             </tr>
                             {% endif %}
 
                         {% elif check_num == '6' %}
                         <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_6:detail' notice.id %}'">
-                                {{ notice.content | safe }}
+                                <td>{{ notice.content | safe }}</td>
                         </tr>
 
                         {% elif check_num == '7' %}
                         <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_7:detail' notice.id %}'">
-                                {{ notice.content | safe }}
+                                <td>{{ notice.content | safe }}</td>
                         </tr>
 
                         {% elif check_num == '8' %}
                             {% if check_num2 == '1' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_8:detail' notice.id %}'">
-                                    {{ notice.content | safe }}
+                                    <td>{{ notice.content | safe }}</td>
                             </tr>
                             {% else %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_lee_8:detail_2' notice.id %}'">
-                                    {{ notice.content | safe }}
+                                    <td>{{ notice.content | safe }}</td>
                             </tr>
                             {% endif %}
                         {% endif %}
