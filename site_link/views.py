@@ -96,5 +96,6 @@ def update(request,pk):
 def delete(request, pk):
     notice = Sitelink.objects.get(id=pk)
     if request.user.username == 'cemuos' or request.user.username == 'admin':
+        notice.delete()
         messages.success(request, "삭제되었습니다.")
         return redirect('site_link:index')
