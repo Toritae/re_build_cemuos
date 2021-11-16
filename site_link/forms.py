@@ -19,12 +19,12 @@ class Sitelink_form(forms.ModelForm):
         })
     class Meta:
         model = Sitelink
-        fields = ['title', 'content', 'created_date']
+        fields = ['title', 'content', 'create_date']
         widgets = {
             'pid' : forms.TextInput(attrs={'class':'form-control'}),
             'title': forms.TextInput(attrs={'class':'form-control'}),
             'content': SummernoteWidget(),
-            'created_date': forms.HiddenInput,
+            'create_date': forms.HiddenInput,
         }
         labels = {
             'title' : '사이트명',
