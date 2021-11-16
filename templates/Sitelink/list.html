@@ -25,7 +25,7 @@
                     </tr>
                     {% else %}
                     <tr class="text-center" style="cursor:pointer;">
-                        <td style="font-weight: 500;"><a href="{{ notice.content }}">{{ notice.title }}</a></td>
+                        <td style="font-weight: 500;"><a href="http://{{ notice.content | safe }}">{{ notice.title }}</a></td>
                     </tr>
                     {% endif %}
                 {% endfor %}
