@@ -50,7 +50,7 @@
 <div class="de_module">
 <div class="de20">
     <div class="con">
-        <img src = {% static 'img/scem/history.jpg' %} style="cursor: pointer;" onclick="doImgPop('{% static 'img/scem/history.jpg' %}')">
+        <img src = {% static 'img/scem/history.jpg' %} style="cursor: pointer;" onclick="doImgPop('{% static 'img/scem/history.png' %}')">
     </div>
 </div>
 </div>
@@ -88,5 +88,15 @@
     imgWin.document.write("<img src="+img+" onclick='self.close()' style='cursor:pointer;' title ='클릭하시면 창이 닫힙니다.'>");
     imgWin.document.close();
     }
+    function detailView(src) {
+    $("#detail_img").attr("src", src);
+    $("#product_popup").show();
+    }
+    
+    $(function(){
+    $("#pop_close").click(function(){
+        $("#detail_imgt_pop").hide();
+    });
+    });
 </script>
 {% endblock script %}
