@@ -312,7 +312,7 @@ $(function(){
 
                         {% elif check_num == '5' or check_num == '6' or check_num == '7' or check_num == '8' %}
                         <tr class="text-center" style="cursor:pointer;">
-                                {{ notice.content | safe }}
+                                <td>{{ notice.content | safe }}</td>
                         </tr>
                         {% endif %}
                     {% endif %}
