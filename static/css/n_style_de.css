@@ -15,7 +15,7 @@ de01 : 슬라이드 (배경이미지 + 텍스트 콘텐츠)
     z-index: 1;
 }
 .de01 .carousel-inner .item {
-    height: 650px;/* 높이값 조절 */
+    max-height: 100%;
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
