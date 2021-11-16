@@ -87,9 +87,6 @@ def update(request,pk):
                 'form': form,
                 'edit': '수정하기',
             }
-            if question.filename and question.upload_files:
-                context['filename'] = question.filename
-                context['file_url'] = question.upload_files.url
             return render(request, "Sitelink/write.html", context)
         else:
             messages.error(request, "본인 게시글이 아닙니다.")
