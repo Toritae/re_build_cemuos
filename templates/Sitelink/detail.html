@@ -1,4 +1,4 @@
-{% extends "left_menu/paper_patent_menu.html" %}
+{% extends "left_menu/sitelink_menu.html" %}
 {% load humanize %}
 
 {% block content %}
@@ -11,7 +11,7 @@
             <div class="card" style="width: 100%;">
                 <!--제목,분류,작성일-->
                 <div class="card-header">
-                    <strong style="font-size: 18px;">{{ notice.title|truncatechars:20|safe }}</strong>&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[특허]</span>
+                    <strong style="font-size: 18px;">{{ notice.title|truncatechars:20|safe }}</strong>&nbsp;&nbsp;<span style="font-size: 18px; color: gray;">[대학 CEM 연구실]</span>
                 </div>
                 <div class="card-body" style="color:black;">
                     <!--내용-->
