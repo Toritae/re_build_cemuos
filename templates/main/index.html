@@ -61,7 +61,7 @@ powered by nnin ( http://www.nnin.com )
 <div class="nt_login">
     <ul id="M_member_loginmenu">
         {% if user.is_authenticated %}
-        <li>{{ user.username }}님 환영합니다.<a href="{% url 'common:logout' %}">logout</a></li>
+        <li><a href="{% url 'common:logout' %}">logout</a></li>
         {% else %}
         <li><a href="{% url 'common:login' %}">login</a></li>
         {% endif %}

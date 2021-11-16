@@ -30,3 +30,6 @@ def RISK(request):
 
 def QC(request):
     return render(request, 'research_pj/QC.html')
+
+def DigitalTwin(request):
+    return render(request, 'research_pj/DigitalTwin.html')

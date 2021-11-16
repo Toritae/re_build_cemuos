@@ -1,0 +1,114 @@
+{% extends "left_menu/paper_patent_menu.html" %}
+{% load humanize %}
+{% load static %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>PAPER/PATENT &gt; 지적재산권</span>
+</div>
+<div class="container">
+    <div class="row mt-5">
+        <div class="col-sm-9">
+        <div id="contentsArea">
+        <div class="n_tit_page">
+        <h2>CEM</h2>
+        </div>
+    </div>
+    <div>
+        <table class="table table-sm table-hover">
+            <tbody>
+                {% if data_list %}
+                {% for notice in data_list %}
+                    {% if user.username == 'admin' or user.username == 'cemuos' %}
+                    <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail' notice.id %}'">
+                        <td style="font-weight: 500;">{{ notice.title }}</td>
+                    </tr>
+                    {% else %}
+                    <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail' notice.id %}'">
+                        <td style="font-weight: 500;"><a href="{{ notice.content }}">{{ notice.title }}</a></td>
+                    </tr>
+                    {% endif %}
+                {% endfor %}
+                {% else %}
+                    <tr class="text-center">
+                        <td style="font-weight: bold; color:gray;" colspan="5">
+                            <i class="fas fa-info-circle"></i>&nbsp;작성된 게시글이 없습니다.
+                        </td>
+                    </tr>
+                {% endif %}
+            </tbody>
+        </table>
+    </div>
+    
+    <div style="margin-top: 30px;">
+        <form action="" method="GET">
+            
+        </form>
+        {% if user.username == 'admin' or user.username == 'cemuos' %}
+        <div>
+            <div>
+                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create' %}'">글쓰기</button>
+            </div>
+        </div>
+        {% endif %}
+        <br>
+        {% comment %} {% else %}
+        <br><br><br>
+        {% endif %} {% endcomment %}
+        <div class="col-md-offset-6">
+            {% comment %} {% if is_paginated %} {% endcomment %}
+            <!-- <ul class="pagination justify-content-center pagination-sm"> -->
+            <ul class="pagination justify-content-center">
+                {% if data_list.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ data_list.previous_page_number }}">이전</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">이전</a>
+                </li>
+                {% endif %}
+                <!-- 페이지리스트 -->
+                {% for page_number in data_list.paginator.page_range %}
+                {% if page_number >= data_list.number|add:-5 and page_number <= data_list.number|add:5 %}
+                    {% if page_number == data_list.number %}
+                    <li class="page-item active" aria-current="page">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% else %}
+                    <li class="page-item">
+                        <a class="page-link" href="?page={{ page_number }}">{{ page_number }}</a>
+                    </li>
+                    {% endif %}
+                {% endif %}
+                {% endfor %}
+                <!-- 다음페이지 -->
+                {% if data_list.has_next %}
+                <li class="page-item">
+                    <a class="page-link" href="?page={{ data_list.next_page_number }}">다음</a>
+                </li>
+                {% else %}
+                <li class="page-item disabled">
+                    <a class="page-link" tabindex="-1" aria-disabled="true" href="#">다음</a>
+                </li>
+                {% endif %}
+            </ul>
+            {% comment %} {% endif %} {% endcomment %}
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+<script type="text/javascript">
+    target = window.location.search.split('&')[0].split('=')[1]
+    var type = document.getElementsByTagName('option')
+    for (var i = 0; i < 5; i++) {
+        if (type[i].value === target) {
+            type[i].setAttribute('selected', 'selected')
+        }
+    }
+</script>
+{% endblock %}

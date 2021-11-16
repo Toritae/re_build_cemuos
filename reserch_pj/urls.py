@@ -15,4 +15,5 @@ urlpatterns = [
     path('Sustain/', views.Sustain, name='Sustain'),
     path('RISK/', views.RISK, name='RISK'),
     path('QC/', views.QC, name='QC'),
+    path('DigitalTwin/',views.DigitalTwin, name='DigitalTwin')
 ]
