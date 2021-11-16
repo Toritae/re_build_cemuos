@@ -54,7 +54,7 @@ def create(request):
             post = form.save(commit=False)
             post.author = request.user
             post.save()
-            return redirect('Sitelink:index')
+            return redirect('site_link:index')
         else:
             messages.error(request, 'Error!')
             return render(request,'Sitelink/test.html',{'form':form})
