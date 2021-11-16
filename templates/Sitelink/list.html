@@ -24,7 +24,7 @@
                         <td style="font-weight: 500;">{{ notice.title }}</td>
                     </tr>
                     {% else %}
-                    <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail' notice.id %}'">
+                    <tr class="text-center" style="cursor:pointer;">
                         <td style="font-weight: 500;"><a href="{{ notice.content }}">{{ notice.title }}</a></td>
                     </tr>
                     {% endif %}
