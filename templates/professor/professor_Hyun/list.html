@@ -174,7 +174,7 @@ $(function(){
                             {% elif check_num2 == '3' %}
                             <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'professor_hyun_1:detail_3' notice.id %}'">
                                 <td style="font-weight: 500;">{{ notice.pid }}</td>
-                                <td class="text-left" style="width:60%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
+                                <td class="text-left" style="width:70%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                                 <td style="font-weight: 500;">{{ notice.content_created }}</td>
                             </tr>
                             {% elif check_num2 == '4' %}
