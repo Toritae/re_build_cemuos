@@ -23,7 +23,7 @@ class Sitelink_form(forms.ModelForm):
         widgets = {
             'pid' : forms.TextInput(attrs={'class':'form-control'}),
             'title': forms.TextInput(attrs={'class':'form-control'}),
-            'content': SummernoteWidget(),
+            'content': forms.TextInput(attrs={'class':'form-control'}),
             'create_date': forms.HiddenInput,
         }
         labels = {
