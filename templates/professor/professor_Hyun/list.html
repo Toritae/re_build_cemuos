@@ -311,12 +311,9 @@ $(function(){
                         </tr>
 
                         {% elif check_num == '5' %}
-                        <div>
-                        <tr class="text-center" style="cursor:pointer;">
-                                {{ notice.content | safe }}
+                        <tr class="text-center">
+                            <td>{{ notice.content | safe }}</td>
                         </tr>
-                        </div>
-
                         {% elif check_num == '6' or check_num == '7' or check_num == '8' %}
                         <tr class="text-center" style="cursor:pointer;">
                                 {{ notice.content | safe }}
