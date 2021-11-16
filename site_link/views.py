@@ -79,7 +79,7 @@ def update(request,pk):
         if form.is_valid():
             question = form.save(commit=False)
             question.save()
-            return redirect('Sitelink:detail', pk=question.id)
+            return redirect('site_link:detail', pk=question.id)
     else:
         if request.user.username == 'admin' or request.user.username == 'cemuos':
             form = Sitelink_form(instance=question)
@@ -93,7 +93,7 @@ def update(request,pk):
             return render(request, "Sitelink/write.html", context)
         else:
             messages.error(request, "본인 게시글이 아닙니다.")
-            return redirect('/Sitelink/'+str(pk))
+            return redirect('/site_link/'+str(pk))
         
 @login_required(login_url='common:login')
 def delete(request, pk):
@@ -101,4 +101,4 @@ def delete(request, pk):
     if request.user.username == 'cemuos' or request.user.username == 'admin':
         notice.delete()
         messages.success(request, "삭제되었습니다.")
-        return redirect('Sitelink:index')
+        return redirect('site_link:index')
