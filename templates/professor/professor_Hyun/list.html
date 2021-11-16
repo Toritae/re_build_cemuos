@@ -310,9 +310,16 @@ $(function(){
                             <td class="text-left" style="width:80%; font-weight: 600;"><a id="notice-{{ notice.id }}">{{ notice.content|safe }}</a></td>
                         </tr>
 
-                        {% elif check_num == '5' or check_num == '6' or check_num == '7' or check_num == '8' %}
+                        {% elif check_num == '5' %}
                         <tr class="text-center" style="cursor:pointer;">
-                                <td>{{ notice.content | safe }}</td>
+                        <div>
+                                {{ notice.content | safe }}
+                        </div>
+                        </tr>
+
+                        {% elif check_num == '6' or check_num == '7' or check_num == '8' %}
+                        <tr class="text-center" style="cursor:pointer;">
+                                {{ notice.content | safe }}
                         </tr>
                         {% endif %}
                     {% endif %}
