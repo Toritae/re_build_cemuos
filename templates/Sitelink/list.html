@@ -21,10 +21,12 @@
                 {% for notice in data_list %}
                     {% if user.username == 'admin' or user.username == 'cemuos' %}
                     <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail' notice.id %}'">
+                        <td style="font-weight: 500;"><a href="{{ notice.content | safe }}">{{ notice.content | safe }}</a></td>
                         <td style="font-weight: 500;">{{ notice.title }}</td>
                     </tr>
                     {% else %}
                     <tr class="text-center" style="cursor:pointer;">
+                        <td style="font-weight: 500;"><a href="{{ notice.content | safe }}">{{ notice.content | safe }}</a></td>
                         <td style="font-weight: 500;"><a href="{{ notice.content | safe }}">{{ notice.title }}</a></td>
                     </tr>
                     {% endif %}
