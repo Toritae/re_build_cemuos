@@ -33,3 +33,6 @@ def QC(request):
 
 def DigitalTwin(request):
     return render(request, 'research_pj/DigitalTwin.html')
+
+def AR(request):
+    return render(request, 'reserch_pj/AR.html')

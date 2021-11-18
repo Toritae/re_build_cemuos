@@ -1,0 +1,104 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block left_menu %}
+<div class="n_contents">
+<div class="container">
+<div class="row">
+
+<!-- 메뉴 영역 -->
+<div class="col-sm-3">
+<!-- 페이지메뉴 -->
+<div class="pageMenu wide">
+    <h2>RESEARCH_PJT</h2>
+    <ul>
+        <li><a href="{% url 'research_pj:index' %}">연구분야</a></li>
+        <li><a href="{% url 'pj_board_gov:index' %}">프로젝트</a></li>
+    </ul>
+</div>
+<!-- 좌측 셀렉트 -->
+<div class="form-group left_select">
+    <select class="form-control" id="sel2" onchange="if(this.value)window.open(this.value);">
+        <option value="">FAMILY SITE</option>
+        <option value="http://campus.uos.ac.kr/CoMaIn/index.htm">건설경영정보연구실</option>
+        <option value="https://www.uos.ac.kr/main.do?epTicket=LOG">서울시립대학교</option>
+        <option value="http://ae.uos.ac.kr/">서울시립대학교 도시과학대학 건축학부(건축공학)</option>
+        <option value="http://usi.uos.ac.kr">서울시립대학교 도시과학연구원</option>
+        <option value="https://www.kvei.or.kr/">한국VE연구원</option>
+        <option value="https://www.molit.go.kr/">국토교통부</option>
+        <option value="https://smartcity.go.kr/">스마트시티 종합포털</option>
+        <option value="https://www.smartcities.kr/">스마트시티 혁신성 장동력 프로젝트 사업단</option>
+        <option value="https://www.kict.re.kr/">한국건설기술연구원</option>
+        <option value="http://sit.re.kr/kr/main.do">서울기술연구원</option>
+    </select>
+</div>
+</div>
+{% endblock left_menu %}
+
+{% block content %}
+<div class="n_position">
+<img src="/default/img/_images/history_home.gif" alt=""><span>RESEARCH_PJT &gt; 연구분야</span>
+</div>
+<!-- 내용 영역 -->
+<div class="col-sm-9">
+<div id="contentsArea">
+<div class="n_tit_page">
+<h2>연구분야</h2>
+</div>
+<!-- 디자인모듈 -->
+<div class="de_module">
+<link rel="stylesheet" type="text/css" href="{% static 'css/btn.css' %}">
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:index' %}"> CM </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:PM' %}"> PgM </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:DigitalTwin' %}"> Digital Twin </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="#none"> AR/VR </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:PMIS' %}"> PMIS/BIM </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:VE' %}"> VE/LCC </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:Sustain' %}"> Sustainability </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:Clame' %}"> 계약/클레임 </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:EVMS' %}"> EVMS </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:QC' %}"> QC </a>
+</div>
+<div class = 'button-7'>
+<div class="eff-7"></div>
+<a href="{% url 'research_pj:RISK' %}"> RISK </a>
+</div>
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td colspan="3" align="right">
+<table width="100%" border="0" cellspacing="0" cellpadding="0">
+<tbody><tr><td>
+<div align="left"><img src="{% static 'img/research_pj/3_1.png' %}"></div></td></tr></tbody></table></td></tr><tr><td width="12" height="30"</td><td width="676" height="30" class="page_text4"><div align="left"></div></td><td width="12" height="30"</td></tr><tr><td colspan="3" align="right" class="bt"</td></tr></tbody></table>
+</div>
+</div>
+</div>
+</div>
+</div>
+{% endblock content %}
