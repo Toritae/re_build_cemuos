@@ -11,7 +11,19 @@
         <div class="col-sm-9">
         <div id="contentsArea">
         <div class="n_tit_page">
-        <h2>CEM</h2>
+        {% if check_num == '1' %}
+        <h2>대학 CEM 연구실</h2>
+        {% elif check_num == '2' %}
+        <h2>공공연구소</h2>
+        {% elif check_num == '3' %}
+        <h2>정부기관</h2>
+        {% elif check_num == '4' %}
+        <h2>학회 및 협회</h2>
+        {% elif check_num == '5' %}
+        <h2>해외건설관련</h2>
+        {% elif check_num == '6' %}
+        <h2>기타</h2>
+        {% endif %}
         </div>
     </div>
     <div>
@@ -20,9 +32,21 @@
                 {% if data_list %}
                 {% for notice in data_list %}
                     {% if user.username == 'admin' or user.username == 'cemuos' %}
-                    <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail' notice.id %}'">
-                        <td style="font-weight: 500;">{{ notice.title }}</td>
-                    </tr>
+                        {% if check_num == '1' %}
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail' notice.id %}'">
+                        {% elif check_num == '2' %}
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail_2' notice.id %}'">
+                        {% elif check_num == '3' %}
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail_3' notice.id %}'">
+                        {% elif check_num == '4' %}
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail_4' notice.id %}'">
+                        {% elif check_num == '5' %}
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail_5' notice.id %}'">
+                        {% elif check_num == '6' %}
+                        <tr class="text-center" style="cursor:pointer;" onclick="location.href='{% url 'site_link:detail_6' notice.id %}'">
+                        {% endif %}
+                            <td style="font-weight: 500;">{{ notice.title }}</td>
+                        </tr>
                     {% else %}
                     <tr class="text-center" style="cursor:pointer;">
                         <td style="font-weight: 500;"><a href="{{ notice.content | safe }}">{{ notice.title }}</a></td>
@@ -47,7 +71,19 @@
         {% if user.username == 'admin' or user.username == 'cemuos' %}
         <div>
             <div>
-                <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create' %}'">글쓰기</button>
+                {% if check_num == '1' %}
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create' %}'">글쓰기</button>
+                {% elif check_num == '2' %}
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create_2' %}'">글쓰기</button>
+                {% elif check_num == '3' %}
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create_3' %}'">글쓰기</button>
+                {% elif check_num == '4' %}
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create_4' %}'">글쓰기</button>
+                {% elif check_num == '5' %}
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create_5' %}'">글쓰기</button>
+                {% elif check_num == '6' %}
+                    <button class="btn btn-danger" style="opacity: 80%; font-size:16px;" onclick="location.href='{% url 'site_link:create_6' %}'">글쓰기</button>
+                {% endif %}
             </div>
         </div>
         {% endif %}

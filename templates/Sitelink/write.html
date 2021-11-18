@@ -46,7 +46,19 @@
         <div class="col-sm-9">
         <div id="contentsArea">
         <div class="n_tit_page">
+        {% if check_num == '1' %}
         <h2>대학 CEM 연구실</h2>
+        {% elif check_num == '2' %}
+        <h2>공공연구소</h2>
+        {% elif check_num == '3' %}
+        <h2>정부기관</h2>
+        {% elif check_num == '4' %}
+        <h2>학회 및 협회</h2>
+        {% elif check_num == '5' %}
+        <h2>해외건설관련</h2>
+        {% elif check_num == '6' %}
+        <h2>기타</h2>
+        {% endif %}
         </div>
     </div>
 

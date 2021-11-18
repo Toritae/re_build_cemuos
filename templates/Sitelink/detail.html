@@ -22,14 +22,55 @@
             </div>
             <br>
             <div class="text-right" style="margin-top:-15px;">
+            {% if check_num == '1' %}
                 {% if user.username == 'admin' or user.username == 'cemuos' %}
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:update' notice.id %}'">수정</button>
-                <button class="btn btn-sm" id="detail_btn" data-toggle="modal" data-target="#delete_modal">삭제</button>
-                <!-- <button class="btn btn-md btn-dark" onclick="location.href='/notice/{{ notice.id }}/delete/'">삭제</button> -->
+                <a href = "{% url 'site_link:delete' notice.id %}"><button class="btn btn-sm" id="detail_btn">삭제</button></a>
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index' %}'">목록으로</button>
                 {% else %}
                 <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index' %}'">목록으로</button>
                 {% endif %}
+            {% elif check_num == '2' %}
+                {% if user.username == 'admin' or user.username == 'cemuos' %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:update_2' notice.id %}'">수정</button>
+                <a href = "{% url 'site_link:delete_2' notice.id %}"><button class="btn btn-sm" id="detail_btn">삭제</button></a>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_2' %}'">목록으로</button>
+                {% else %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_2' %}'">목록으로</button>
+                {% endif %}
+            {% elif check_num == '3' %}
+                {% if user.username == 'admin' or user.username == 'cemuos' %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:update_3' notice.id %}'">수정</button>
+                <a href = "{% url 'site_link:delete_3' notice.id %}"><button class="btn btn-sm" id="detail_btn">삭제</button></a>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_3' %}'">목록으로</button>
+                {% else %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_3' %}'">목록으로</button>
+                {% endif %}
+            {% elif check_num == '4' %}
+                {% if user.username == 'admin' or user.username == 'cemuos' %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:update_4' notice.id %}'">수정</button>
+                <a href = "{% url 'site_link:delete_4' notice.id %}"><button class="btn btn-sm" id="detail_btn">삭제</button></a>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_4' %}'">목록으로</button>
+                {% else %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_4' %}'">목록으로</button>
+                {% endif %}
+            {% elif check_num == '5' %}
+                {% if user.username == 'admin' or user.username == 'cemuos' %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:update_5' notice.id %}'">수정</button>
+                <a href = "{% url 'site_link:delete_5' notice.id %}"><button class="btn btn-sm" id="detail_btn">삭제</button></a>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_5' %}'">목록으로</button>
+                {% else %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_5' %}'">목록으로</button>
+                {% endif %}
+            {% elif check_num == '6' %}
+                {% if user.username == 'admin' or user.username == 'cemuos' %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:update_6' notice.id %}'">수정</button>
+                <a href = "{% url 'site_link:delete_6' notice.id %}"><button class="btn btn-sm" id="detail_btn">삭제</button></a>
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_6' %}'">목록으로</button>
+                {% else %}
+                <button class="btn btn-sm" id="detail_btn" onclick="location.href='{% url 'site_link:index_6' %}'">목록으로</button>
+                {% endif %}
+            {% endif %}
             </div>
             </table>
         </div>
