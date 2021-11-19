@@ -4,7 +4,19 @@
 
 {% block content %}
 <div class="n_position">
+{% if check_num == '1' %}
 <img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 대학 CEM 연구실</span>
+{% elif check_num == '2' %}
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 공공연구소</span>
+{% elif check_num == '3' %}
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 정부기관</span>
+{% elif check_num == '4' %}
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 학회 및 협회</span>
+{% elif check_num == '5' %}
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 해외건설관련</span>
+{% elif check_num == '6' %}
+<img src="/default/img/_images/history_home.gif" alt=""><span>SITE_LINK &gt; 기타</span>
+{% endif %}
 </div>
 <div class="container">
     <div class="row mt-5">
