@@ -1,6 +1,5 @@
-link : scem.uos.ac.kr
 
-서울 시립대학원 연구소 소개사이트
+[서울 시립대학원 연구소 소개사이트](http://scem.uos.ac.kr, "서울 시립 대학원 건설연구소")
 
 Tech Stack
 ---
